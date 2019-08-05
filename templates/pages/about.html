@@ -1,0 +1,123 @@
+{% extends 'base-layout.html' %}
+{% block title %} - About Us | Discover Club Events and Gigs in Kenya {% endblock %}
+{% load static %}
+{% block content %}
+
+    <!--========== PROMO BLOCK ==========-->
+    <div class="g-fullheight--md js__parallax-window"
+        style="background: url('../static/img/cover/stars.jpg') 50% 0 no-repeat fixed;">
+        <div class="g-container--md g-text-center--xs g-ver-center--md g-padding-y-150--xs g-padding-y-0--md">
+            <div class="g-margin-b-60--xs">
+                <p
+                    class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">
+                    Welcome
+                    to Night Plan</p>
+                <h1 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white g-letter-spacing--1">
+                    We
+                    make Going out easy</h1>
+                <p class="g-font-size-18--xs g-font-size-26--md g-color--white-opacity g-margin-b-0--xs">Night Plan
+                    connects you with the latest happy hours, drink specials, concerts, and events.</p>
+            </div>
+            <span
+                class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
+                <a href="{% url 'contact' %}"
+                    class="text-uppercase s-btn s-btn-icon--md s-btn--primary-bg g-radius--50 g-padding-x-45--xs">Learn
+                    More</a>
+            </span>
+            <span
+                class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
+                <a href="{% url 'register' %}"
+                    class="text-uppercase s-btn s-btn-icon--md s-btn--white-brd g-radius--50 g-padding-x-65--xs">Join
+                    Us</a>
+            </span>
+        </div>
+    </div>
+    <!--========== END PROMO BLOCK ==========-->
+
+    <!--========== PAGE CONTENT ==========-->
+    <!-- About -->
+
+    <!-- End About -->
+
+    <!-- Process -->
+    <div class="g-bg-color--primary">
+        <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+            <div class="g-text-center--xs g-margin-b-100--xs">
+                <p
+                    class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">
+                    Process</p>
+                <h2 class="g-font-size-32--xs g-font-size-36--md g-color--white">How it Works</h2>
+            </div>
+            <ul class="list-inline row g-margin-b-100--xs">
+                <!-- Process -->
+                <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--md">
+                    <div class="center-block g-text-center--xs">
+                        <div class="g-margin-b-30--xs">
+                            <span
+                                class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">01</span>
+                        </div>
+                        <div class="g-padding-x-20--xs">
+                            <h3 class="g-font-size-18--xs g-color--white">Explore Towns</h3>
+                            <p class="g-color--white-opacity">Select a town to explore events.</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Process -->
+
+                <!-- Process -->
+                <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--md">
+                    <div class="center-block g-text-center--xs">
+                        <div class="g-margin-b-30--xs">
+                            <span
+                                class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">02</span>
+                        </div>
+                        <div class="g-padding-x-20--xs">
+                            <h3 class="g-font-size-18--xs g-color--white">View Events</h3>
+                            <p class="g-color--white-opacity">View all events and select a preferred event.</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Process -->
+
+                <!-- Process -->
+                <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--sm">
+                    <div class="center-block g-text-center--xs">
+                        <div class="g-margin-b-30--xs">
+                            <span
+                                class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">03</span>
+                        </div>
+                        <div class="g-padding-x-20--xs">
+                            <h3 class="g-font-size-18--xs g-color--white">Book Ticket</h3>
+                            <p class="g-color--white-opacity">Book a ticket/tickets or a table at a preferred event or
+                                club.</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Process -->
+
+                <!-- Process -->
+                <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1">
+                    <div class="center-block g-text-center--xs">
+                        <div class="g-margin-b-30--xs">
+                            <span
+                                class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">04</span>
+                        </div>
+                        <div class="g-padding-x-20--xs">
+                            <h3 class="g-font-size-18--xs g-color--white">Purchase Ticket</h3>
+                            <p class="g-color--white-opacity">Checkout with a preferred choice of payment e.g M-Pesa,
+                                Master Card.</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Process -->
+            </ul>
+
+            <div class="g-text-center--xs">
+                <a href="{% url 'index' %}"
+                    class="text-uppercase s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-70--xs">Get
+                    Started</a>
+            </div>
+        </div>
+    </div>
+    <!-- End Process -->
+{% endblock %}

@@ -1,0 +1,348 @@
+{% extends 'base-layout.html' %}
+{% block title %} - FAQ's | Discover Club Events and Gigs in Kenya {% endblock %}
+{% load static %}
+{% block content %}
+
+    <!--========== PROMO BLOCK ==========-->
+    <div class="js__parallax-window" style="background: url('../static/img/banner-1.jpg') 50% 0 no-repeat fixed;">
+        <div class="g-container--md g-text-center--xs g-padding-y-150--xs">
+            <div class="g-margin-b-60--xs">
+                <h1 class="g-font-size-40--xs g-font-size-50--sm g-font-size-70--md g-color--white g-letter-spacing--1 g-margin-b-30--xs">FAQ</h1>
+                <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2">Your
+                    Questions. Answered.</p>
+            </div>
+            <a href="#js__scroll-to-section">
+                <span class="s-icon s-icon--md s-icon--white-brd g-radius--circle ti-angle-double-down"></span>
+            </a>
+        </div>
+    </div>
+    <!--========== END PROMO BLOCK ==========-->
+
+    <!--========== PAGE CONTENT ==========-->
+    <!-- FA Questions Text -->
+    <!-- <div id="js__scroll-to-section" class="g-container--md g-padding-y-80--xs g-padding-y-125--sm">
+        <h2 class="g-font-size-32--xs g-font-size-36--md g-text-center--xs g-margin-b-80--xs">What are the <br>
+            Frequently Asked Questions?</h2>
+    </div> -->
+    <!-- End FA Questions Text -->
+
+    <!-- Accordion -->
+    <div class="s-faq g-bg-color--primary" id="js__scroll-to-section">
+        <div class="container g-padding-y-125--xs">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="cbp cbp-l-grid-faq js__grid-faq">
+                        <div class="cbp-item buying">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1299 813l-422 422q-19 19-45 19t-45-19l-294-294q-19-19-19-45t19-45l102-102q19-19 45-19t45 19l147 147 275-275q19-19 45-19t45 19l102 102q19 19 19 45t-19 45zm141 83q0-148-73-273t-198-198-273-73-273 73-198 198-73 273 73 273 198 198 273 73 273-73 198-198 73-273zm224 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z" />
+                                    </svg>
+                                    <h2 class="s-faq-grid__title">What is Night Plan?</h2>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Night Plan is an entertainment discovery app that offers the latest drink
+                                        specials, concerts, and events. Users can interact with one another across
+                                        their city, and share what they find on social media.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item community">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z" />
+                                    </svg>
+                                    <h3 class="s-faq-grid__title">How much does the app cost?</h3>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        NightPlan app is available for free in the google play and apple store.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item buying">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">Is the app available on iPhone and Android?</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Yes. Tap here to download for iPhone and here to download for Android.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item author">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1600 1405q0 120-73 189.5t-194 69.5h-874q-121 0-194-69.5t-73-189.5q0-53 3.5-103.5t14-109 26.5-108.5 43-97.5 62-81 85.5-53.5 111.5-20q9 0 42 21.5t74.5 48 108 48 133.5 21.5 133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5t-271.5 112.5-271.5-112.5-112.5-271.5 112.5-271.5 271.5-112.5 271.5 112.5 112.5 271.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">What is a Night Plan Profile, and how can I create
+                                        one?</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        A Night Plan Profile is a personal account on Night Plan. When you join Night
+                                        Plan, you get a Profile. This is where you can connect with friends and
+                                        businesses, post updates on your city’s Nightline, or create group chats to
+                                        plan your night out with friends.
+                                        <br>
+                                        To create a profile, download the Night Plan app and signup with Facebook,
+                                        Twitter, or your email address. Once you sign up, you will be taken through the
+                                        steps to create and activate your Night Plan Profile.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item copyright">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">How can I find out more about what's happening in my
+                                        city?</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Our team works around the clock to find the best Night Plan in your city.
+                                        Visit our blog for regular updates or visit our list of cities for our
+                                        "City Profiles": a one stop shop for everything going on in your city.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item author">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">what is an "event"?</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        An event is a businesses’ planned public, or social, occasion. Events can be
+                                        found
+                                        on our City Profile pages or on the Explore tab for any city within the Night
+                                        Plan app.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item account">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1600 1405q0 120-73 189.5t-194 69.5h-874q-121 0-194-69.5t-73-189.5q0-53 3.5-103.5t14-109 26.5-108.5 43-97.5 62-81 85.5-53.5 111.5-20q9 0 42 21.5t74.5 48 108 48 133.5 21.5 133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5t-271.5 112.5-271.5-112.5-112.5-271.5 112.5-271.5 271.5-112.5 271.5 112.5 112.5 271.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">How Do I Change My Username?</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Sign in to your Night Plan Account via the button at the top right of the
+                                        Night Plan
+                                        sites.
+                                        <br>
+                                        Frequent username changes are not permitted
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item community">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z" />
+                                    </svg>
+                                    <h3 class="s-faq-grid__title">How Can I List My Business On Night Plan
+                                        ?</h3>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Please contact us at info@NightPlan.co.ke to get more information
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="cbp cbp-l-grid-faq js__grid-faq">
+                        <div class="cbp-item account">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1376 768q40 0 68 28t28 68v576q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-576q0-40 28-68t68-28h32v-320q0-185 131.5-316.5t316.5-131.5 316.5 131.5 131.5 316.5q0 26-19 45t-45 19h-64q-26 0-45-19t-19-45q0-106-75-181t-181-75-181 75-75 181v320h736z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">Am Unable To Find An Event or Club On Night Plan.
+                                        Why
+                                        Is That?
+                                    </h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        This club or event has not yet been added to Night Plan! We are always trying to
+                                        find new places to list on the app, so please let us know if we’ve missed
+                                        something. Tag the business and @NightPlan on Twitter or @Night Plan on
+                                        Instagram or Facebook, or shoot us an email and we will work to get the
+                                        business and information added.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item author">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1152 640q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm256 0q0 109-33 179l-364 774q-16 33-47.5 52t-67.5 19-67.5-19-46.5-52l-365-774q-33-70-33-179 0-212 150-362t362-150 362 150 150 362z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">What is a "Trending", and what is an "Offer"?</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Night Plan uses a patent-pending algorithm to calculate the best possible
+                                        events to show you in
+                                        real-time. All information displayed is personalized to exactly what Night
+                                        Plan thinks you are looking for at that time.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item copyright">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M320 1168v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm128-256v96q0 16-16 16h-224q-16 0-16-16v-96q0-16 16-16h224q16 0 16 16zm-128-256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm1024 512v96q0 16-16 16h-864q-16 0-16-16v-96q0-16 16-16h864q16 0 16 16zm-640-256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm-128-256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm384 256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm-128-256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm384 256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm384 256v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm-512-512v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm256 0v96q0 16-16 16h-96q-16 0-16-16v-96q0-16 16-16h96q16 0 16 16zm256 0v352q0 16-16 16h-224q-16 0-16-16v-96q0-16 16-16h112v-240q0-16 16-16h96q16 0 16 16zm128 752v-896h-1664v896h1664zm128-896v896q0 53-37.5 90.5t-90.5 37.5h-1664q-53 0-90.5-37.5t-37.5-90.5v-896q0-53 37.5-90.5t90.5-37.5h1664q53 0 90.5 37.5t37.5 90.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">What Does It Mean To “Connect” To Another User On The
+                                        App</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Connecting with another user is the first step to growing your Night Plan
+                                        network.
+                                        Connections create a bond between you and another user, allowing you to receive
+                                        updates when they interact with the Night Plan app, send them direct messages,
+                                        or tag them in your your updates to invite them to join you out in your city
+                                        tonight.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item copyright">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">What does it mean to "follow" a bar or a club?</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        By following a bar or club on Night Plan, you improve the personalization of
+                                        your going out experience by indicating you like what that business has to
+                                        offer.
+                                        You can also receive the latest updates and events from them instantly! These
+                                        could include new happy hour specials, upcoming events, or an alert offering a
+                                        free drink to the next
+                                        10 people that show up to a bar in your area
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item copyright">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">Why Should I List My Business On Night Plan
+                                    </h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        If you want to make sure your business and the unrivaled experience you have to
+                                        offer is discovered, Night Plan can help. Night Plan cuts through the haze of
+                                        jumbled promotions - by connecting your business directly with users who are
+                                        trying to find a place just like yours.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item buying">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1408 256h-1024v1242l423-406 89-85 89 85 423 406v-1242zm12-128q23 0 44 9 33 13 52.5 41t19.5 62v1289q0 34-19.5 62t-52.5 41q-19 8-44 8-48 0-83-32l-441-424-441 424q-36 33-83 33-23 0-44-9-33-13-52.5-41t-19.5-62v-1289q0-34 19.5-62t52.5-41q21-9 44-9h1048z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">I don't see any offers for tonight on my app, Why?
+                                    </h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Don’t worry, Night Plan can still be your guide to the latest trending events
+                                        in your city.
+                                        First, make sure all of your Filters on the Tonight view are turned off.
+                                        Second, try logging out and logging back into the app. It helps to kill the app
+                                        before logging back in, as this assures you have a fresh app state.
+                                        Still no specials? Please message us on Twitter or email nightplanPlan@gmail.com
+                                        with your issue and we will look into it right away.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item business">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z" />
+                                    </svg>
+                                    <h3 class="s-faq-grid__title">How Much Does It Cost To List My Business On Night
+                                        Plan?</h3>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        If you're interested in advertising your business on Night Plan, please
+                                        contact us info@NightPlan.co.ke for more information or to get started. Costs
+                                        vary based on package customization to meet your needs. </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item community">
+                            <div class="cbp-caption">
+                                <div class="s-faq-grid__divider cbp-caption-defaultWrap">
+                                    <svg width="19" height="19" viewbox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#fff" d="M704 384q-153 0-286 52t-211.5 141-78.5 191q0 82 53 158t149 132l97 56-35 84q34-20 62-39l44-31 53 10q78 14 153 14 153 0 286-52t211.5-141 78.5-191-78.5-191-211.5-141-286-52zm0-128q191 0 353.5 68.5t256.5 186.5 94 257-94 257-256.5 186.5-353.5 68.5q-86 0-176-16-124 88-278 128-36 9-86 16h-3q-11 0-20.5-8t-11.5-21q-1-3-1-6.5t.5-6.5 2-6l2.5-5 3.5-5.5 4-5 4.5-5 4-4.5q5-6 23-25t26-29.5 22.5-29 25-38.5 20.5-44q-124-72-195-177t-71-224q0-139 94-257t256.5-186.5 353.5-68.5zm822 1169q10 24 20.5 44t25 38.5 22.5 29 26 29.5 23 25q1 1 4 4.5t4.5 5 4 5 3.5 5.5l2.5 5 2 6 .5 6.5-1 6.5q-3 14-13 22t-22 7q-50-7-86-16-154-40-278-128-90 16-176 16-271 0-472-132 58 4 88 4 161 0 309-45t264-129q125-92 192-212t67-254q0-77-23-152 129 71 204 178t75 230q0 120-71 224.5t-195 176.5z" />
+                                    </svg>
+                                    <h4 class="s-faq-grid__title">Forum and Community Rules</h4>
+                                </div>
+                                <div class="cbp-caption-activeWrap">
+                                    <div class="g-color--white-opacity">
+                                        Night Plan takes great pride in it’s global and thriving community! They're
+                                        part of
+                                        what makes the Night Plan sites fun and friendly. The forum rules and
+                                        guidelines focus on mutual respect.
+                                        <br>
+                                        All users who wish to participate or give feedback are invited to do so.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Accordion -->
+    <!--========== END PAGE CONTENT ==========-->
+
+{% endblock %}

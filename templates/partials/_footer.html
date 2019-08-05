@@ -1,0 +1,67 @@
+{% load static %}
+<!--========== FOOTER ==========-->
+<footer class="g-bg-color--dark">
+    <!-- Links -->
+    <div class="g-hor-divider__dashed--white-opacity-lightest">
+        <div class="container g-padding-y-80--xs">
+            <div class="row">
+                <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                    <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'contact' %}">Contact
+                                Us</a>
+                        </li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'faq' %}">FAQ'S</a></li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'about' %}">About</a></li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'terms' %}">Terms
+                                &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                    <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'team' %}">Team</a></li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">
+                                <i class="g-padding-r-5--xs ti-twitter"></i>@nightplan</a></li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">
+                                <i class="g-padding-r-5--xs ti-facebook"></i>NightPlan</a></li>
+                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">
+                                <i class="g-padding-r-5--xs ti-instagram"></i>Nightplan</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
+                </div>
+                <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
+                    <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                        <!-- <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Patnerships</a></li>
+                                    <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">List My Business</a></li>
+                                    <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Promote My Business</a></li> -->
+                    </ul>
+                </div>
+                <div
+                    class="col-md-2 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
+                    <h3 class="g-font-size-18--xs g-color--white">NightPlan</h3>
+                    <p class="g-color--white-opacity">Night Plan connects you with the latest happy hours,
+                        drink specials, concerts, and events.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Links -->
+    <!-- Copyright -->
+    <div class="container g-padding-y-50--xs">
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="{% url 'index' %}">
+                    <img class="g-width-100--xs g-height-auto--xs" src="{% static 'img/logo/logo-white.png' %}"
+                        alt="NightPlan Logo">
+                </a>
+            </div>
+            <div class="col-xs-6 g-text-right--xs">
+                <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a
+                        href="{% url 'index' %}">NightPlan</a>
+                    &copy; 2019 &nbsp; &#124; All rights reserved</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- End Copyright -->
+</footer>
+<!--========== END FOOTER ==========-->

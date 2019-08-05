@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!-- Begin Head -->
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="keywords" content="Events" />
+    <meta name="description" content="NightPlan - Find Events, Tickets and Artists">
+    <meta name="author" content="">
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Vendor Styles -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'vendor/themify/themify.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'vendor/scrollbar/scrollbar.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'vendor/swiper/swiper.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'vendor/cubeportfolio/css/cubeportfolio.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Theme Styles -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/global/global.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Theme Skins -->
+    <link href="{% static 'css/theme/red.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon/favicon-32x32.png' %}" type="image/x-icon" rel="shortcut icon">
+    <link href="{% static 'img/favicon/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    <!-- Slider Styles -->
+    <link href="{% static 'css/slider/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+    <link href="{% static 'css/slider/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+    <link href="{% static 'css/slider/vendor/slick/slick.css' %}" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+    <link href="{% static 'css/slider/css/util.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/slider/css/main.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/slider.css' %}" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+    <!-- Cart Styles -->
+    <link href="{% static 'css/ecart/ecart.css' %}" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+    <title>NightPlan {% block title %} {% endblock %}</title>
+
+</head>
+<!-- End Head -->
+<!-- Body -->
+<body>
+
+    <!-- Top Navbar -->
+    {% include 'partials/_navbar.html' %}
+
+    <!-- Main Content -->
+    {% block content %}{% endblock content %}
+
+    <!-- Top Navbar -->
+    {% include 'partials/_footer.html' %}
+
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+    <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+    <!-- Vendor -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'vendor/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/jquery.migrate.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'vendor/jquery.smooth-scroll.min.js' %}"></script> -->
+    <script type="text/javascript" src="{% static 'vendor/jquery.back-to-top.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/scrollbar/jquery.scrollbar.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/swiper/swiper.jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/masonry/jquery.masonry.pkgd.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/masonry/imagesloaded.pkgd.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/jquery.parallax.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsXUGTFS09pLVdsYEE9YrO2y4IAncAO2U"></script>
+    <script type="text/javascript" src="{% static 'vendor/jquery.wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
+    <!-- General Components and Settings -->
+    <script type="text/javascript" src="{% static 'js/global.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/header-sticky.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/scrollbar.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/faq.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/swiper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/masonry.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/parallax.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/google-map2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/wow.min.js' %}"></script>
+    <!-- Slider JS=====================================================================================-->
+    <script src="{% static 'css/slider/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'css/slider/vendor/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'css/slider/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'css/slider/vendor/slick/slick.min.js' %}"></script>
+    <script src="{% static 'css/slider/js/slick-custom.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'css/slider/js/main.js' %}"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="{% static 'js/login/main.js' %}"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="{% static 'js/ecart/ecart.js' %}"></script>
+    <!--========== END JAVASCRIPTS ==========-->
+
+</body>
+<!-- End Body -->
+</html>

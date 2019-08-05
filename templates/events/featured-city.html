@@ -1,0 +1,710 @@
+{% extends 'base.html' %}
+{% block title %} - Browse Club Events | Discover Club Events and Gigs in Kenya {% endblock %}
+{% load static %}
+{% block content %}
+
+<!-- Slider -->
+<section class="section-slide grab">
+    <div class="wrap-slick1">
+        <div class="slick1">
+
+            {% if covers %}
+            {% for cover in covers %}
+            <div class="item-slick1" id="cover" style="
+                                background: url('{{ cover.cover_image.url }}') no-repeat;
+                                -webkit-background-size: cover;
+                                -moz-background-size: cover;
+                                -o-background-size: cover;
+                                background-size: cover;
+                            ">
+
+                <div class="container h-full">
+                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5 hero-content">
+                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+                            <h1 class="hero-title g-color--white respon2">
+                                {{ cover.title }}
+                            </h1>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="800">
+                            <p class="hero-teaser g-color--white p-t-19 p-b-43 respon1">
+                                {{ cover.venue }}
+                            </p>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
+                            <a href="{% url 'event' cover.slug %}"
+                                class="flex-c-m stext-101 cl0 size-101 bg2 hov-btn1 p-lr-15 trans-04">
+                                <p> View </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="item-slick1" style="background-image: url('../../static/img/cover/chronix.jpg');">
+                <div class="container h-full">
+                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5 hero-content">
+                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+                            <h1 class="hero-title g-color--white respon2">
+                                {{ event.title }}
+                            </h1>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="800">
+                            <p class="hero-teaser g-color--white p-t-19 p-b-43 respon1">
+                                {{ event.description }}
+                            </p>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
+                            <a href="{% url 'event' cover.slug %}"
+                                class="flex-c-m stext-101 cl0 size-101 bg2 hov-btn1 p-lr-15 trans-04">
+                                <p> View </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!--========== END PROMO BLOCK ==========-->
+
+<!--========== PAGE CONTENT ==========-->
+<!-- Trending Section -->
+<!-- <d class="container g-padding-y-80--xs g-padding-y-125--sm"> -->
+<!-- <div class="g-text-center--xs g-margin-b-60--xs">
+            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">
+                Trending</p>
+        </div> -->
+<!-- Product -->
+<section class="sec-product bg0 p-t-50 p-b-50 g-bg-color--dark-light">
+    <div class="container resize-content">
+        <div class="flex-w flex-sb-m">
+            <div class="container row-on-mobile -gutter-compensation">
+                <form action="{% url 'search' %}" method="GET">
+                    <div class="col-md-4 form-group has-search input-with-icon-wrapper cl6 trans-04 m-tb-4">
+                        <input type="text" name="q" value='{{ request.get.q }}' class="form-control stretch -theme-dark"
+                            placeholder="Search by Clubs, Category or County">
+                        <span class="fa fa-search fa-lg form-control-feedback"></span>
+                    </div>
+                </form>
+                <div class="col-md-4 form-group has-search cl6 trans-04 m-tb-4">
+                    <div class="btn-group input-with-icon-wrapper mdb-select md-btn colorful-select dropdown-danger">
+                        <button type="button"
+                            class="btn btn-danger dropdown-toggle input-with-icon-wrapper mdb-select md-btn colorful-select dropdown-danger"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Category
+                        </button>
+                        <div class="dropdown-menu bg2">
+                            <a class="dropdown-item cl13 bg2 hov-btn1" href="{% url 'clubs' %}">
+                                <p> Night Clubs </p>
+                            </a>
+                            <a class="dropdown-item cl13 bg2 hov-btn1" href="{% url 'genres' %}">
+                                <p> Genre </p>
+                            </a>
+                            <a class="dropdown-item cl13 bg2 hov-btn1" href="{% url 'events' %}">
+                                <p> All Events </p>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            {% if categories %}
+                            {% for category in categories %}
+                            <a class="dropdown-item form-control cl13 bg2 hov-btn1"
+                                href="{% url 'category' category.slug %}">
+                                <p> {{ category.name }} </p>
+                            </a>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group has-search cl6 trans-04 m-tb-4">
+                    <div class="btn-group input-with-icon-wrapper mdb-select md-btn colorful-select dropdown-danger">
+                        <button type="button"
+                            class="btn btn-danger dropdown-toggle input-with-icon-wrapper mdb-select md-btn colorful-select dropdown-danger"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Event Type
+                        </button>
+                        <div class="dropdown-menu bg2">
+                            <a href="#js__scroll-to-clubs" class="dropdown-item form-control cl13 bg2 hov-btn1">
+                                <p> Night Clubs</p>
+                            </a>
+                            <a href="#js__scroll-to-featured" class="dropdown-item form-control cl13 bg2 hov-btn1">
+                                <p> Featured</p>
+                            </a>
+                            <a href="#js__scroll-to-trending" class="dropdown-item form-control cl13 bg2 hov-btn1">
+                                <p> Trending </p>
+                            </a>
+                            <a href="#js__scroll-to-tonight" class="dropdown-item form-control cl13 bg2 hov-btn1">
+                                <p> Tonight </p>
+                            </a>
+                            <a href="#js__scroll-to-weekend" class="dropdown-item form-control cl13 bg2 hov-btn1">
+                                <p> This Weekend </p>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab00 -->
+        <div class="tab01" id="js__scroll-to-clubs">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-45">
+                <h2 class="g-color--white">
+                    Night Clubs
+                </h2>
+                <!-- - -->
+                <!-- Trending Slide1 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        {% if clubs %}
+                        {% for club in clubs %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block1 -->
+                            <div class="block1 wrap-pic-w">
+                                <img class="explore" src="{{ club.club_image.url }}" alt="IMG-BANNER">
+                                <a href="{% url 'club' club.slug %}"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                            {{ club.name }}
+                                        </span>
+                                    </div>
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Explore {{ club.name }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block1 -->
+                            <div class="block1 wrap-pic-w">
+                                <img class="explore" src="img/cover/etana.png" alt="IMG-BANNER">
+                                <a href="{% url 'category' category.id %}"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                            Club
+                                        </span>
+                                    </div>
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Explore Club
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab00 -->
+        <!-- Tab01 -->
+        <div class="tab01" id="js__scroll-to-featured">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-45">
+                <h2 class="g-color--white">
+                    Featured
+                </h2>
+                <!-- - -->
+                <!-- Trending Slide1 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        {% if featured %}
+                        {% for event in featured %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <a href="{% url 'event' event.slug %}">
+                                        <img src="{{ event.event_image.url }}" class="image-fluid" alt="IMG-PRODUCT">
+                                    </a>
+                                </div>
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="flex-col-l ">
+                                        <a href="{% url 'event' event.slug %}"
+                                            class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ event.title }}
+                                        </a>
+                                        <span class="stext-105 cl9">
+                                            {{ event.event_date }} - {{ event.event_end_date}}
+                                        </span>
+                                        <span class="stext-105 cl9">
+                                            {{ event.venue }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <a href="{% url 'event' cover.slug %}">
+                                        <img src="img/events/pic5.jpg" class="image-fluid" alt="IMG-PRODUCT">
+                                    </a>
+                                </div>
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="flex-col-l ">
+                                        <a href="{% url 'event' cover.slug %}"
+                                            class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            Home Grown Mejja @ Machakos Stadium
+                                        </a>
+                                        <span class="stext-105 cl9">
+                                            Sat, Apr 3, 10:00 PM-02:00 AM
+                                        </span>
+                                        <span class="stext-105 cl9">
+                                            Machakos Sta
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab01 -->
+        <div class="tab01" id="js__scroll-to-trending">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-45">
+                <h2 class="g-color--white">
+                    Trending
+                </h2>
+                <!-- - -->
+                <!-- Trending Slide1 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        {% if trending %}
+                        {% for event in trending %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <a href="{% url 'event' event.slug %}">
+                                        <img src="{{ event.event_image.url }}" class="image-fluid" alt="IMG-PRODUCT">
+                                    </a>
+                                </div>
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="flex-col-l ">
+                                        <a href="{% url 'event' event.slug %}"
+                                            class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ event.title }}
+                                        </a>
+                                        <span class="stext-105 cl9">
+                                            {{ event.event_date }} - {{ event.event_end_date}}
+                                        </span>
+                                        <span class="stext-105 cl9">
+                                            {{ event.venue }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+                                    <a href="{% url 'event' cover.slug %}">
+                                        <img src="img/events/pic5.jpg" class="image-fluid" alt="IMG-PRODUCT">
+                                    </a>
+                                </div>
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="flex-col-l ">
+                                        <a href="{% url 'event' cover.slug %}"
+                                            class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            Home Grown Mejja @ Machakos Stadium
+                                        </a>
+                                        <span class="stext-105 cl9">
+                                            Sat, Apr 3, 10:00 PM-02:00 AM
+                                        </span>
+                                        <span class="stext-105 cl9">
+                                            Machakos Sta
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab01 -->
+        <div class="tab01">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-45">
+                <h2 class="g-color--white">
+                    Genre & Mood
+                </h2>
+                <!-- - -->
+                <!-- Trending Slide1 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        {% if genres %}
+                        {% for genre in genres %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15" id="js__scroll-to-genre">
+                            <!-- Block1 -->
+                            <div class="block1 wrap-pic-w">
+                                <img class="explore" src="{{ genre.genre_image.url }}" alt="IMG-BANNER">
+                                <a href="{% url 'genre' genre.slug %}"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                            {{ genre.name }}
+                                        </span>
+                                    </div>
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Explore {{ genre.name }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block1 -->
+                            <div class="block1 wrap-pic-w">
+                                <img class="explore" src="img/cover/etana.png" alt="IMG-BANNER">
+                                <a href="{% url 'category' category.id %}"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                            Genre
+                                        </span>
+                                    </div>
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Explore
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab01 -->
+        <div class="tab01" id="js__scroll-to-tonight">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-45">
+                <h2 class="g-color--white">
+                    Tonight
+                </h2>
+                <!-- - -->
+                <!-- Trending Slide1 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        {% if tonight %}
+                        {% for event in tonight %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+
+                                    <a href="{% url 'event' event.slug %}">
+                                        <img src="{{ event.event_image.url }}" class="image-fluid" alt="IMG-PRODUCT">
+                                    </a>
+                                </div>
+
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="flex-col-l ">
+                                        <a href="{% url 'event' event.slug %}"
+                                            class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ event.title }}
+                                        </a>
+
+                                        <span class="stext-105 cl9">
+                                            {{ event.event_date }} - {{ event.event_end_date}}
+                                        </span>
+
+                                        <span class="stext-105 cl9">
+                                            {{ event.venue }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+
+                                    <a href="{% url 'event' cover.slug %}">
+                                        <img src="img/events/pic5.jpg" class="image-fluid" alt="IMG-PRODUCT">
+                                    </a>
+                                </div>
+
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="flex-col-l ">
+                                        <a href="{% url 'event' cover.slug %}"
+                                            class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            Home Grown Mejja @ Machakos Stadium
+                                        </a>
+
+                                        <span class="stext-105 cl9">
+                                            Sat, Apr 3, 10:00 PM-02:00 AM
+                                        </span>
+
+                                        <span class="stext-105 cl9">
+                                            Machakos Sta
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Tab01 -->
+        <div class="tab01" id="js__scroll-to-weekend">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-45">
+                <h2 class="g-color--white">
+                    This Weekend
+                </h2>
+                <!-- - -->
+                <!-- Trending Slide1 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        {% if this_week %}
+                        {% for event in this_week %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+
+                                    <a href="{% url 'event' event.slug %}">
+                                        <img src="{{ event.event_image.url }}" class="image-fluid" alt="IMG-PRODUCT">
+                                    </a>
+                                </div>
+
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="flex-col-l ">
+                                        <a href="{% url 'event' event.slug %}"
+                                            class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ event.title }}
+                                        </a>
+
+                                        <span class="stext-105 cl9">
+                                            {{ event.event_date }} - {{ event.event_end_date}}
+                                        </span>
+
+                                        <span class="stext-105 cl9">
+                                            {{ event.venue }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-pic hov-img0">
+
+                                    <a href="{% url 'event' cover.slug %}">
+                                        <img src="img/events/pic5.jpg" class="image-fluid" alt="IMG-PRODUCT">
+                                    </a>
+                                </div>
+
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="flex-col-l ">
+                                        <a href="{% url 'event' cover.slug %}"
+                                            class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            Home Grown Mejja @ Machakos Stadium
+                                        </a>
+
+                                        <span class="stext-105 cl9">
+                                            Sat, Apr 3, 10:00 PM-02:00 AM
+                                        </span>
+
+                                        <span class="stext-105 cl9">
+                                            Machakos Sta
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab01 -->
+        <div class="tab01">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-45">
+                <h2 class="g-color--white">
+                    Category
+                </h2>
+                <!-- - -->
+                <!-- Trending Slide1 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        {% if categories %}
+                        {% for category in categories %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block1 -->
+                            <div class="block1 wrap-pic-w">
+                                <img class="explore" src="{{ category.category_image.url }}" alt="IMG-BANNER">
+
+                                <a href="{% url 'category' category.slug %}"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                            {{ category.name }}
+                                        </span>
+                                    </div>
+
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Explore {{ category.name }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block1 -->
+                            <div class="block1 wrap-pic-w">
+                                <img class="explore" src="img/cover/etana.png" alt="IMG-BANNER">
+
+                                <a href="{% url 'category' category.id %}"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                            Concert
+                                        </span>
+                                    </div>
+
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Explore Event
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Tab01 -->
+        <div class="tab01">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-45">
+                <h2 class="g-color--white">
+                    Towns
+                </h2>
+                <!-- - -->
+                <!-- Trending Slide1 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        {% if counties %}
+                        {% for county in counties %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block1 -->
+                            <div class="block1 wrap-pic-w">
+                                <img class="explore" src="{{ county.county_image.url }}" alt="IMG-BANNER">
+
+                                <a href="{% url 'county' county.slug %}"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                            {{ county.name }}
+                                        </span>
+                                    </div>
+
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Explore {{ county.name }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                            <!-- Block1 -->
+                            <div class="block1 wrap-pic-w">
+                                <img class="explore" src="img/cover/etana.png" alt="IMG-BANNER">
+
+                                <a href="{% url 'category' category.id %}"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                            County
+                                        </span>
+                                    </div>
+
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Explore Town
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Load more -->
+        <div class="flex-c-m flex-w w-full p-t-45">
+            <a href="{% url 'events' %}" class="flex-c-m stext-101 cl5 size-103 bg2 hov-btn1 p-lr-15 trans-04">
+                <p> View Upcoming Events </p>
+            </a>
+        </div>
+    </div>
+    </div>
+</section>
+</div>
+<!-- End Trending Section -->
+
+<!-- Masonry -->
+
+<!-- End Google Map -->
+
+<!-- Masonry -->
+
+<!-- End Google Map -->
+<!--========== END PAGE CONTENT ==========-->
+{% endblock %}
