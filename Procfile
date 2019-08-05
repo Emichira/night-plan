@@ -1,1 +1,1 @@
-web: gunicorn night_plan.wsgi --log-file - --preload
+web: gunicorn night_plan.wsgi --log-file -
