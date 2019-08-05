@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hami4deuo0@4sym%bvgg5gab^usvpm4*rr_7v#x+djid8i3ge6'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nightplan-kenya.herokuapp.com']
 
 
 # Application definition
@@ -134,7 +134,7 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 # Facebook social media authentication configuration
 SOCIAL_AUTH_FACEBOOK_KEY = '341098043500838'        # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '2570263c04455120d2536abc19487fc5' # App Secret
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET') # App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] #
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       #
   'fields': 'id, name, email, picture.type(large), link'
@@ -146,8 +146,8 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 #
     ('link', 'profile_url'),
 ]
 # Instagram social media authentication configuration
-SOCIAL_AUTH_INSTAGRAM_KEY = 'a667f8522cbf4ac083699f24a6b17579'         #Client ID
-SOCIAL_AUTH_INSTAGRAM_SECRET = 'c7ded87df30644e0b3b52f9df19d8813'  #Client SECRET
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET') #Client Secret
+SOCIAL_AUTH_INSTAGRAM_SECRET = os.environ.get('SOCIAL_AUTH_INSTAGRAM_SECRET')  #Client SECRET
 SOCIAL_AUTH_INSTAGRAM_EXTRA_DATA = [
     ('user', 'user'),
 ]
@@ -204,8 +204,8 @@ MESSAGE_TAGS = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'nightplankenya@gmail.com'
-EMAIL_HOST_PASSWORD = 'irck qkbe ckvh slgv'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSW')
 EMAIL_USE_TLS = True
 
 #leaflet config
