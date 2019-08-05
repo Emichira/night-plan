@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath src night_plan.wsgi --preload --log-file -
