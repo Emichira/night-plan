@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'night_plan.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE": "django.contrib.gis.db.backends.postgis",
+        "ENGINE": 'django.contrib.gis.db.backends.postgis',
         'NAME': 'nightplan_db',
         'USER': 'postgres',
         'PASSWORD': 'M1ch$anuel!',
@@ -249,3 +249,4 @@ LEAFLET_CONFIG = {
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 django_heroku.settings(locals())
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
