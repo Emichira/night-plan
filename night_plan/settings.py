@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import environ
 import django_heroku
-import dj_database_url
 
 import re
 from ctypes import CDLL, CFUNCTYPE, POINTER, Structure, c_char_p
@@ -33,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'nightplan-kenya.herokuapp.com']
 
@@ -114,11 +113,13 @@ DATABASES = {
     }
 }
 
+import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+DATABASES['default'] = dj_database_url.config(default='postgis://postgres:M1ch$anuel!@localhost:5432/nightplan_db')
+DATABASES['default'] = dj_database_url.parse('postgis://postgres:M1ch$anuel!@localhost:5432/nightplan_db', conn_max_age=600)
 
-DATABASES = {'default': dj_database_url.config(default='postgres://localhost/nightplan_db')}
-DATABASES['default'] = dj_database_url.parse('postgres://localhost/nightplan_db', conn_max_age=600)
 
 
 GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
