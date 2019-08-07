@@ -119,18 +119,6 @@ DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 DATABASES['default'] = dj_database_url.config(default='postgis://postgres:M1ch$anuel!@localhost:5432/nightplan_db')
 DATABASES['default'] = dj_database_url.parse('postgis://postgres:M1ch$anuel!@localhost:5432/nightplan_db', conn_max_age=600)
 
-
-
-GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
-GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
-
-GEOS_LIBRARY_PATH = '/home/emmanuel/local/lib/libgeos_c.so'
-GDAL_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgdal.so"
-GEOS_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgeos_c.so"
-
-GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH')
-GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH')
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
