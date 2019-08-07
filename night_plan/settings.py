@@ -11,8 +11,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import os
 import environ
-
 import django_heroku
+
+import re
+from ctypes import CDLL, CFUNCTYPE, POINTER, Structure, c_char_p
+from ctypes.util import find_library
+
+from django.contrib.gis.geos.error import GEOSException
+from django.core.exceptions import ImproperlyConfigured
+from django.utils.functional import SimpleLazyObject
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'nightplan-kenya.herokuapp.com']
 
@@ -109,6 +116,10 @@ DATABASES = {
 import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+GEOS_LIBRARY_PATH = '/home/emmanuel/local/lib/libgeos_c.so'
+GDAL_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgdal.so"
+GEOS_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgeos_c.so"
 
 GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH')
 GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH')
@@ -231,6 +242,3 @@ LEAFLET_CONFIG = {
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 django_heroku.settings(locals())
-
-# GDAL_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgdal.so"
-# GEOS_LIBRARY_PATH = "/app/.heroku/vendor/lib/libgeos_c.so"
