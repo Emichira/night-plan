@@ -32,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'nightplan-kenya.herokuapp.com']
 
@@ -114,8 +114,7 @@ DATABASES = {
 }
 
 import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config()
 DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 DATABASES['default'] = dj_database_url.config(default='postgis://postgres:M1ch$anuel!@localhost:5432/nightplan_db')
 DATABASES['default'] = dj_database_url.parse('postgis://postgres:M1ch$anuel!@localhost:5432/nightplan_db', conn_max_age=600)
