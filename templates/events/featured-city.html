@@ -107,7 +107,7 @@
                                 <p> Genre </p>
                             </a>
                             <a class="dropdown-item cl13 bg2 hov-btn1" href="{% url 'events' %}">
-                                <p> All Events </p>
+                                <p> All Upcoming Events </p>
                             </a>
                             <div class="dropdown-divider"></div>
                             {% if categories %}
@@ -144,6 +144,9 @@
                             <a href="#js__scroll-to-weekend" class="dropdown-item form-control cl13 bg2 hov-btn1">
                                 <p> This Weekend </p>
                             </a>
+                            <a href="{% url 'events' %}" class="dropdown-item form-control cl13 bg2 hov-btn1">
+                                <p> All Upcoming events</p>
+                            </a>
 
                         </div>
                     </div>
@@ -155,9 +158,9 @@
         <div class="tab01" id="js__scroll-to-clubs">
             <!-- Tab panes -->
             <div class="tab-content p-t-45">
-                <h2 class="g-color--white">
-                    Night Clubs
-                </h2>
+                <a href="{% url 'clubs' %}">
+                    <h2 class=""> Night Clubs </h2>
+                </a>
                 <!-- - -->
                 <!-- Trending Slide1 -->
                 <div class="wrap-slick2">
@@ -350,9 +353,9 @@
         <div class="tab01">
             <!-- Tab panes -->
             <div class="tab-content p-t-45">
-                <h2 class="g-color--white">
-                    Genre & Mood
-                </h2>
+                <a href="{% url 'genres' %}">
+                    <h2 class=""> Genre & Mood </h2>
+                </a>
                 <!-- - -->
                 <!-- Trending Slide1 -->
                 <div class="wrap-slick2">
