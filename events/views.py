@@ -47,7 +47,7 @@ def search(request):
     cover_image = Event.objects.all().order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     categories = Category.objects.all().order_by('-created_at')
     #pagination of rendered events
-    paginator = Paginator(queryset_event, 4)
+    paginator = Paginator(queryset_event, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
 
