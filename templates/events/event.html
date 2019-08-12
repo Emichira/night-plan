@@ -9,12 +9,13 @@
 <section class="section-slide grab g-bg-color--dark-light">
     <div class="wrap-slick1">
         <div class="slick1">
-            <div class="item-slick1" style="background-image: url('../static/img/cover/action.jpg');">
+            <div class="item-slick1" style="background-image: url('../static/img/cover/stars.jpg');">
                 <div class="container h-full">
                     <div class="row">
                         <div class="col-md-4 flex-col-l-m h-full p-t-100 p-b-30 respon5 hero-content">
                             <div class="block2-pic hov-img0" data-appear="fadeInDown" data-delay="0">
-                                <img src="{{ event.event_image.url }}" class="hero-title g-color--white respon2"> </div>
+                                <img src="{{ event.event_image.url }}" class="hero-title g-color--white respon2">
+                            </div>
                         </div>
                         <div class="col-md-8 flex-col-l-m h-full p-t-100 p-b-30 respon5 hero-content-2">
                             <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5 hero-content">
@@ -66,7 +67,7 @@
 </section>
 <!--========== END PROMO BLOCK ==========-->
 <!-- Shoping Cart -->
-<form class="bg0 p-t-75">
+<form class="bg0 p-t-75" id="js__scroll-to-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -75,10 +76,10 @@
                         <table class="table-shopping-cart  g-margin-l-20--xs">
                             <tr class="table_head">
                                 <!-- <th class="column-1 product-removal">Remove</th> -->
-                                <th class="column-2 product-details">Product</th>
+                                <th class="column-2 product-details">Type</th>
                                 <th class="column-3 product-price">Price</th>
                                 <th class="column-4 product-quantity">Quantity</th>
-                                <th class="column-5 product-line-price">Total</th>
+                                <th class="column-5 product-line-price">Sub Total</th>
                             </tr>
                             <tr class="table_row product">
                                 <!-- <td class="column-1 product-removal">
@@ -88,22 +89,18 @@
                                 <td class="column-2 product-title">Happy Hour</td>
                                 <td class="column-3 product-price">900</td>
                                 <td class="column-4 product-quantity">
-                                    <input class="mtext-104 cl3 txt-center num-product" type="number" value="0" min="0">
+                                    <input class="mtext-104 cl3 txt-center increment" type="number" value="0" min="0">
                                 </td>
                                 <td class="column-5 product-line-price">0</td>
                             </tr>
-                            <tr class="table_row product">
-                                <!-- <td class="column-1 product-removal">
-                                    <button type="submit" class="remove-product btn btn-danger btn-outline-danger g-margin-r-5--xs">
-                                        Remove
-                                    </button></td> -->
+                            <!-- <tr class="table_row product">
                                 <td class="column-2 product-title">Early Birds</td>
                                 <td class="column-3 product-price">2000</td>
                                 <td class="column-4 product-quantity">
-                                    <input class="mtext-104 cl3 txt-center num-product" type="number" value="0" min="0">
+                                    <input class="mtext-104 cl3 txt-center increment" type="number" value="0" min="0">
                                 </td>
                                 <td class="column-5 product-line-price">0</td>
-                            </tr>
+                            </tr> -->
                             <tr class="table_row product">
                                 <!-- <td class="column-1 product-removal">
                                     <button class="remove-product btn btn-danger btn-outline-danger g-margin-r-5--xs">
@@ -112,7 +109,7 @@
                                 <td class="column-2 product-title">Book A Table</td>
                                 <td class="column-3 product-price">5000</td>
                                 <td class="column-4 product-quantity">
-                                    <input class="mtext-104 cl3 txt-center num-product" type="number" value="1" min="1">
+                                    <input class="mtext-104 cl3 txt-center increment" type="number" value="1" min="1">
                                 </td>
                                 <td class="column-5 product-line-price">5000</td>
                             </tr>
@@ -122,31 +119,11 @@
                     <div class="totals-item flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-25 p-lr-15-sm">
                         <span class="size-117 p-lr-20 m-r-10 m-tb-5"></span>
                         <div class="pull-right flex-c-m stext-101 cl2 size-118 trans-04 pointer lnr-text-align-right">
-                            Subtotal
+                            Total
                         </div>
                         <div class="pull-right flex-c-m stext-119 cl2 size-127
                                 trans-04 pointer lnr-text-align-center totals-value" id="cart-subtotal">
                             5000
-                        </div>
-                    </div>
-                    <div class="totals-item flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-25 p-lr-15-sm">
-                        <span class="size-117 p-lr-20 m-r-10 m-tb-5"></span>
-                        <div class="pull-right flex-c-m stext-101 cl2 size-118 trans-04 pointer lnr-text-align-right">
-                            Tax (5%)
-                        </div>
-                        <div class="pull-right flex-c-m stext-119 cl2 size-127
-                                trans-04 pointer lnr-text-align-center totals-value" id="cart-tax">
-                            250
-                        </div>
-                    </div>
-                    <div class="totals-item flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-25 p-lr-15-sm">
-                        <span class="size-117 p-lr-20 m-r-10 m-tb-5"></span>
-                        <div class="pull-right flex-c-m stext-101 cl2 size-118 trans-04 pointer lnr-text-align-right">
-                            Grand Total
-                        </div>
-                        <div class="pull-right flex-c-m stext-119 cl2 size-127
-                                trans-04 pointer lnr-text-align-center totals-value" id="cart-total">
-                            5250
                         </div>
                     </div>
                     <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
@@ -167,7 +144,7 @@
 </form>
 
 <!-- Content page -->
-<section class="row bg0 p-t-10 g-bg-color--white-smoke">
+<section class="row bg0 p-t-10 g-bg-color--white-smoke" id="js__scroll-to-directions">
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3">
@@ -187,7 +164,7 @@
 <!-- Google Map -->
 <div class="sec-banner bg0 p-t-50 p-b-55">
     <div class="container">
-        <div class="row bg0" id="js__scroll-to-directions">
+        <div class="row bg0">
             <div class="col-md-6 p-b-30 p-left">
                 <!-- Block1 -->
                 <div class="mapouter">
