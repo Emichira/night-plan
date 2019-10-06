@@ -107,9 +107,9 @@ DATABASES = {
         "ENGINE": 'django.contrib.gis.db.backends.postgis',
         'NAME': 'nightplan_db',
         'USER': 'postgres',
-        'PASSWORD': 'M1ch$anuel!',
-        'HOST': 'localhost',
-        "PORT": '5432',
+        'PASSWORD': os.environ.get('RDS_PASSWORD'),
+        'HOST': os.environ.get('RDS_HOST'),
+        'PORT': os.environ.get('RDS_PORT'),
     }
 }
 
