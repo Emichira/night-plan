@@ -231,7 +231,7 @@ EMAIL_USE_TLS = True
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (-1.28, 36.82),
     'DEFAULT_ZOOM': 12,
-    'ATTRIBUTION_PREFIX': 'Night Plan',
+    'ATTRIBUTION_PREFIX': 'Night Plan Kenya',
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

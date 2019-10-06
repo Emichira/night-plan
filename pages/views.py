@@ -16,6 +16,7 @@ def home_page(request):
     featured = Event.objects.all().order_by('-event_date').filter(event_type='2')
     tonight = Event.objects.filter(event_date__date=date.today())
     this_weekend = Event.objects.filter(Q(event_date__week_day=1) | Q(event_date__week_day=7))
+    weekend = this_weekend.order_by('-event_date')
     clubs = Club.objects.all().order_by('-created_at').filter(is_published=True)
 
     context = {
@@ -23,7 +24,7 @@ def home_page(request):
         "trending" : trending,
         "featured" : featured,
         "tonight" : tonight,
-        "weekend" : this_weekend,
+        "weekend" : weekend,
         "clubs" : clubs,
     }
     return render(request, "pages/index.html", context)

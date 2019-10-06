@@ -1250,13 +1250,13 @@ fieldset[disabled] .s-btn {
   opacity: 0;
 }
 
-@media (max-width: 61.9em) {
+/* @media (max-width: 61.9em) {
   .s-header__logo {
     width: auto;
     height: auto;
     float: left;
   }
-}
+} */
 
 /* Trigger
 ------------------------------ */
