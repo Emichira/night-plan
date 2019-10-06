@@ -29,9 +29,8 @@
             </div>
             <div class="col-sm-4 col-sm-pull-8 g-margin-b-30--xs g-margin-b-30--md">
                 <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".4s">
-                    <p class="g-font-size-18--xs g-color--white"> Night Plan connects you with the latest happy hours,
-                        drink specials
-                        and club events.</p>
+                    <p class="g-font-size-18--xs g-color--white">Night Plan Kenya is your ultimate nightlife guide. We
+                        connect you to club events, latest happy hours and drinks specials.</p>
                 </div>
             </div>
         </div>
@@ -40,7 +39,7 @@
                 class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
                 <a href="{% url 'featured' %}"
                     class="text-uppercase s-btn s-btn-icon--md s-btn--primary-bg g-radius--50 g-padding-x-45--xs">
-                    Explore Events</a>
+                    Explore</a>
             </span>
         </div>
     </div>
@@ -50,10 +49,6 @@
 <!--========== PAGE CONTENT ==========-->
 <!-- Trending Section -->
 <!-- <d class="container g-padding-y-80--xs g-padding-y-125--sm"> -->
-<!-- <div class="g-text-center--xs g-margin-b-60--xs">
-            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">
-                Trending</p>
-        </div> -->
 <!-- Product -->
 <section class="sec-product bg0 p-t-50 p-b-50 g-bg-color--dark-light">
     <div class="container resize-content">
@@ -61,39 +56,97 @@
         {% include 'partials/_alerts.html' %}
         <div class="p-b-32">
             <h3 class="ltext-103 cl0 txt-center respon1">
-                Featured Club Events
+                Explore by Featured
             </h3>
         </div>
 
         <!-- Tab01 -->
         <div class="tab01">
-            <!-- Nav tabs -->
+            <!-- Nav tabs togling and rendering selected data -->
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item p-b-10">
-                    <a class="nav-link active" data-toggle="tab" href="#trending" role="tab">
-                        Trending</a>
+                    <a class="nav-link active" data-toggle="tab" href="#clubs" role="tab">
+                        Night Clubs</a>
                 </li>
-
                 <li class="nav-item p-b-10">
-                    <a class="nav-link" data-toggle="tab" href="#nairobi" role="tab">Featured</a>
+                    <a class="nav-link" data-toggle="tab" href="#trending" role="tab">Trending</a>
                 </li>
-
                 <li class="nav-item p-b-10">
-                    <a class="nav-link" data-toggle="tab" href="#mombasa" role="tab">Tonight</a>
+                    <a class="nav-link" data-toggle="tab" href="#featured" role="tab">Featured</a>
                 </li>
-
                 <li class="nav-item p-b-10">
-                    <a class="nav-link" data-toggle="tab" href="#malindi" role="tab">This Weekend</a>
+                    <a class="nav-link" data-toggle="tab" href="#tonight" role="tab">Tonight</a>
+                </li>
+                <li class="nav-item p-b-10">
+                    <a class="nav-link" data-toggle="tab" href="#weekend" role="tab">This Weekend</a>
                 </li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content p-t-50">
-                <div class="tab-pane fade" id="nairobi" role="tabpanel">
+                <!-- Night Clubs section -->
+                <div class="tab-pane fade show active" id="clubs" role="tabpanel">
                     <!-- Featured Slide2 -->
                     <div class="p-b-32">
                         <span class="stext-101 cl0 txt-center respon1">
-                            Featured - Section
+                            Night Clubs
+                        </span>
+                    </div>
+                    <div class="wrap-slick2">
+                        <div class="slick2">
+                            {% if clubs %}
+                            {% for club in clubs %}
+                            <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                                <!-- Block1 -->
+                                <div class="block1 wrap-pic-w">
+                                    <img class="explore" src="{{ club.club_image.url }}" alt="IMG-BANNER">
+                                    <a href="{% url 'club' club.slug %}"
+                                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                        <div class="block1-txt-child1 flex-col-l">
+                                            <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                {{ club.name }}
+                                            </span>
+                                        </div>
+                                        <div class="block1-txt-child2 p-b-4 trans-05">
+                                            <div class="block1-link stext-101 cl0 trans-09">
+                                                Explore {{ club.name }}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
+                                <!-- Block1 -->
+                                <div class="block1 wrap-pic-w">
+                                    <img class="explore" src="img/cover/etana.png" alt="IMG-BANNER">
+                                    <a href="{% url 'category' category.id %}"
+                                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                        <div class="block1-txt-child1 flex-col-l">
+                                            <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                Club
+                                            </span>
+                                        </div>
+                                        <div class="block1-txt-child2 p-b-4 trans-05">
+                                            <div class="block1-link stext-101 cl0 trans-09">
+                                                Explore Club
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <!-- - -->
+                <!-- Featured section -->
+                <div class="tab-pane fade" id="featured" role="tabpanel">
+                    <!-- Featured Slide2 -->
+                    <div class="p-b-32">
+                        <span class="stext-101 cl0 txt-center respon1">
+                            Featured
                         </span>
                     </div>
                     <div class="wrap-slick2">
@@ -156,11 +209,12 @@
                     </div>
                 </div>
                 <!-- - -->
-                <div class="tab-pane fade show active" id="trending" role="tabpanel">
+                <!-- Trending section -->
+                <div class="tab-pane fade" id="trending" role="tabpanel">
                     <!-- Featured Slide2 -->
                     <div class="p-b-32">
                         <span class="stext-101 cl0 txt-center respon1">
-                            Trending - Section
+                            Trending
                         </span>
                     </div>
                     <!-- Trending Slide1 -->
@@ -231,17 +285,17 @@
                     </div>
                 </div>
                 <!-- - -->
-                <div class="tab-pane fade" id="mombasa" role="tabpanel">
+                <div class="tab-pane fade" id="tonight" role="tabpanel">
                     <!-- Tonight Slide3 -->
                     <div class="p-b-32">
                         <span class="stext-101 cl0 txt-center respon1">
-                            Tonight - Section
+                            Tonight
                         </span>
                     </div>
                     <div class="wrap-slick2">
                         <div class="slick2">
-                            {% if featured %}
-                            {% for event in featured %}
+                            {% if tonight %}
+                            {% for event in tonight %}
                             <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
                                 <!-- Block2 -->
                                 <div class="block2">
@@ -306,17 +360,17 @@
                     </div>
                 </div>
                 <!-- - -->
-                <div class="tab-pane fade" id="malindi" role="tabpanel">
+                <div class="tab-pane fade" id="weekend" role="tabpanel">
                     <!-- This Weekend Slide4 -->
                     <div class="p-b-32">
                         <span class="stext-101 cl0 txt-center respon1">
-                            This Weekend - Section
+                            This Weekend
                         </span>
                     </div>
                     <div class="wrap-slick2">
                         <div class="slick2">
-                            {% if featured %}
-                            {% for event in featured %}
+                            {% if weekend %}
+                            {% for event in weekend %}
                             <div class="item-slick2 item-l-15 item-r-15 p-t-15 p-b-15">
                                 <!-- Block2 -->
                                 <div class="block2">
@@ -386,7 +440,8 @@
                     <span
                         class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
                         <a href="{% url 'featured' %}"
-                            class="text-uppercase s-btn s-btn-icon--md s-btn--white-brd g-radius--50 g-padding-x-45--xs">Upcoming Events</a>
+                            class="text-uppercase s-btn s-btn-icon--md s-btn--white-brd g-radius--50 g-padding-x-45--xs">Upcoming
+                            Events</a>
                         <!-- <a href="{% url 'featured' %}" class="btn btn-xlrg btn-transparent"
                     data-remodal-target="header-city-search">Explore
                     Cities</a> -->
