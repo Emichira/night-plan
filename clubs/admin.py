@@ -1,8 +1,11 @@
 from django.contrib import admin
 from .models import Club
+from django.contrib.gis.admin import OSMGeoAdmin
+from leaflet.admin import LeafletGeoAdmin
 
-class ClubAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'slug', 'created_at', 'updated_at', 'is_published')
+
+class ClubAdmin(LeafletGeoAdmin):
+    list_display = ('id', 'name', 'slug', 'updated_at', 'geometry', 'is_published')
     list_display_links = ('id', 'name')
     list_filter = ('county', 'is_published')
     list_editable = ('is_published',)
