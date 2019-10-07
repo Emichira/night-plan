@@ -32,6 +32,7 @@ def home_page(request):
 def featured_city_page(request):
     cover_image = Event.objects.all().order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')#display all cover images in detailed category
     categories = Category.objects.all().order_by('-created_at')
+    happy_hour = Event.objects.filter(categories='6').order_by('-event_date')
     counties = County.objects.all().order_by('-created_at')
     clubs = Club.objects.all().order_by('-created_at').filter(is_published=True)
     genres = Genre.objects.all().order_by('-created_at').filter(is_published=True)
@@ -41,7 +42,6 @@ def featured_city_page(request):
     this_weekend = Event.objects.all().order_by('-event_date').filter(event_type='4')
     this_week = Event.objects.all().order_by('-event_date').filter(event_type='5')
     just_for_you = Event.objects.all().order_by('-event_date').filter(event_type='6')
-
 
     context = {
         "covers" : cover_image,
@@ -54,7 +54,8 @@ def featured_city_page(request):
         "tonight" : tonight,
         "this_weekend" : this_weekend,
         "this_week" : this_weekend,
-        "just_for_you" : just_for_you
+        "just_for_you" : just_for_you,
+        "happy_hour" : happy_hour,
     }
     return render(request, "events/featured-city.html", context)
 
