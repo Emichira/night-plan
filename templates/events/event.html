@@ -9,7 +9,7 @@
 <section class="section-slide grab g-bg-color--dark-light">
     <div class="wrap-slick1">
         <div class="slick1">
-            <div class="item-slick1" style="background-image: url('../static/img/cover/stars.jpg');">
+            <div class="item-slick1" style="background-image: url('');">
                 <div class="container h-full">
                     <div class="row">
                         <div class="col-md-4 flex-col-l-m h-full p-t-100 p-b-30 respon5 hero-content">
@@ -29,9 +29,9 @@
                                     data-delay="800">
                                     <p class="hero-teaser g-color--white p-t-19 respon1">
                                         <i class="fa fa-clock-o"></i>
-                                        {{ event.event_date }} - {{event.event_end_date}}
+                                        {{ event.event_date }} - Late
                                     </p>
-                                    <span class="stext-105 cl9">
+                                    <span class="stext-105 cl9"> {{ event.genre }}
                                     </span>
                                 </div>
                                 <div class="layer-slick1 animated visible-false" data-appear="fadeInDown"
@@ -42,10 +42,10 @@
                                 </div>
                                 <div class="layer-slick1 animated visible-false p-t-19" data-appear="slideInUp"
                                     data-delay="1600">
-                                    <a href="#js__scroll-to-section"
+                                    <!-- <a href="#js__scroll-to-section"
                                         class="flex-c-m stext-101 cl0 size-101 bg2 hov-btn1 p-lr-15 trans-04">
                                         <p> Book a Table </p>
-                                    </a>
+                                    </a> -->
                                     <a href="#js__scroll-to-directions"
                                         class="flex-c-m stext-101 cl0 size-101 bg2 hov-btn1 p-lr-15 trans-04 g-margin-t-10--xs">
                                         <p> Directions </p>
@@ -61,7 +61,7 @@
 </section>
 <!--========== END PROMO BLOCK ==========-->
 <!-- Shoping Cart -->
-<form class="bg0 p-t-75" id="js__scroll-to-section">
+<!-- <form class="bg0 p-t-75" id="js__scroll-to-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -69,17 +69,17 @@
                     <div class="wrap-table-shopping-cart">
                         <table class="table-shopping-cart  g-margin-l-20--xs">
                             <tr class="table_head">
-                                <!-- <th class="column-1 product-removal">Remove</th> -->
+                                <th class="column-1 product-removal">Remove</th>
                                 <th class="column-2 product-details">Type</th>
                                 <th class="column-3 product-price">Price</th>
                                 <th class="column-4 product-quantity">Quantity</th>
                                 <th class="column-5 product-line-price">Sub Total</th>
                             </tr>
                             <tr class="table_row product">
-                                <!-- <td class="column-1 product-removal">
+                                <td class="column-1 product-removal">
                                     <button class="remove-product btn btn-danger btn-outline-danger g-margin-r-5--xs">
                                         Remove
-                                    </button></td> -->
+                                    </button></td>
                                 <td class="column-2 product-title">Happy Hour</td>
                                 <td class="column-3 product-price">900</td>
                                 <td class="column-4 product-quantity">
@@ -87,14 +87,14 @@
                                 </td>
                                 <td class="column-5 product-line-price">0</td>
                             </tr>
-                            <!-- <tr class="table_row product">
+                            <tr class="table_row product">
                                 <td class="column-2 product-title">Early Birds</td>
                                 <td class="column-3 product-price">2000</td>
                                 <td class="column-4 product-quantity">
                                     <input class="mtext-104 cl3 txt-center increment" type="number" value="0" min="0">
                                 </td>
                                 <td class="column-5 product-line-price">0</td>
-                            </tr> -->
+                            </tr>
                             <tr class="table_row product">
                                 <td class="column-2 product-title">Book A Table</td>
                                 <td class="column-3 product-price">5000</td>
@@ -134,10 +134,10 @@
             </div>
         </div>
     </div>
-</form>
+</form> -->
 
 <!-- Content page -->
-<section class="row bg0 p-t-10 g-bg-color--white-smoke" id="js__scroll-to-directions">
+<section class="p-t-10 g-bg-color--white-smoke" id="js__scroll-to-directions">
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3">
@@ -155,7 +155,7 @@
     </div>
 </section>
 <!-- Google Map -->
-<div class="sec-banner bg0 p-t-50 p-b-55">
+<div class="bg0 p-t-50 p-b-55">
     <div class="container">
         <div class="row bg0">
             <div class="col-md-6 p-b-30 p-left">

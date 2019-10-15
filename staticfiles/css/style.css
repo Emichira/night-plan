@@ -1211,7 +1211,7 @@ fieldset[disabled] .s-btn {
 .s-header__logo {
   position: relative;
   z-index: 9999;
-  width: 30%;
+  width: auto;
   height: auto;
   float: left;
 }
@@ -1250,13 +1250,13 @@ fieldset[disabled] .s-btn {
   opacity: 0;
 }
 
-/* @media (max-width: 61.9em) {
+@media (max-width: 61.9em) {
   .s-header__logo {
     width: auto;
     height: auto;
     float: left;
   }
-} */
+}
 
 /* Trigger
 ------------------------------ */
@@ -2548,10 +2548,13 @@ fieldset[disabled] .s-btn {
   width: 350px;
 }
 .p-left{
-  padding-left: 140px !important;
+  padding-left: 140px;
 }
 .pad-l{
-  padding-left: 25px !important;
+  padding-left: 25px;
+}
+.pad-r{
+  padding-left: 25px;
 }
 .logosize{
   width: 30%;

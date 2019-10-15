@@ -12,12 +12,13 @@ from django.db.models import Q
 
 def home_page(request):
     counties = County.objects.all()
-    trending = Event.objects.all().order_by('-event_date').filter(event_type='1')
-    featured = Event.objects.all().order_by('-event_date').filter(event_type='2')
+    trending = Event.objects.filter(event_type='1', is_published=True).order_by('-event_date')
+    happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('-event_date')
+    featured = Event.objects.filter(event_type='2', is_published=True).order_by('-event_date')
     tonight = Event.objects.filter(event_date__date=date.today())
     this_weekend = Event.objects.filter(Q(event_date__week_day=1) | Q(event_date__week_day=7))
     weekend = this_weekend.order_by('-event_date')
-    clubs = Club.objects.all().order_by('-created_at').filter(is_published=True)
+    clubs = Club.objects.filter(is_published=True).order_by('-created_at')
 
     context = {
         "counties" : counties,
@@ -26,22 +27,23 @@ def home_page(request):
         "tonight" : tonight,
         "weekend" : weekend,
         "clubs" : clubs,
+        "happy_hour" : happy_hour,
     }
     return render(request, "pages/index.html", context)
 
 def featured_city_page(request):
-    cover_image = Event.objects.all().order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')#display all cover images in detailed category
+    cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='').order_by('-event_date')#display all cover images in detailed category
     categories = Category.objects.all().order_by('-created_at')
-    happy_hour = Event.objects.filter(categories='6').order_by('-event_date')
+    happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('-event_date')
     counties = County.objects.all().order_by('-created_at')
-    clubs = Club.objects.all().order_by('-created_at').filter(is_published=True)
-    genres = Genre.objects.all().order_by('-created_at').filter(is_published=True)
-    trending = Event.objects.all().order_by('-event_date').filter(event_type='1')
-    featured = Event.objects.all().order_by('-event_date').filter(event_type='2')
-    tonight = Event.objects.all().order_by('-event_date').filter(event_type='3')
-    this_weekend = Event.objects.all().order_by('-event_date').filter(event_type='4')
-    this_week = Event.objects.all().order_by('-event_date').filter(event_type='5')
-    just_for_you = Event.objects.all().order_by('-event_date').filter(event_type='6')
+    clubs = Club.objects.filter(is_published=True).order_by('-created_at')
+    genres = Genre.objects.filter(is_published=True).order_by('-created_at')
+    trending = Event.objects.filter(event_type='1', is_published=True).order_by('-event_date')
+    featured = Event.objects.filter(event_type='2', is_published=True).order_by('-event_date')
+    tonight = Event.objects.filter(event_type='3', is_published=True).order_by('-event_date')
+    this_weekend = Event.objects.filter(event_type='4', is_published=True).order_by('-event_date')
+    this_week = Event.objects.filter(event_type='5', is_published=True).order_by('-event_date')
+    just_for_you = Event.objects.filter(event_type='6', is_published=True).order_by('-event_date')
 
     context = {
         "covers" : cover_image,
