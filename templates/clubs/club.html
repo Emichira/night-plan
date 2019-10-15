@@ -16,7 +16,10 @@
                             </h1>
                         </div>
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="800">
-                            <p class="hero-teaser g-color--white p-t-19 p-b-43 respon1">
+                            <p class="hero-teaser g-color--white p-t-19 respon1">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                {{ club.location }}                            </p>
+                            <p class="hero-teaser g-color--white p-t-19 respon1">
                                 {{ club.county }}
                             </p>
                         </div>
@@ -27,106 +30,27 @@
     </div>
 </section>
 <!--========== END PROMO BLOCK ==========-->
-<!-- Club Description -->
-<div class="sec-banner g-bg-color--dark-light p-t-50 p-b-55">
-    <div class="container">
-        <div class="row g-bg-color--dark-light">
-            <div class="col-md-6 p-b-30 p-leftcol-md-6 p-b-30 pad-l">
-                <!-- Block1 -->
-                <div class="block1-txt-child1 flex-col-l p-t-50">
-                    <h1 class="hero-title g-color--white respon2">
-                        {{ club.name }}
-                    </h1>
-                    <p class="hero-teaser g-color--white p-t-19 respon1">
-                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        Opening Hours | 9:00 AM - 4:00 AM
-                    </p>
-                    <p class="hero-teaser g-color--white p-t-19 respon1">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        {{ club.location }}
-                    </p>
-                    <p class="hero-teaser g-color--white p-t-19 respon1">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        Reservations: ‭ {{ club.reservation_number}}
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 p-b-30 pad-l">
-                <!-- Block1 -->
-                <div class="mapouter">
-                    <div>
-                        {% leaflet_map "main" callback="map_init" %}
-                    </div>
-                    <script type="text/javascript">
-                        function map_init(map, options) {
-                            // get club point lat and lon
-                            var lon = "{{ club.geometry.x }}";
-                            var lat = "{{ club.geometry.y }}";
-                            // zoom to point & add it to map
-                            map.setView([lat, lon], 12);
-                            L.marker([lat, lon]).addTo(map);
-                        }
-                    </script>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Club Events Section -->
 <section class="g-bg-color--dark-light p-t-23 p-b-140">
     <div class="container resize-content">
-        <div class="flex-w flex-sb-m p-b-52">
-            <div class="container row-on-mobile -gutter-compensation">
-                <form action="{% url 'search' %}" method="GET">
-                    <div class="col-md-4 form-group has-search input-with-icon-wrapper cl6 trans-04 m-tb-4">
-                        <input type="text" name="q" value='{{ request.get.q }}' class="form-control stretch -theme-dark"
-                            placeholder="Search by Event, Venue or County">
-                        <span class="fa fa-search fa-lg form-control-feedback"></span>
-                    </div>
-                </form>
-                <div class="col-md-4 form-group has-search cl6 trans-04 m-tb-4">
-                    <div class="btn-group input-with-icon-wrapper mdb-select md-btn colorful-select dropdown-danger">
-                        <button type="button"
-                            class="btn btn-danger dropdown-toggle input-with-icon-wrapper mdb-select md-btn colorful-select dropdown-danger"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filter By Category
-                        </button>
-                        <div class="dropdown-menu bg2">
-                            <a class="dropdown-item cl13 bg2 hov-btn1" href="{% url 'clubs' %}">
-                                <p> Night Clubs </p>
-                            </a>
-                            <a class="dropdown-item cl13 bg2 hov-btn1" href="{% url 'genres' %}">
-                                <p> Genre </p>
-                            </a>
-                            <a class="dropdown-item cl13 bg2 hov-btn1" href="{% url 'events' %}">
-                                <p> All Events </p>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            {% if categories %}
-                            {% for category in categories %}
-                            <a class="dropdown-item form-control cl13 bg2 hov-btn1"
-                                href="{% url 'category' category.slug %}">
-                                <p> {{ category.name }} </p>
-                            </a>
-                            {% endfor %}
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-b-10">
+        <div class="col-md-12 flex-w flex-sb-m p-b-10">
             <h2 class="g-color--white"><a href="{% url 'featured' %}" class="fa fa-angle-left">
-                    Featured Page</a> - {{ counties.name }}
+                    Explore</a> - {{ counties.name }}
             </h2>
+            <form action="{% url 'search' %}" method="GET">
+                <div class="col-md-12 form-group has-search input-with-icon-wrapper cl6 trans-04">
+                    <input type="text" name="q" value='{{ request.get.q }}'
+                        class="form-control stretch -theme-dark" placeholder="Search by Club or Event">
+                    <span class="fa fa-search fa-lg form-control-feedback"></span>
+                </div>
+            </form>
         </div>
 
         <div class="row isotope-grid">
             {% if events %}
             {% for event in events %}
 
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 item-l-15 item-r-15 item-l-15 item-r-15 isotope-item women">
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 single-item-l-15 single-item-r-15 isotope-item women">
                 <!-- Block2 -->
                 <div class="block2">
                     <div class="block2-pic hov-img0">
@@ -220,5 +144,52 @@
             </div>
         </div>
 </section>
-
+<!-- Club Description -->
+<div class="sec-banner g-bg-color--dark-light p-t-50 p-b-55">
+    <div class="container">
+        <div class="row g-bg-color--dark-light">
+            <div class="col-md-6 p-b-30 p-leftcol-md-6 p-b-30 pad-l">
+                <!-- Block1 -->
+                <div class="block1-txt-child1 flex-col-l p-t-50">
+                    <h1 class="hero-title g-color--white respon2">
+                        {{ club.name }}
+                    </h1>
+                    <p class="hero-teaser g-color--white p-t-19 respon1">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        Opening Hours | 9:00 AM - 4:00 AM
+                    </p>
+                    <p class="hero-teaser g-color--white p-t-19 respon1">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        {{ club.location }}
+                    </p>
+                    <p class="hero-teaser g-color--white p-t-19 respon1">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        Reservations: ‭ {{ club.reservation_number}}
+                    </p>
+                    <p class="hero-teaser g-color--white p-t-19 respon1">
+                        {{ club.description }} <br> {{ club.description_two }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 p-b-30 pad-l">
+                <!-- Block1 -->
+                <div class="container mapouter">
+                    <div>
+                        {% leaflet_map "main" callback="map_init" %}
+                    </div>
+                    <script type="text/javascript">
+                        function map_init(map, options) {
+                            // get club point lat and lon
+                            var lon = "{{ club.geometry.x }}";
+                            var lat = "{{ club.geometry.y }}";
+                            // zoom to point & add it to map
+                            map.setView([lat, lon], 12);
+                            L.marker([lat, lon]).addTo(map);
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

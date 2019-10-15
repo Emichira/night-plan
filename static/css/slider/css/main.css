@@ -3812,6 +3812,14 @@ input.num-product::-webkit-inner-spin-button {
   padding-left: 5px;
 }
 
+.single-item-l-15 {
+  padding-left: 15px !important;
+}
+
+.single-item-r-15 {
+  padding-left: 5px;
+}
+
 .explore {
   object-fit: cover;
   object-position: center;

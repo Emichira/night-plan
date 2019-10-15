@@ -9,7 +9,7 @@ def clubs(request):
     #create objects
     #Handles displaying of all clubs
     clubs = Club.objects.order_by('-created_at').filter(is_published=True)
-    cover_image = Event.objects.exclude(cover_image__isnull=True).exclude(cover_image__exact='').filter(is_published=True)
+    cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     categories = Category.objects.order_by('-created_at')
     #pagination of events
     paginator = Paginator(clubs, 16)

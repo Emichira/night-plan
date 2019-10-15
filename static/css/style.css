@@ -2551,7 +2551,10 @@ fieldset[disabled] .s-btn {
   padding-left: 140px;
 }
 .pad-l{
-  padding-left: 25px !important;
+  padding-left: 25px;
+}
+.pad-r{
+  padding-left: 25px;
 }
 .logosize{
   width: 30%;
