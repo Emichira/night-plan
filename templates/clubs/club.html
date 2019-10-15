@@ -7,7 +7,7 @@
 <section class="section-slide grab">
     <div class="wrap-slick1">
         <div class="slick1">
-            <div class="item-slick1" style="background-image: url('{{ club.club_image.url }}');">
+            <div class="item-slick1" style="background-image: url('{{ club.club_cover_image.url }}');">
                 <div class="container h-full">
                     <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5 hero-content">
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
@@ -31,26 +31,7 @@
 <div class="sec-banner g-bg-color--dark-light p-t-50 p-b-55">
     <div class="container">
         <div class="row g-bg-color--dark-light">
-            <div class="col-md-6 p-b-30 p-left">
-                <!-- Block1 -->
-                <div class="mapouter">
-                    <div>
-                        {% leaflet_map "main" callback="map_init" %}
-                    </div>
-                    <script type="text/javascript">
-                        function map_init(map, options) {
-                            // get club point lat and lon
-                            var lon = "{{ club.geometry.x }}";
-                            var lat = "{{ club.geometry.y }}";
-                            // zoom to point & add it to map
-                            map.setView([lat, lon], 12);
-                            L.marker([lat, lon]).addTo(map);
-                        }
-                    </script>
-                </div>
-            </div>
-
-            <div class="col-md-6 p-b-30 pad-l">
+            <div class="col-md-6 p-b-30 p-leftcol-md-6 p-b-30 pad-l">
                 <!-- Block1 -->
                 <div class="block1-txt-child1 flex-col-l p-t-50">
                     <h1 class="hero-title g-color--white respon2">
@@ -68,6 +49,24 @@
                         <i class="fa fa-phone" aria-hidden="true"></i>
                         Reservations: ‭ {{ club.reservation_number}}
                     </p>
+                </div>
+            </div>
+            <div class="col-md-6 p-b-30 pad-l">
+                <!-- Block1 -->
+                <div class="mapouter">
+                    <div>
+                        {% leaflet_map "main" callback="map_init" %}
+                    </div>
+                    <script type="text/javascript">
+                        function map_init(map, options) {
+                            // get club point lat and lon
+                            var lon = "{{ club.geometry.x }}";
+                            var lat = "{{ club.geometry.y }}";
+                            // zoom to point & add it to map
+                            map.setView([lat, lon], 12);
+                            L.marker([lat, lon]).addTo(map);
+                        }
+                    </script>
                 </div>
             </div>
         </div>

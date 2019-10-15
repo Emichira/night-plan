@@ -15,6 +15,7 @@ class Club(models.Model):
     club_image = models.ImageField(upload_to='static/img/clubs/%Y/%m/%d/')
     club_cover_image = models.ImageField(upload_to='images/event/%Y/%m/%d/', blank=True)
     reservation_number = models.CharField(max_length=200, null=True)
+    description = models.TextField()
     location = models.CharField(max_length=200, null=True)
     geometry = geomodels.PointField(srid=4326, blank=True, null=True)
     created_at = models.DateTimeField(default=datetime.now)

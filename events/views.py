@@ -4,15 +4,16 @@ from django.core.files.images import ImageFile
 from .models import Event
 from categories.models import Category
 from counties.models import County
+from clubs.models import Club
 from django.http import HttpResponse, Http404
 from django.db.models import Q
 
 def events(request):
     #create objects
     #Handles displaying of all events
-    events = Event.objects.all().order_by('-event_date').filter(is_published=True)
-    cover_image = Event.objects.all().order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
-    categories = Category.objects.all().order_by('-created_at')
+    events = Event.objects.filter(is_published=True).order_by('-event_date')
+    cover_image = Event.objects.filter(is_published=True).order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
+    categories = Category.objects.order_by('-created_at')
     #pagination of events
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
@@ -28,12 +29,13 @@ def events(request):
 def event(request, slug_event):
     #create one object event to detailed view event
     #Handles displaying of single event
-    trending = Event.objects.all().order_by('-event_date').filter(event_type='1')
+    trending = Event.objects.order_by('-event_date').filter(event_type='1', is_published=True)
     event = get_object_or_404(Event, slug=slug_event)
-
+    cover_image = Event.objects.exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     context = {
         "event" : event,
-        "trending" : trending
+        "trending" : trending,
+        "covers" : cover_image,
     }
     return render(request, "events/event.html", context)
 
@@ -44,8 +46,8 @@ def search(request):
     if query:
         queryset_event = queryset_event.filter(Q(title__icontains=query) |
         Q(venue__icontains=query) | Q(county__name__icontains=query)).distinct()
-    cover_image = Event.objects.all().order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
-    categories = Category.objects.all().order_by('-created_at')
+    cover_image = Event.objects.filter(is_published=True).order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
+    categories = Category.objects.order_by('-created_at')
     #pagination of rendered events
     paginator = Paginator(queryset_event, 16)
     page = request.GET.get('page')

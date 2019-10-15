@@ -32,16 +32,16 @@ def home_page(request):
 def featured_city_page(request):
     cover_image = Event.objects.all().order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')#display all cover images in detailed category
     categories = Category.objects.all().order_by('-created_at')
-    happy_hour = Event.objects.filter(categories='6').order_by('-event_date')
+    happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('-event_date')
     counties = County.objects.all().order_by('-created_at')
     clubs = Club.objects.all().order_by('-created_at').filter(is_published=True)
     genres = Genre.objects.all().order_by('-created_at').filter(is_published=True)
-    trending = Event.objects.all().order_by('-event_date').filter(event_type='1')
-    featured = Event.objects.all().order_by('-event_date').filter(event_type='2')
-    tonight = Event.objects.all().order_by('-event_date').filter(event_type='3')
-    this_weekend = Event.objects.all().order_by('-event_date').filter(event_type='4')
-    this_week = Event.objects.all().order_by('-event_date').filter(event_type='5')
-    just_for_you = Event.objects.all().order_by('-event_date').filter(event_type='6')
+    trending = Event.objects.all().order_by('-event_date').filter(event_type='1', is_published=True)
+    featured = Event.objects.all().order_by('-event_date').filter(event_type='2', is_published=True)
+    tonight = Event.objects.all().order_by('-event_date').filter(event_type='3', is_published=True)
+    this_weekend = Event.objects.all().order_by('-event_date').filter(event_type='4', is_published=True)
+    this_week = Event.objects.all().order_by('-event_date').filter(event_type='5', is_published=True)
+    just_for_you = Event.objects.all().order_by('-event_date').filter(event_type='6', is_published=True)
 
     context = {
         "covers" : cover_image,

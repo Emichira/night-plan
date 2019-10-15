@@ -8,9 +8,9 @@ from categories.models import Category
 def clubs(request):
     #create objects
     #Handles displaying of all clubs
-    clubs = Club.objects.all().order_by('-created_at').filter(is_published=True)
-    cover_image = Event.objects.all().order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
-    categories = Category.objects.all().order_by('-created_at')
+    clubs = Club.objects.order_by('-created_at').filter(is_published=True)
+    cover_image = Event.objects.exclude(cover_image__isnull=True).exclude(cover_image__exact='').filter(is_published=True)
+    categories = Category.objects.order_by('-created_at')
     #pagination of events
     paginator = Paginator(clubs, 16)
     page = request.GET.get('page')
@@ -33,7 +33,7 @@ def club(request, slug_club):
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
-    categories = Category.objects.all().order_by('-created_at')
+    categories = Category.objects.order_by('-created_at')
 
     context = {
         "club" : club,
