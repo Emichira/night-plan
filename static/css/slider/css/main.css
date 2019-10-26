@@ -3857,11 +3857,3 @@ input.num-product::-webkit-inner-spin-button {
   font-family: lato, helvetica, arial, sans-serif;
   font-weight: normal;
 }
-
-#cover{
-  background: url('{{ cover.cover_image.url }}') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
