@@ -2569,14 +2569,6 @@ fieldset[disabled] .s-btn {
   margin-left: 0;
 }
 
-#bakuimage{
-  background: url('{% static "img/drink.jpg" %}');
-}
-
-.about-cover{
-  background-image: url('../static/img/cover/stars.jpg');
-}
-
 .navb {
   margin-left: auto !important;
 }
