@@ -1,5 +1,7 @@
 astroid==2.2.5
 autopep8==1.4.4
+boto3==1.10.6
+botocore==1.13.6
 Brotli==1.0.7
 certifi==2019.6.16
 chardet==3.0.4
@@ -11,12 +13,16 @@ django-crispy-forms==1.7.2
 django-environ==0.4.5
 django-heroku==0.3.1
 django-leaflet==0.24.0
+django-phone-field==1.8.0
+django-storages==1.7.2
 django-toolbelt==0.0.1
+docutils==0.15.2
 entrypoints==0.3
 flake8==3.7.7
 gunicorn==19.9.0
 idna==2.8
 isort==4.3.20
+jmespath==0.9.4
 lazy-object-proxy==1.4.1
 mccabe==0.6.1
 oauthlib==3.0.2
@@ -29,10 +35,12 @@ PyJWT==1.7.1
 pylint==2.3.1
 pylint-django==2.0.9
 pylint-plugin-utils==0.5
+python-dateutil==2.8.0
 python3-openid==3.1.0
 pytz==2019.1
 requests==2.22.0
 requests-oauthlib==1.2.0
+s3transfer==0.2.1
 six==1.12.0
 social-auth-app-django==3.1.0
 social-auth-core==3.2.0
