@@ -28,8 +28,8 @@ def genre(request, slug_genre):
     #Handles displaying of a single category of a genre e.g Hip-hop or Reggae
     genre = get_object_or_404(Genre, slug=slug_genre)
     name = Genre.objects.get(slug=slug_genre)
-    events = Event.objects.order_by('-event_date').filter(genre__slug=slug_genre)
-    cover_image = Event.objects.order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
+    events = Event.objects.order_by('event_date').filter(genre__slug=slug_genre)
+    cover_image = Event.objects.order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)

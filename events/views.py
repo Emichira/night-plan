@@ -41,12 +41,12 @@ def event(request, slug_event):
 
 def search(request):
     #search based function for events, venue and counties
-    queryset_event = Event.objects.order_by('-event_date')
+    queryset_event = Event.objects.order_by('event_date')
     query = request.GET.get('q')
     if query:
         queryset_event = queryset_event.filter(Q(title__icontains=query) |
         Q(venue__icontains=query) | Q(county__name__icontains=query)).distinct()
-    cover_image = Event.objects.filter(is_published=True).order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
+    cover_image = Event.objects.filter(is_published=True).order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     categories = Category.objects.order_by('-created_at')
     #pagination of rendered events
     paginator = Paginator(queryset_event, 16)

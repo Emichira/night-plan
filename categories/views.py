@@ -12,8 +12,8 @@ def category(request, slug_category):
     else:
         raise Http404
     category_name = Category.objects.get(slug=slug_category)
-    cover_image = Event.objects.order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='') #display all cover images in detailed category
-    events = Event.objects.order_by('-event_date').filter(categories__slug=slug_category) #displays all events with unique slug_category
+    cover_image = Event.objects.order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='') #display all cover images in detailed category
+    events = Event.objects.order_by('event_date').filter(categories__slug=slug_category) #displays all events with unique slug_category
     categories = Category.objects.all().order_by('-created_at')
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
