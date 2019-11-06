@@ -2536,7 +2536,7 @@ fieldset[disabled] .s-btn {
 
 .mapouter {
   position: relative;
-  text-align: right;
+  text-align: center;
   height: 350px;
   width: 350px;
 }
