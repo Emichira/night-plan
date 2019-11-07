@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*.nightplankenya.com', 'www.nightplankenya.com', '.nightplankenya.com', '0.0.0.0', 'localhost', '127.0.0.1', 'https://nightplan-kenya.herokuapp.com']
+ALLOWED_HOSTS = ['nightplankenya.com', 'www.nightplankenya.com', '0.0.0.0', '127.0.0.1', 'https://nightplankenya.herokuapp.com']
 
 
 # Application definition
