@@ -1432,7 +1432,7 @@ fieldset[disabled] .s-btn {
   display: inline-block;
   font-size: 1.25rem;
   font-weight: 300;
-  color: #fff;
+  color: #fff !important;
   opacity: .85;
   padding: .3125rem;
   transition-duration: 300ms;
@@ -2529,7 +2529,10 @@ fieldset[disabled] .s-btn {
   background-color: #2d2f31;
   /* padding-left: 50px; */
 }
-/* My CSS section */
+
+/*----------------------------------
+  My CSS section
+------------------------------------*/
 .grab{
   cursor: grab;
 }
@@ -2577,4 +2580,9 @@ fieldset[disabled] .s-btn {
 
 .increment {
   width: calc(100% - 30px);
+}
+
+.white-text {
+  color: #ffffff !important;
+  font-size: 0.75rem;
 }
