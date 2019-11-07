@@ -28,8 +28,8 @@ def club(request, slug_club):
     #Handles displaying events of a single club
     club = get_object_or_404(Club, slug=slug_club)
     name = Club.objects.get(slug=slug_club)
-    events = Event.objects.order_by('-event_date').filter(club__slug=slug_club)
-    cover_image = Event.objects.order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
+    events = Event.objects.order_by('event_date').filter(club__slug=slug_club)
+    cover_image = Event.objects.order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)

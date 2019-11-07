@@ -247,9 +247,14 @@ EMAIL_USE_TLS = True
 
 #leaflet config
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (-1.28, 36.82),
-    'DEFAULT_ZOOM': 12,
+    'DEFAULT_CENTER': (-1.286389, 36.817223),
+    'DEFAULT_ZOOM': 5,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 18,
     'ATTRIBUTION_PREFIX': 'Night Plan Kenya',
+    'SCALE': 'both',
+    'RESET_VIEW': True,
+    'boxZoom' : True,
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
