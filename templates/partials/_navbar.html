@@ -95,11 +95,6 @@
                             href="{% url 'register' %}">Sign
                             Up</a>
                     </li>
-                    <li class="s-header__nav-menu-item"><a
-                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
-                            href="{% url 'register' %}">Sign
-                            Up</a>
-                    </li>
                     {% endif %}
                     <li class="s-header__nav-menu-item"><a
                         class="s-header__nav-menu-link s-header__nav-menu-link-divider"
@@ -110,11 +105,11 @@
                 <!-- Menu List -->
                 <ul class="list-unstyled s-header__nav-menu">
                     <li class="s-header__nav-menu-item"><a
-                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
-                            href="{% url 'featured' %}">Upcoming Events</a></li>
-                    <!-- <li class="s-header__nav-menu-item"><a
                             class="s-header__nav-menu-link s-header__nav-menu-link-divider -is-active"
-                            href="#">Account</a></li> -->
+                            href="{% url 'featured' %}">Explore</a></li>
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="{% url 'events' %}">Upcoming Events</a></li>
                     <li class="s-header__nav-menu-item"><a
                             class="s-header__nav-menu-link s-header__nav-menu-link-divider"
                             href="{% url 'faq' %}">FAQ</a>

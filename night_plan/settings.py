@@ -253,7 +253,8 @@ LEAFLET_CONFIG = {
     'MAX_ZOOM': 18,
     'ATTRIBUTION_PREFIX': 'Night Plan Kenya',
     'SCALE': 'both',
-    'RESET_VIEW': False,
+    'RESET_VIEW': True,
+    'boxZoom' : True,
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
