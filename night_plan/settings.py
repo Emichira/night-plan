@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nightplankenya.com', 'www.nightplankenya.com', '0.0.0.0', '127.0.0.1', 'https://nightplankenya.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'nightplankenya.com', 'www.nightplankenya.com', '0.0.0.0', '127.0.0.1', 'https://nightplankenya.herokuapp.com']
 
 
 # Application definition
@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'whitenoise.runserver_nostatic',
     'storages',
+    "sslserver",
+    'django.contrib.sites',
 
     #My Apps
     'pages.apps.PagesConfig',
@@ -62,8 +64,19 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
     'clubs.apps.ClubsConfig',
-    'genres.apps.GenresConfig'
+    'genres.apps.GenresConfig',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.twitter',
 ]
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+
+SITE_ID=1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,55 +150,40 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+## Settings specific for python-solical-auth
 AUTHENTICATION_BACKENDS = [
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.linkedin.LinkedinOAuth2',
     'social_core.backends.instagram.InstagramOAuth2',
-    'social_core.backends.facebook.FacebookOAuth2',
+    # 'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
-    'django.contrib.auth.backends.ModelBackend',
 ]
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-# Facebook social media authentication configuration
-SOCIAL_AUTH_FACEBOOK_KEY = '341098043500838'        # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET') # App Secret
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] #
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       #
-  'fields': 'id, name, email, picture.type(large), link'
-}
-SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 #
-    ('name', 'name'),
-    ('email', 'email'),
-    ('picture', 'picture'),
-    ('link', 'profile_url'),
-]
-# Instagram social media authentication configuration
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET') #Client Secret
-SOCIAL_AUTH_INSTAGRAM_SECRET = os.environ.get('SOCIAL_AUTH_INSTAGRAM_SECRET')  #Client SECRET
-SOCIAL_AUTH_INSTAGRAM_EXTRA_DATA = [
-    ('user', 'user'),
-]
-# LinkedIn social media authentication configuration
-SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '865vaoyah27pls'         #Client ID
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'T8ZWoTWDgcLHs9pi'  #Client Secret
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_basicprofile', 'r_emailaddress']
-SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
-SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
-    ('id', 'id'),
-    ('formattedName', 'name'),
-    ('emailAddress', 'email_address'),
-    ('pictureUrl', 'picture_url'),
-    ('publicProfileUrl', 'profile_url'),
-]
-
 # Social media authentication URL configuration
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'index'
-LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = 'index'
+# LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+# LOGOUT_URL = '/'
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS=7
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+ACCOUNT_PRESERVE_USERNAME_CASING = False
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+ACCOUNT_USERNAME_BLACKLIST = ["nightplan", "admin", "god", "nightplankenya"]
+ACCOUNT_USERNAME_MIN_LENGTH = 2
+ACCOUNT_USERNAME_REQUIRED = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -222,7 +220,7 @@ AWS_DEFAULT_ACL = None
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
+# #Change static storage to Amazon Web Services S3-static
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
