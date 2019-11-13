@@ -34,7 +34,7 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item"
-                                        href="javascript:{document.getElementById('logout').submit()}">
+                                        href="{% url 'clubs' %}">
                                         <i class="fa fa-sign-out-alt"></i>Logout</a>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                     {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' or ass.provider == 'linkedin-oauth2' %}
                     <li class="s-header__nav-menu-item"><a
                             class="s-header__nav-menu-link s-header__nav-menu-link-divider"
-                            href="javascript:{document.getElementById('logout').submit()}">Logout</a></li>
+                            href="{% url 'index' %}">Logout</a></li>
                     {% else %}
                     <li class="s-header__nav-menu-item"><a
                             class="s-header__nav-menu-link s-header__nav-menu-link-divider"

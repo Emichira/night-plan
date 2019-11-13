@@ -24,10 +24,6 @@
             </div>
             <div class="col-xs-4 g-full-width--xs g-margin-b-50--xs g-margin-b-0--sm">
                 <div class="g-text-center--xs">
-                    <!-- <a href="{% url 'social:begin' 'instagram' %}"> <i
-                            class="g-display-block--xs g-font-size-40--xs g-color--white-opacity g-margin-b-30--xs ti-instagram"></i>
-                        <p class="g-color--white-opacity">Login with Instagram</p>
-                    </a> -->
                     <a href="{% provider_login_url 'facebook' process='login' method='js_sdk' %}"> <i
                         class="g-display-block--xs g-font-size-40--xs g-color--white-opacity g-margin-b-30--xs ti-facebook"></i>
                         <p class="g-color--white-opacity">Connect with a Facebook Account</p>
@@ -54,7 +50,6 @@
                 <div class="col-sm-6">
                     <input type="password" name="password" class="form-control s-form-v3__input"
                         placeholder="* Password">
-                    <!-- <a href="#" class="hova">Forgot your password?</a> -->
                 </div>
             </div>
             <!-- <div class="g-margin-b-30--xs row checkbox">
