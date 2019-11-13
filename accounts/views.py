@@ -67,20 +67,3 @@ def logout(request):
     auth.logout(request)
     messages.success(request, 'You are now logged out')
     return redirect('index')
-
-def dashboard(request):
-    counties = County.objects.all()
-    trending = Event.objects.all().order_by('-event_date').filter(event_type='1')
-    featured = Event.objects.all().order_by('-event_date').filter(event_type='2')
-    tonight = Event.objects.all().order_by('-event_date').filter(event_type='3')
-    this_weekend = Event.objects.all().order_by('-event_date').filter(event_type='4')
-
-
-    context = {
-        "counties" : counties,
-        "trending" : trending,
-        "featured" : featured,
-        "tonight" : tonight,
-        "this_weekend" : this_weekend
-    }
-    return render(request, 'pages/auth/dashboard.html', context)

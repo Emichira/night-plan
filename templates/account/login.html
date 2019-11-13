@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+{% block title %} - Account Login | Discover Club Events and Gigs in Kenya {% endblock %}
+{% block content %}
+<!--========== PAGE CONTENT ==========-->
+<!-- Feedback Form -->
+<div class="g-position--relative g-bg-color--primary">
+  <div class="g-container--md g-padding-y-125--xs">
+    <div class="g-text-center--xs g-margin-t-10--xs g-margin-b-20--xs">
+      <h2 class="g-font-size-32--xs g-font-size-36--sm g-color--white">{% trans "Sign In" %}</h2>
+    </div>
+    <div class="row g-row-col--5 g-margin-b-10--xs">
+      <div class="col-xs-2 g-full-width--xs g-margin-b-0--sm">
+      </div>
+      <div class="col-xs-8 g-full-width--xs g-margin-b-0--sm">
+        <div class="g-text-center--xs g-margin-t-10--xs">
+          {% get_providers as socialaccount_providers %}
+
+          <p>{% blocktrans with site.name as site_name %}Please sign in with a
+            Facebook account. Or,
+            <br>
+            <a href="{{ signup_url }}" class="hova">Sign Up</a>
+            for a {{ site_name }} account then sign in below:{% endblocktrans %}</p>
+          <br>
+          {% if socialaccount_providers %}
+          {% for provider in socialaccount_providers %}
+          <a title="{{provider.name}}"
+            href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params method='js_sdk' %}">
+            <i class="g-display-block--xs g-font-size-40--xs g-color--white-opacity ti-facebook"></i>
+            <p class="g-color--white-opacity">Login with {{provider.name}}</p>
+          </a>
+          {% endfor %}
+          <br>
+          <div class="g-color--white-opacity">{% trans 'or' %}</div>
+        </div>
+      </div>
+      <div class="col-xs-2 g-full-width--xs">
+      </div>
+    </div>
+
+    {% include "socialaccount/snippets/login_extra.html" %}
+
+    {% else %}
+    <p>{% blocktrans %}If you have not created an account yet, then please
+      <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+    {% endif %}
+
+    {% block messages %}
+    {% if messages %}
+    <div>
+      <ul>
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>{{message}}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% endblock %}
+
+    <div class="row g-row-col--5 g-margin-b-30--xs center-flex-layout">
+      <div class="col-md-5 g-margin-b-0--sm center-flex-layout">
+        <form class="center-block g-width-500--sm g-width-550--md center-inline-grid" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          <div class="container g-margin-b-30--xs g-margin-b-20--md" id="login_form">
+            {{ form }}
+          </div>
+
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+
+          <button class="btn btn-outline-primary g-margin-b-20--xs g-margin-b-20--md center-inline-grid g-radius--50" type="submit"> <span class="g-color--white-opacity">{% trans "Sign In" %}</span> </button>
+          <a class="btn btn-outline-dark center-inline-grid g-radius--50" href="{% url 'account_reset_password' %}"> <span class="g-color--white-opacity">{% trans "Forgot Password ?" %}</span> </a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

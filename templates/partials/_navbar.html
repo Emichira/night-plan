@@ -34,20 +34,20 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item"
-                                        href="javascript:{document.getElementById('logout').submit()}">
+                                        href="{% url 'account_logout' %}">
                                         <i class="fa fa-sign-out-alt"></i>Logout</a>
                                 </div>
                             </div>
-                            <form action="{% url 'logout' %}" method="POST" id="logout">
+                            <form action="{% url 'index' %}" method="POST" id="logout">
                                 {% csrf_token %}
                                 <input type="hidden">
                             </form>
                             {% else %}
-                            <a href="{% url 'login' %}"><button
+                            <a href="/accounts/login"><button
                                     class="btn btn-outline-danger my-2 my-sm-0 navb g-margin-l-5--md g-margin-r-5--md">
                                     <p>Sign In</p>
                                 </button></a>
-                            <a href="{% url 'register' %}">
+                            <a href="/accounts/signup">
                                 <button class="btn btn-outline-danger my-2 my-sm-0 navb">
                                     <p>Sign Up</p>
                                 </button></a>
@@ -84,14 +84,14 @@
                     {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' or ass.provider == 'linkedin-oauth2' %}
                     <li class="s-header__nav-menu-item"><a
                             class="s-header__nav-menu-link s-header__nav-menu-link-divider"
-                            href="javascript:{document.getElementById('logout').submit()}">Logout</a></li>
+                            href="{% url 'index' %}">Logout</a></li>
                     {% else %}
                     <li class="s-header__nav-menu-item"><a
                             class="s-header__nav-menu-link s-header__nav-menu-link-divider"
-                            href="{% url 'login' %}">Login</a></li>
+                            href="/accounts/login">Login</a></li>
                     <li class="s-header__nav-menu-item"><a
                             class="s-header__nav-menu-link s-header__nav-menu-link-divider"
-                            href="{% url 'register' %}">Sign
+                            href="/accounts/signup">Sign
                             Up</a>
                     </li>
                     {% endif %}
