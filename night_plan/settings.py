@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'whitenoise.runserver_nostatic',
     'storages',
-    "sslserver",
     'django.contrib.sites',
 
     #My Apps
