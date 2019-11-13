@@ -2642,6 +2642,22 @@ fieldset[disabled] .s-btn {
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
 }
 
+.login_form input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.login_form input::-moz-placeholder {
+  color: #fff;
+}
+
+.login_form input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.login_form input::placeholder {
+  color: #fff;
+}
+
 #login_form input[type=checkbox]{
   width: 2rem;
   height: 1rem;
@@ -2670,7 +2686,6 @@ fieldset[disabled] .s-btn {
 
 .social_providers_list{
   display: inline;
-  margin-top: 2rem;
   padding-left: 35.2rem;
 }
 
@@ -2690,27 +2705,43 @@ fieldset[disabled] .s-btn {
 
 /* Signup Page Styles */
 
+#signup_form label{
+  display: none;
+}
+
 #signup_form input{
-  width: 16rem;
-  height: 2.8rem;
-  padding-left:1rem;
-  font-size: 1.2rem;
+  position: relative;
+  height: 3.125rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+  border: none;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.5);
+  background: transparent !important;
+  box-shadow: none;
+  border-radius: 0;
+  letter-spacing: .1rem;
+  /* text-transform: uppercase; */
+  padding: 0 1.25rem 0 0;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
 }
 
-#signup_form #id_username{
-  margin-left: 2.6rem;
+.signup_form input::-webkit-input-placeholder {
+  color: #fff;
 }
 
-#signup_form #id_email{
-  margin-left: 0.3rem;
+.signup_form input::-moz-placeholder {
+  color: #fff;
 }
 
-#signup_form #id_password1{
-  margin-left: 2.7rem;
+.signup_form_form input:-ms-input-placeholder {
+  color: #fff;
 }
 
-#signup_form #id_pasword2{
-  margin-left: 0.8rem;
+.signup_form input::placeholder {
+  color: #fff !important;
 }
 
 .exist_account_info{
@@ -2799,7 +2830,6 @@ fieldset[disabled] .s-btn {
   padding-left:1rem;
   font-size: 1.2rem;
 }
-
 
 #forgot_password_form button{
   margin-right: 1rem;
