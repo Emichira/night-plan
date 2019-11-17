@@ -40,7 +40,7 @@ def featured_city_page(request):
     genres = Genre.objects.filter(is_published=True).order_by('-created_at')
     trending = Event.objects.filter(event_type='1', is_published=True).order_by('event_date')
     featured = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
-    tonight = Event.objects.filter(event_type='3', is_published=True).order_by('event_date')
+    tonight = Event.objects.filter(event_date__date=date.today())
     this_weekend = Event.objects.filter(event_type='4', is_published=True).order_by('event_date')
     this_week = Event.objects.filter(event_type='5', is_published=True).order_by('event_date')
     just_for_you = Event.objects.filter(event_type='6', is_published=True).order_by('event_date')
