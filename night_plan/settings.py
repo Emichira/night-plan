@@ -62,10 +62,6 @@ INSTALLED_APPS = [
 ]
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 SITE_ID=1
 
@@ -212,6 +208,7 @@ AWS_DEFAULT_ACL = None
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+# Old static storage settings
 # #Change static storage to Amazon Web Services S3-static
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
