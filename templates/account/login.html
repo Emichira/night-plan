@@ -19,7 +19,7 @@
         <div class="g-text-center--xs g-margin-t-10--xs">
           {% get_providers as socialaccount_providers %}
 
-          <p>{% blocktrans with site.name as site_name %}Please sign in with a
+          <p class="exist_account_info">{% blocktrans with site.name as site_name %}Please sign in with a
             Facebook account. Or,
             <br>
             <a href="{{ signup_url }}" class="hova">Sign Up</a>
