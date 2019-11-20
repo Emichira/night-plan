@@ -150,10 +150,8 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-# Social media authentication URL configuration
-# LOGIN_URL = '/'
+# Django-allauth configurations
 LOGIN_REDIRECT_URL = '/'
-# LOGOUT_URL = '/'
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
