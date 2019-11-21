@@ -1227,7 +1227,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 [ Slick1 ]*/
 .wrap-slick1 {
   position: relative;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .item-slick1 {
@@ -1235,6 +1235,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  overflow: hidden;
 }
 
 .rs1-slick1 .item-slick1 {
