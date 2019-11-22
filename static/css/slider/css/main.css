@@ -1403,7 +1403,6 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   margin-left: 15px;
   padding-right: 10px;
   padding-left: 10px;
-  overflow: auto;
 }
 
 /* ------------------------------------ */
@@ -1452,7 +1451,6 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 [ Slick3 ]*/
 .wrap-slick3 {
   position: relative;
-  overflow: auto;
 }
 
 /*---------------------------------------------*/
@@ -3860,4 +3858,8 @@ input.num-product::-webkit-inner-spin-button {
   text-shadow: rgba(0, 0, 0, 0.36) 0px 1px 5px;
   font-family: lato, helvetica, arial, sans-serif;
   font-weight: normal;
+}
+
+.isotope-grid {
+  display: block;
 }
