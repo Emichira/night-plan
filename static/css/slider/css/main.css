@@ -3861,5 +3861,5 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .isotope-grid {
-  display: inline-flex;
+  display: contents
 }
