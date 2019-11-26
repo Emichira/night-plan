@@ -3815,11 +3815,11 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .single-item-l-15 {
-  padding-left: 15px !important;
+  padding-left: 15px;
 }
 
 .single-item-r-15 {
-  padding-left: 5px;
+  padding-right: 15px;
 }
 
 .explore {
@@ -3862,5 +3862,10 @@ input.num-product::-webkit-inner-spin-button {
 
 .isotope-grid {
   display: contents;
+  transform: translateX(0%);
+}
+
+.isotope-flex {
+  display: inline-flex;
   transform: translateX(0%);
 }
