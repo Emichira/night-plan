@@ -3869,3 +3869,17 @@ input.num-product::-webkit-inner-spin-button {
   display: inline-flex;
   transform: translateX(0%);
 }
+
+.wrapper {
+  position: relative;
+  height: 0;
+  padding-top: calc(360 / 360 * 100%);
+}
+
+.wrapper__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+}
