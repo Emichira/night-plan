@@ -1,0 +1,17 @@
+{% extends "base-layout.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Social Network Login Failure" %}{% endblock %}
+
+{% block content %}
+<div class="g-position--relative g-bg-color--primary">
+    <div class="g-container--md g-padding-y-125--xs">
+        <h1 class="g-font-size-32--xs g-font-size-36--md g-color--white">{% trans "Social Network Login Failure" %}</h1>
+
+        <p class="exist_account_info">
+            {% trans "An error occurred while attempting to login via your social network account." %}</p>
+
+    </div>
+</div>
+{% endblock %}

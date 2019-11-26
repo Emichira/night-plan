@@ -1227,6 +1227,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 [ Slick1 ]*/
 .wrap-slick1 {
   position: relative;
+  overflow: hidden;
 }
 
 .item-slick1 {
@@ -1234,6 +1235,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  overflow: hidden;
 }
 
 .rs1-slick1 .item-slick1 {
@@ -3813,11 +3815,11 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .single-item-l-15 {
-  padding-left: 15px !important;
+  padding-left: 15px;
 }
 
 .single-item-r-15 {
-  padding-left: 5px;
+  padding-right: 15px;
 }
 
 .explore {
@@ -3856,4 +3858,14 @@ input.num-product::-webkit-inner-spin-button {
   text-shadow: rgba(0, 0, 0, 0.36) 0px 1px 5px;
   font-family: lato, helvetica, arial, sans-serif;
   font-weight: normal;
+}
+
+.isotope-grid {
+  display: contents;
+  transform: translateX(0%);
+}
+
+.isotope-flex {
+  display: inline-flex;
+  transform: translateX(0%);
 }

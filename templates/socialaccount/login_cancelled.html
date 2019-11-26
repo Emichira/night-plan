@@ -1,0 +1,18 @@
+{% extends "base-layout.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Login Cancelled" %}{% endblock %}
+
+{% block content %}
+<div class="g-position--relative g-bg-color--primary">
+    <div class="g-container--md g-padding-y-125--xs">
+        <h1 class="g-font-size-32--xs g-font-size-36--md g-color--white">{% trans "Login Cancelled" %}</h1>
+
+        {% url 'account_login' as login_url %}
+
+        <p class="exist_account_info">{% blocktrans %}You decided to cancel logging in to our site using one of your existing accounts. If this was
+            a mistake, please proceed to <a href="{{login_url}}" class="hova">sign in</a>.{% endblocktrans %}</p>
+    </div>
+</div>
+{% endblock %}
