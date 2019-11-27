@@ -3872,4 +3872,5 @@ input.num-product::-webkit-inner-spin-button {
 
 .wrapper {
   overflow: hidden;
+  position: absolute;
 }
