@@ -3869,8 +3869,3 @@ input.num-product::-webkit-inner-spin-button {
   display: inline-flex;
   transform: translateX(0%);
 }
-
-.wrapper {
-  overflow: hidden;
-  position: absolute;
-}
