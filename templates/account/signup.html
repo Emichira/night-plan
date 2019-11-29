@@ -30,19 +30,6 @@
     <p class="exist_account_info">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}"
         class="hova">Sign In</a>.{% endblocktrans %}</p>
     <div class="g-text-center--xs g-margin-t-10--xs">
-      {% get_providers as socialaccount_providers %}
-      <br>
-      {% if socialaccount_providers %}
-      {% for provider in socialaccount_providers %}
-      <a title="{{provider.name}}"
-        href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params method='js_sdk' %}">
-        <i class="g-display-block--xs g-font-size-40--xs g-color--white-opacity ti-facebook"></i>
-        <p class="g-color--white-opacity">Login with {{provider.name}}</p>
-      </a>
-      {% endfor %}
-      {% endif %}
-
-      <br>
       <div class="g-color--white-opacity">{% trans 'or' %}</div>
     </div>
 
