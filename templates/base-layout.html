@@ -35,18 +35,11 @@
     <link href="{% static 'img/favicon/favicon-32x32.png' %}" type="image/x-icon" rel="shortcut icon">
     <!--===============================================================================================-->
     <title>NightPlanKenya {% block title %} {% endblock %}</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153486169-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-153486169-1');
-    </script>
+    <!-- Global - Google Analytics -->
+    {% load google_analytics_tags %}
+    <div style="display:none">
+        <img src="{% google_analytics %}" width="0" height="0" />
+    </div>
 
 
 </head>

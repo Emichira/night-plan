@@ -187,7 +187,7 @@ USE_L10N = True
 USE_TZ = True
 
 GOOGLE_ANALYTICS = {
-    'google_analytics_id': 'UA-153486169-1',
+    'google_analytics_id': os.environ.get('GOOGLE_ANALYTICS_KEY'),
 }
 
 # Static files (CSS, JavaScript, Images)
