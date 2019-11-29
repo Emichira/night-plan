@@ -35,6 +35,12 @@
     <link href="{% static 'img/favicon/favicon-32x32.png' %}" type="image/x-icon" rel="shortcut icon">
     <!--===============================================================================================-->
     <title>NightPlanKenya {% block title %} {% endblock %}</title>
+    <!-- Global - Google Analytics -->
+    {% load google_analytics_tags %}
+    <div style="display:none">
+        <img src="{% google_analytics %}" width="0" height="0" />
+    </div>
+
 
 </head>
 <!-- End Head -->

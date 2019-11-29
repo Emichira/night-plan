@@ -28,6 +28,8 @@ urlpatterns = [
     path('contacts/', include('contacts.urls')),
     path('clubs/', include('clubs.urls')),
     path('genres/', include('genres.urls')),
+    path('', include('google_analytics.urls')),
+
     path('admin/', admin.site.urls)
 ]
 
