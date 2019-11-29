@@ -48,6 +48,18 @@
     <link href="{% static 'css/ecart/ecart.css' %}" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
     <title>NightPlanKenya {% block title %} {% endblock %}</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153486169-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153486169-1');
+    </script>
 
 </head>
 <!-- End Head -->
@@ -71,7 +83,7 @@
     <!-- Slider JS=====================================================================================-->
     <script src="{% static 'css/slider/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
     <!--===============================================================================================-->
-	<script src="{% static 'css/slider/vendor/animsition/js/animsition.js' %}"></script>
+    <script src="{% static 'css/slider/vendor/animsition/js/animsition.js' %}"></script>
     <!--===============================================================================================-->
     <script src="{% static 'css/slider/vendor/bootstrap/js/popper.js' %}"></script>
     <script src="{% static 'css/slider/vendor/bootstrap/js/bootstrap.min.js' %}"></script>

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'storages',
     'django.contrib.sites',
+    'google_analytics',
 
     #My Apps
     'pages.apps.PagesConfig',
@@ -184,6 +185,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': 'UA-153486169-1',
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
