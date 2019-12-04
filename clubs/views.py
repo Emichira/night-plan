@@ -8,7 +8,7 @@ from categories.models import Category
 def clubs(request):
     #create objects
     #Handles displaying of all clubs
-    clubs = Club.objects.order_by('-created_at').filter(is_published=True)
+    clubs = Club.objects.order_by('name').filter(is_published=True)
     cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     categories = Category.objects.order_by('-created_at')
     #pagination of events

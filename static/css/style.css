@@ -2566,6 +2566,9 @@ fieldset[disabled] .s-btn {
   margin-right: auto;
 }
 
+.fix-header {
+  margin-bottom: -15px !important;
+}
 .checkbox{
   margin-left: 0;
 }
@@ -2614,8 +2617,6 @@ fieldset[disabled] .s-btn {
   justify-content: center;
   align-items: center;
 }
-
-
 
 /* Login Page Styles*/
 
