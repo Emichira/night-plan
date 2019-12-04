@@ -8,7 +8,6 @@ To confirm this is correct, go to {{ activate_url }}
 {% endblocktrans %} <br>
 {% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
 
-Thank you from {{ site_name }},
-{{ site_domain }}{% endblocktrans %}
+Thank you from {{ site_name }}.{% endblocktrans %}
 Night Plan Kenya is your ultimate nightlife guide. We connect you to club events and latest happy hours.
 {% endautoescape %}
