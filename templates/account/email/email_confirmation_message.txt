@@ -1,6 +1,6 @@
 {% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hello
 from {{ site_name }}.
-<br>
+
 You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect their
 account.
 <br>
@@ -8,6 +8,6 @@ To confirm this is correct, go to {{ activate_url }}
 {% endblocktrans %} <br>
 {% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
 
-Thank you from {{ site_name }}.{% endblocktrans %}
+Thank you from {{ site_name }}.{% endblocktrans %} <br>
 Night Plan Kenya is your ultimate nightlife guide. We connect you to club events and latest happy hours.
 {% endautoescape %}
