@@ -29,7 +29,7 @@
                                     data-delay="800">
                                     <p class="hero-teaser g-color--white p-t-19 respon1">
                                         <i class="fa fa-clock-o"></i>
-                                        {{ event.event_date }} - Late
+                                        {{ event.event_date }} - {{ event.event_end_date }}
                                     </p>
                                     <span class="stext-105 cl12"> {{ event.genre }}
                                     </span>
@@ -185,7 +185,7 @@
                     </h1>
                     <p class="hero-teaser g-color--dark-light p-t-19 respon1">
                         <i class="fa fa-clock-o"></i>
-                        {{ event.event_date }} - Late
+                        {{ event.event_date }} - {{ event.event_end_date }}
                     </p>
 
                     <div class="layer-slick1 animated visible-false fadeInDown visible-true" data-appear="fadeInDown"
@@ -236,7 +236,7 @@
                                         </a>
 
                                         <span class="stext-105 cl12">
-                                            {{ event.event_date }} - Late
+                                            {{ event.event_date }} - {{ event.event_end_date }}
                                         </span>
 
                                         <span class="stext-105 cl12">
