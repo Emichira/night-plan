@@ -1403,12 +1403,8 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   margin-left: 15px;
   padding-right: 10px;
   padding-left: 10px;
-  overflow: hidden !important;
 }
 
-.slick2 {
-  overflow: hidden !important;
-}
 /* ------------------------------------ */
 .arrow-slick2 {
   position: absolute;
