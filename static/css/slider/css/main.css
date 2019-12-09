@@ -1405,6 +1405,10 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   padding-left: 10px;
 }
 
+.overloader {
+  overflow: hidden !important;
+}
+
 /* ------------------------------------ */
 .arrow-slick2 {
   position: absolute;
