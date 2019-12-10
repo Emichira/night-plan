@@ -146,9 +146,9 @@
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 fade: true,
-                infinite: true,
-                autoplay: false,
-                autoplaySpeed: 6000,
+                infinite: false,
+                autoplay: true,
+                autoplaySpeed: 4000,
 
                 arrows: true,
                 appendArrows: $(this).find('.wrap-slick3-arrows'),
