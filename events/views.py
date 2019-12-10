@@ -11,8 +11,8 @@ from django.db.models import Q
 def events(request):
     #create objects
     #Handles displaying of all events
-    events = Event.objects.filter(is_published=True).order_by('-event_date')
-    cover_image = Event.objects.filter(is_published=True).order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
+    events = Event.objects.filter(is_published=True).order_by('event_date')
+    cover_image = Event.objects.filter(is_published=True).order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     categories = Category.objects.order_by('-created_at')
     #pagination of events
     paginator = Paginator(events, 16)
@@ -29,7 +29,7 @@ def events(request):
 def event(request, slug_event):
     #create one object event to detailed view event
     #Handles displaying of single event
-    trending = Event.objects.filter(event_type='1', is_published=True).order_by('-event_date')
+    trending = Event.objects.filter(event_type='1', is_published=True).order_by('event_date')
     event = get_object_or_404(Event, slug=slug_event)
     cover_image = Event.objects.exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     context = {

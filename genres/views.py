@@ -9,7 +9,7 @@ def genres(request):
     #create objects
     #Handles displaying of all genres
     genres = Genre.objects.all().order_by('name').filter(is_published=True)
-    cover_image = Event.objects.all().order_by('-event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
+    cover_image = Event.objects.all().order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     categories = Category.objects.all().order_by('-created_at')
     #pagination of genres to 16 per page
     paginator = Paginator(genres, 16)

@@ -95,7 +95,7 @@
               slidesToScroll: 4,
               infinite: true,
               autoplay: true,
-              autoplaySpeed: 4000,
+              autoplaySpeed: 8000,
               pauseOnFocus: true,
               pauseOnHover: true,
               arrows: true,
