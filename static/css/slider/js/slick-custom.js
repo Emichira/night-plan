@@ -41,7 +41,7 @@
             }
 
             $(slick1).slick({
-                pauseOnFocus: false,
+                pauseOnFocus: true,
                 pauseOnHover: false,
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -93,9 +93,11 @@
             $(this).find('.slick2').slick({
               slidesToShow: 4,
               slidesToScroll: 4,
-              infinite: false,
-              autoplay: false,
-              autoplaySpeed: 6000,
+              infinite: true,
+              autoplay: true,
+              autoplaySpeed: 4000,
+              pauseOnFocus: true,
+              pauseOnHover: true,
               arrows: true,
               appendArrows: $(this),
               prevArrow:'<button class="arrow-slick2 prev-slick2"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
