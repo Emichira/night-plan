@@ -94,7 +94,7 @@
               slidesToShow: 4,
               slidesToScroll: 4,
               infinite: false,
-              autoplay: false,
+              autoplay: true,
               autoplaySpeed: 6000,
               arrows: true,
               appendArrows: $(this),
