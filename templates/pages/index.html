@@ -107,7 +107,7 @@
                                 <!-- Block1 -->
                                 <div class="block1 wrap-pic-w">
                                     <div class="wrapper">
-                                    <img class="explore" src="{{ club.club_image.url }}" alt="IMG-BANNER"></div>
+                                        <img class="explore" src="{{ club.club_image.url }}" alt="IMG-BANNER"></div>
                                     <a href="{% url 'club' club.slug %}"
                                         class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                                         <div class="block1-txt-child1 flex-col-l">
@@ -521,6 +521,12 @@
                         <!-- <a href="{% url 'featured' %}" class="btn btn-xlrg btn-transparent"
                     data-remodal-target="header-city-search">Explore
                     Cities</a> -->
+                    </span>
+                    <span
+                        class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
+                        <a href="{% url 'events' %}"
+                            class="text-uppercase s-btn s-btn-icon--md s-btn--primary-bg g-radius--50 g-padding-x-45--xs">
+                            Upcoming</a>
                     </span>
                 </div>
             </div>
