@@ -32,7 +32,8 @@
     <!-- Theme Skins -->
     <link href="{% static 'css/theme/red.css' %}" rel="stylesheet" type="text/css" />
     <!-- Favicon -->
-    <link href="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLAN-KE.png" type="image/x-icon" rel="shortcut icon">
+    <link href="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLAN-KE.png"
+        type="image/x-icon" rel="shortcut icon">
     <!-- Slider Styles -->
     <link href="{% static 'css/slider/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
@@ -58,6 +59,15 @@
 <!-- Body -->
 
 <body>
+    <div class="loader-wrapper">
+        <span href="javascript:void(0);" class="loader"><span class="loader-inner"></span></span>
+        <br>
+        <div class="g-text-center--xs g-margin-t-20--xs g-margin-l-10--xs">
+            <p
+                class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs">
+                LOADING</p>
+        </div>
+    </div>
 
     <!-- Top Navbar -->
     {% include 'partials/_navbar.html' %}
@@ -65,12 +75,18 @@
     <!-- Main Content -->
     {% block content %}{% endblock content %}
 
-    <!-- Top Navbar -->
+    <!-- Footer -->
     {% include 'partials/_footer.html' %}
 
     <!-- Back To Top -->
     <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
 
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+            const loader = document.querySelector(".loader-wrapper");
+            loader.className += " hidden"; // class "loader hidden"
+        });
+    </script>
     <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
     <!-- Slider JS=====================================================================================-->
     <script src="{% static 'css/slider/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
