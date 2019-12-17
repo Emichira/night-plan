@@ -2,6 +2,15 @@
 {% block title %} | Discover Club Events and Gigs in Kenya {% endblock %}
 {% load static %}
 {% block content %}
+<!-- <div class="loader-wrapper">
+    <span href="javascript:void(0);" class="loader"><span class="loader-inner"></span></span>
+    <br>
+    <div class="g-text-center--xs g-margin-t-20--xs g-margin-l-10--xs">
+        <p
+            class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs">
+            LOADING</p>
+    </div>
+</div> -->
 <!--========== PROMO BLOCK ==========-->
 <!-- <section class="s-video-v2__bg"
         data-vidbg-bg="mp4: include/media/mp4_video.mp4, webm: include/media/webm_video.webm, poster: include/media/fallback.jpg"
@@ -528,18 +537,6 @@
                             class="text-uppercase s-btn s-btn-icon--md s-btn--primary-bg g-radius--50 g-padding-x-45--xs">
                             Upcoming</a>
                     </span>
-                    <span
-                        class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
-                        <a href="{% url 'events' %}"
-                            class="text-uppercase s-btn s-btn-icon--md s-btn--primary-bg g-radius--50 g-padding-x-45--xs">
-                            Upcoming</a>
-                    </span>
-                    <span
-                        class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
-                        <a href="{% url 'events' %}"
-                            class="text-uppercase s-btn s-btn-icon--md s-btn--primary-bg g-radius--50 g-padding-x-45--xs">
-                            Upcoming</a>
-                    </span>
                 </div>
             </div>
         </div>
@@ -557,4 +554,10 @@
 
 <!-- End Google Map -->
 <!--========== END PAGE CONTENT ==========-->
+<!-- <script type="text/javascript">
+    window.addEventListener("load", function () {
+        const loader = document.querySelector(".loader-wrapper");
+        loader.className += " hidden"; // class "loader hidden"
+    });
+</script> -->
 {% endblock %}

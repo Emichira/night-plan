@@ -20,7 +20,6 @@
 
     <!-- Vendor Styles -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'vendor/themify/themify.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'vendor/scrollbar/scrollbar.min.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css" />
@@ -32,7 +31,8 @@
     <!-- Theme Skins -->
     <link href="{% static 'css/theme/red.css' %}" rel="stylesheet" type="text/css" />
     <!-- Favicon -->
-    <link href="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLAN-KE.png" type="image/x-icon" rel="shortcut icon">
+    <link href="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLAN-KE.png"
+        type="image/x-icon" rel="shortcut icon">
     <!-- Slider Styles -->
     <link href="{% static 'css/slider/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
@@ -58,14 +58,13 @@
 <!-- Body -->
 
 <body>
-
     <!-- Top Navbar -->
     {% include 'partials/_navbar.html' %}
 
     <!-- Main Content -->
     {% block content %}{% endblock content %}
 
-    <!-- Top Navbar -->
+    <!-- Footer -->
     {% include 'partials/_footer.html' %}
 
     <!-- Back To Top -->
