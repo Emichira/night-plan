@@ -12,9 +12,9 @@ from django.db.models import Q
 
 def home_page(request):
     counties = County.objects.all()
-    trending = Event.objects.filter(event_type='1', is_published=True).order_by('event_date')
+    trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
     happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('event_date')
-    featured = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
+    featured = Event.objects.filter(event_type='1', is_published=True).order_by('event_date')
     tonight = Event.objects.filter(event_date__date=date.today())
     this_weekend = Event.objects.filter(Q(event_date__week_day=1) | Q(event_date__week_day=7))
     weekend = this_weekend.order_by('event_date')
@@ -38,8 +38,8 @@ def featured_city_page(request):
     counties = County.objects.all().order_by('-created_at')
     clubs = Club.objects.filter(is_published=True).order_by('name')
     genres = Genre.objects.filter(is_published=True).order_by('name')
-    trending = Event.objects.filter(event_type='1', is_published=True).order_by('event_date')
-    featured = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
+    trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
+    featured = Event.objects.filter(event_type='1', is_published=True).order_by('event_date')
     tonight = Event.objects.filter(event_date__date=date.today())
     this_weekend = Event.objects.filter(event_type='4', is_published=True).order_by('event_date')
     this_week = Event.objects.filter(event_type='5', is_published=True).order_by('event_date')
