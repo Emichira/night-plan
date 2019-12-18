@@ -93,7 +93,7 @@
             $(this).find('.slick2').slick({
               slidesToShow: 4,
               slidesToScroll: 4,
-              infinite: false,
+              infinite: true,
               autoplay: true,
               autoplaySpeed: 6000,
               arrows: true,
