@@ -1,0 +1,156 @@
+{% load static %}
+<!--========== HEADER ==========-->
+<header class="navbar-fixed-top s-header js__header-sticky js__header-overlay">
+    <!-- Navbar -->
+    <div class="s-header__navbar">
+        <div class="s-header__container">
+            <div class="s-header__navbar-row">
+                <div class="s-header__navbar1-row-col">
+                    <!-- Logo -->
+                    <div class="s-header__logo fix-header">
+                        <a href="{% url 'index' %}" class="s-header__logo-link">
+                            <img class="s-header__logo-img s-header__logo-img-default auto_shrink"
+                                src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLAN-KE.png" alt="NightPlanKenya">
+                            <img class="s-header__logo-img s-header__logo-img-shrink auto_shrink"
+                                src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLANKE.png" alt="NightPlanKenya">
+                        </a>
+                    </div>
+                    <!-- End Logo -->
+                </div>
+                <div class="s-header__navbar2-row-col d-flex justify-content-sm-end">
+                    <!-- Trigger -->
+                    <div class="d-flex justify-content-sm-end">
+                        <span class="d-flex justify-content-sm-end">
+                            {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' or ass.provider == 'linkedin-oauth2' %}
+                            <!-- Code to add if user is authenticated and want  to view his account -->
+                            {% if 'dashboard' in request.path %}
+                            {% else %}
+                            {% endif %}
+                            <div class="btn-group dropdown">
+                                <button type="button"
+                                    class="btn btn-danger btn-outline-danger dropdown-toggle g-margin-t-10--md"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ user.username }}
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item"
+                                        href="{% url 'account_logout' %}">
+                                        <i class="fa fa-sign-out-alt"></i>Logout</a>
+                                </div>
+                            </div>
+                            <form action="{% url 'index' %}" method="POST" id="logout">
+                                {% csrf_token %}
+                                <input type="hidden">
+                            </form>
+                            {% else %}
+                            <a href="/accounts/login"><button
+                                    class="btn btn-outline-danger my-2 my-sm-0 navb g-margin-l-5--md g-margin-r-5--md">
+                                    <p>Sign In</p>
+                                </button></a>
+                            <a href="/accounts/signup">
+                                <button class="btn btn-outline-danger my-2 my-sm-0 navb">
+                                    <p>Sign Up</p>
+                                </button></a>
+                            {% endif %}
+                        </span>
+                        <a href="javascript:void(0);" class="s-header__trigger js__trigger">
+                            <span class="s-header__trigger-icon"></span>
+                            <svg x="0rem" y="0rem" width="3.125rem" height="3.125rem" viewbox="0 0 54 54">
+                                <circle fill="transparent" stroke="#fff" stroke-width="1" cx="27" cy="27" r="25"
+                                    stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- End Trigger -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Navbar -->
+
+    <!-- Overlay -->
+    <div class="s-header-bg-overlay js__bg-overlay">
+        <!-- Nav -->
+        <nav class="s-header__nav js__scrollbar">
+            <div class="container-fluid">
+                <!-- Menu List -->
+                <ul class="list-unstyled s-header__nav-menu">
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="{% url 'index' %}">Home</a></li>
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="{% url 'about' %}">About</a></li>
+                    {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' or ass.provider == 'linkedin-oauth2' %}
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="{% url 'index' %}">Logout</a></li>
+                    {% else %}
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="/accounts/login">Login</a></li>
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="/accounts/signup">Sign
+                            Up</a>
+                    </li>
+                    {% endif %}
+                    <li class="s-header__nav-menu-item"><a
+                        class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                        href="{% url 'clubs' %}">Clubs</a></li>
+                </ul>
+                <!-- End Menu List -->
+
+                <!-- Menu List -->
+                <ul class="list-unstyled s-header__nav-menu">
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider -is-active"
+                            href="{% url 'featured' %}">Explore</a></li>
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="{% url 'events' %}">Upcoming Events</a></li>
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="{% url 'faq' %}">FAQ</a>
+                    </li>
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="{% url 'contact' %}">Contact Us</a></li>
+                    <!-- <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="#">Patnerships</a>
+                    </li> -->
+                    <li class="s-header__nav-menu-item"><a
+                            class="s-header__nav-menu-link s-header__nav-menu-link-divider"
+                            href="{% url 'team' %}">Team</a></li>
+                </ul>
+                <!-- End Menu List -->
+            </div>
+        </nav>
+        <!-- End Nav -->
+        <!-- Action -->
+        <ul class="list-inline s-header__action s-header__action--rb">
+            <li class="s-header__action-item">
+                <a class="s-header__action-link" href="https://web.facebook.com/thee.nightplan.7/timeline?lst=1655303870%3A100041644517916%3A1578688791"
+                    target="_blank">
+                    <i class="g-padding-r-5--xs ti-facebook"></i>
+                    <p class="g-display-none--xs g-display-inline-block--sm white-text"> Facebook</p>
+                </a>
+            </li>
+            <li class="s-header__action-item">
+                <a class="s-header__action-link" href="https://twitter.com/KenyaPlan" target="_blank">
+                    <i class="g-padding-r-5--xs ti-twitter"></i>
+                    <p class="g-display-none--xs g-display-inline-block--sm white-text">Twitter</p>
+                </a>
+            </li>
+            <li class="s-header__action-item">
+                <a class="s-header__action-link" href="https://www.instagram.com/nightplan_kenya/" target="_blank">
+                    <i class="g-padding-r-5--xs ti-instagram"></i>
+                    <p class="g-display-none--xs g-display-inline-block--sm white-text">Instagram</p>
+                </a>
+            </li>
+        </ul>
+        <!-- End Action -->
+    </div>
+    <!-- End Overlay -->
+</header>
+<!--========== END HEADER ==========-->

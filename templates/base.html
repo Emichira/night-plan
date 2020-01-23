@@ -1,61 +1,54 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <!-- Begin Head -->
-
 <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="keywords" content="Events" />
-    <meta name="description" content="NightPlanKenya- Find Events, Tickets and Artists">
-    <meta name="author" content="">
-    <!-- Web Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Vendor Styles -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'vendor/themify/themify.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'vendor/scrollbar/scrollbar.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'vendor/swiper/swiper.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'vendor/cubeportfolio/css/cubeportfolio.min.css' %}" rel="stylesheet" type="text/css" />
-    <!-- Theme Styles -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'css/global/global.css' %}" rel="stylesheet" type="text/css" />
-    <!-- Theme Skins -->
-    <link href="{% static 'css/theme/red.css' %}" rel="stylesheet" type="text/css" />
+	<title>NightPlanKenya</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
     <!-- Favicon -->
-    <link href="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLAN-KE.png"
-        type="image/x-icon" rel="shortcut icon">
-    <!-- Slider Styles -->
-    <link href="{% static 'slider/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-    <!--===============================================================================================-->
-    <link href="{% static 'slider/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-    <!--===============================================================================================-->
-    <link href="{% static 'slider/vendor/slick/slick.css' %}" rel="stylesheet" type="text/css">
-    <!--===============================================================================================-->
-    <link href="{% static 'slider/css/util.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'slider/css/main.css' %}" rel="stylesheet" type="text/css">
-    <!--===============================================================================================-->
-    <!-- Cart Styles -->
-    <!--===============================================================================================-->
-    <title>NightPlanKenya {% block title %} {% endblock %}</title>
-    <!-- Global - Google Analytics -->
-    {% load google_analytics_tags %}
-    <div style="display:none">
-        <img src="{% google_analytics %}" width="0" height="0" />
-    </div>
+    <link rel="icon" type="image/x-icon" href="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLAN-KE.png">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'fonts/iconic/css/material-design-iconic-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'fonts/linearicons-v1.0.0/icon-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/animate/animate.css'%}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/css-hamburgers/hamburgers.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/animsition/css/animsition.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/select2/select2.min.css'%}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/daterangepicker/daterangepicker.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/slick/slick.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/MagnificPopup/magnific-popup.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'vendor/perfect-scrollbar/perfect-scrollbar.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/main.css'%}">
+<!--===============================================================================================-->
+	<title>NightPlanKenya {% block title %} {% endblock %}</title>
+	<!-- Global - Google Analytics -->
+	{% load google_analytics_tags %}
+	<div style="display:none">
+		<img src="{% google_analytics %}" width="0" height="0" />
+	</div>
+<!--===============================================================================================-->
 </head>
 <!-- End Head -->
 <!-- Body -->
-
-<body>
+<body class="animsition">
     <!-- Top Navbar -->
     {% include 'partials/_navbar.html' %}
 
@@ -65,56 +58,79 @@
     <!-- Footer -->
     {% include 'partials/_footer.html' %}
 
-    <!-- Back To Top -->
-    <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
 
-    <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
-    <!-- Slider JS=====================================================================================-->
-    <script src="{% static 'slider/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-    <!--===============================================================================================-->
-    <script src="{% static 'slider/vendor/animsition/js/animsition.js' %}"></script>
-    <!--===============================================================================================-->
-    <script src="{% static 'slider/vendor/bootstrap/js/popper.js' %}"></script>
-    <script src="{% static 'slider/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-    <!--===============================================================================================-->
-    <script src="{% static 'slider/vendor/slick/slick.min.js' %}"></script>
-    <script src="{% static 'slider/js/slick-custom.js' %}"></script>
-    <!--===============================================================================================-->
-    <script src="{% static 'slider/js/main.js' %}"></script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="{% static 'js/login/main.js' %}"></script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="{% static 'js/ecart/ecart.js' %}"></script>
-    <!-- Vendor -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{% static 'vendor/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/jquery.migrate.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-    <!-- <script type="text/javascript" src="{% static 'vendor/jquery.smooth-scroll.min.js' %}"></script> -->
-    <script type="text/javascript" src="{% static 'vendor/jquery.back-to-top.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/scrollbar/jquery.scrollbar.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/swiper/swiper.jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/masonry/jquery.masonry.pkgd.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/masonry/imagesloaded.pkgd.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/jquery.parallax.min.js' %}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsXUGTFS09pLVdsYEE9YrO2y4IAncAO2U"></script>
-    <script type="text/javascript" src="{% static 'vendor/jquery.wow.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
-    <!-- General Components and Settings -->
-    <script type="text/javascript" src="{% static 'js/global.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/header-sticky.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/scrollbar.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/faq.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/magnific-popup.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/swiper.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/masonry.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/parallax.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/google-map2.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/components/wow.min.js' %}"></script>
-    <!--========== END JAVASCRIPTS ==========-->
+
+<!--===============================================================================================-->	
+	<script src="{%static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{%static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/select2/select2.min.js'%}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{%static 'vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/slick/slick.min.js'%}"></script>
+	<script src="{%static 'js/slick-custom.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/parallax100/parallax100.js'%}"></script>
+	<script>
+        $('.parallax100').parallax100();
+	</script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/MagnificPopup/jquery.magnific-popup.min.js'%}"></script>
+	<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/isotope/isotope.pkgd.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/sweetalert/sweetalert.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{%static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{%static 'js/main.js'%}"></script>
 
 </body>
-<!-- End Body -->
-
 </html>
