@@ -2,58 +2,40 @@
 {% block title %} | Discover Club Events and Gigs in Kenya {% endblock %}
 {% load static %}
 {% block content %}
-<!-- <div class="loader-wrapper">
-    <span href="javascript:void(0);" class="loader"><span class="loader-inner"></span></span>
-    <br>
-    <div class="g-text-center--xs g-margin-t-20--xs g-margin-l-10--xs">
-        <p
-            class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs">
-            LOADING</p>
-    </div>
-</div> -->
-<!--========== PROMO BLOCK ==========-->
-<!-- <section class="s-video-v2__bg"
-        data-vidbg-bg="mp4: include/media/mp4_video.mp4, webm: include/media/webm_video.webm, poster: include/media/fallback.jpg"
-        data-vidbg-options="loop: true, muted: true, overlay: false">
-        <div class="container g-position--overlay g-text-center--xs">
-            <div class="g-padding-y-50--xs g-margin-t-100--xs g-margin-b-100--xs g-margin-b-250--md">
-                <h1 class="g-font-size-36--xs g-font-size-50--sm g-font-size-60--md g-color--white">More Than a Look,
-                </h1>
-                <h2 class="g-font-size-36--xs g-font-size-50--sm g-font-size-60--md g-color--white">Design is
-                    Functional.</h2>
-            </div>
-        </div>
-    </section> -->
-<!--========== END PROMO BLOCK ==========-->
-<!--========== PROMO BLOCK ==========-->
-<div class="s-promo-block-v3 g-bg-position--center g-fullheight--sm"
-    style="background: url('https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/nightplankenya-bar-black.webp');">
-    <div class="container g-ver-center--sm g-padding-y-125--xs g-padding-y-0--sm">
-        <div class="g-margin-t-30--xs g-margin-t-0--sm g-margin-b-30--xs g-margin-b-50--md">
-            <h1 class="g-font-size-35--xs g-font-size-45--sm g-font-size-50--lg g-color--white">We Make Going<br>Out
-                Easy.</h1>
-        </div>
-        <div class="row">
-            <div class="col-sm-8 col-sm-push-4 g-margin-b-30--xs g-margin-b-30--md">
-            </div>
-            <div class="col-sm-4 col-sm-pull-8 g-margin-b-30--xs g-margin-b-30--md">
-                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".4s">
-                    <p class="g-font-size-18--xs g-color--white">Night Plan Kenya is your ultimate nightlife guide. We
-                        connect you to club events and latest happy hours.</p>
-                </div>
-            </div>
-        </div>
-        <div class="batons">
-            <span
-                class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
-                <a href="{% url 'featured' %}"
-                    class="text-uppercase s-btn s-btn-icon--md s-btn--primary-bg g-radius--50 g-padding-x-45--xs">
-                    Explore</a>
-            </span>
-        </div>
-    </div>
-</div>
-<!--========== END PROMO BLOCK ==========-->
+
+
+<!--========== SLIDER BLOCK ==========-->
+	<!-- Slider -->
+	<section class="section-slide">
+		<div class="wrap-slick1 rs1-slick1">
+			<div class="slick1">
+				<div class="item-slick1" style="background-image: url('https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/nightplankenya-bar-black.webp');">
+					<div class="container h-full">
+						<div class="flex-col-l-m h-full p-t-100 p-b-30">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
+								<h2 class="ltext-104 cl0 p-t-19 p-b-43 respon1">
+									We Make Going <br> Out Easy.
+								</h2>
+							</div>
+
+							<div class="layer-slick1 animated visible-false col-sm-8 col-md-4 p-b-30" data-appear="fadeInDown" data-delay="0">
+								<span class="ltext-204 cl0 respon2">
+									Night Plan Kenya is your ultimate nightlife guide. We connect you to club events and latest happy hours.
+								</span>
+							</div>
+
+							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+									Explore
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!--========== END SLIDER BLOCK ==========-->
 
 <!--========== PAGE CONTENT ==========-->
 <!-- Trending Section -->
