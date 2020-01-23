@@ -1,76 +1,156 @@
 {% load static %}
 <!--========== FOOTER ==========-->
-<footer class="g-bg-color--dark">
-    <!-- Links -->
-    <div class="g-hor-divider__dashed--white-opacity-lightest">
-        <div class="container g-padding-y-40--xs">
-            <div class="row">
-                <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
-                    <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'index' %}">Home</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'featured' %}">Explore</a>
-                        </li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'events' %}">Upcoming
-                                Event</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'clubs' %}">Night
-                                Clubs</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
-                    <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'about' %}">About</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'contact' %}">Contact
-                                Us</a>
-                        </li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'faq' %}">FAQ's</a></li>
 
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'terms' %}">Terms
-                                &amp; Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
-                    <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                        <li><a class="g-font-size-15--xs g-color--white-opacity" href="{% url 'team' %}">Team</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity"
-                                href="https://twitter.com/KenyaPlan" target="_blank">
-                                <i class="g-padding-r-5--xs ti-twitter"></i>@nightplankenya</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity"
-                                href="https://web.facebook.com/thee.nightplan.7/timeline?lst=1655303870%3A100041644517916%3A1578688791" target="_blank">
-                                <i class="g-padding-r-5--xs ti-facebook"></i>NightPlanKenya</a></li>
-                        <li><a class="g-font-size-15--xs g-color--white-opacity"
-                                href="https://www.instagram.com/nightplan_kenya/" target="_blank">
-                                <i class="g-padding-r-5--xs ti-instagram"></i>NightPlan_Kenya</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-2 g-margin-b-0--xs g-margin-b-0--md">
-                </div>
-                <div
-                    class="col-md-2 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-20--xs g-padding-y-0--md">
-                    <!-- <h3 class="g-font-size-18--xs g-color--white">Night Plan Kenya</h3> -->
-                    <p class="g-color--white-opacity">Night Plan Kenya is your ultimate nightlife guide. We connect you
-                        to club events and latest happy hours.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Links -->
-    <!-- Copyright -->
-    <div class="container g-padding-y-10--xs">
+<!-- Footer -->
+<footer class="bg3 p-t-75 p-b-32">
+    <div class="container">
         <div class="row">
-            <div class="col-xs-6">
-                <a href="{% url 'index' %}">
-                    <img class="g-width-100--xs g-height-auto--xs" src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLANKE.png"
-                        alt="NightPlanKenya">
-                </a>
+            <div class="col-sm-6 col-lg-3 p-b-50">
+
+                <ul>
+                    <li class="p-b-10">
+                        <a href="{% url 'index' %}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{% url 'featured' %}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Explore
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{% url 'events' %}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Browse Upcoming Events
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{% url 'clubs' %}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Night Clubs
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-xs-6 g-text-right--xs g-padding-y-20--xs">
-                <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a
-                        href="{% url 'index' %}">Night Plan Kenya</a>
-                    &copy; 2019 &nbsp; &#124; All rights reserved</a></p>
+
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <ul>
+                    <!-- If user is authenticated changes the sign in to Logout in footer -->
+                    {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
+                    <li class="p-b-10">
+                        <a href="{% url 'index' %}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Logout
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="p-b-10">
+                        <a href="/accounts/login" class="stext-107 cl7 hov-cl1 trans-04">
+                            Sign In
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="p-b-10">
+                        <a href="{% url 'about' %}" class="stext-107 cl7 hov-cl1 trans-04">
+                            About
+                        </a>
+                    </li>
+                    <li class="p-b-10">
+                        <a href="{% url 'terms' %}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Terms & Conditions
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{% url 'contact' %}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <h4 class="stext-301 cl0 p-b-30">
+                    GET IN TOUCH
+                </h4>
+
+                <ul>
+                    <li class="p-b-10">
+                        <a href="https://www.instagram.com/nightplan_kenya/" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-instagram">
+                                <span class="stext-108 m-l-2">NightPlan_Kenya</span></i>
+                        </a>
+                    </li>
+                    <li class="p-b-10">
+                        <a href="https://web.facebook.com/thee.nightplan.7/timeline?lst=1655303870%3A100041644517916%3A1578688791"
+                            class="fs-18 cl7 hov-cl1 trans-04 m-r-16 stext-108">
+                            <i class="fa fa-facebook"><span class="stext-108 m-l-15">NightPlanKenya</span
+                                    class="stext-108 m-l-2"></i>
+                        </a>
+                    </li>
+                    <li class="p-b-10">
+                        <a href="https://twitter.com/KenyaPlan" class="fs-18 cl7 hov-cl1 trans-04 m-r-16 stext-108">
+                            <i class="fa fa-twitter"><span class="stext-108 m-l-10">@nightplankenya</span
+                                    class="stext-108 m-l-5"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <h4 class="stext-301 cl0 p-b-30">
+                    Night Plan Kenya
+                </h4>
+
+                <p class="stext-107 cl7 size-201">
+                    Night Plan Kenya is your ultimate nightlife guide. We connect you
+                    to club events and latest happy hours. </p>
+
+                <!-- <form>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Subscribe
+							</button>
+						</div>
+					</form> -->
             </div>
         </div>
+
+        <div class="p-t-10">
+            <!-- <div class="flex-c-m flex-w p-b-18">
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
+					</a>
+				</div> -->
+
+            <p class="stext-107 cl6 txt-center">
+                Copyright &copy;<script>
+                    document.write(new Date().getFullYear());
+                </script> All rights reserved
+
+            </p>
+        </div>
     </div>
-    <!-- End Copyright -->
 </footer>
 <!--========== END FOOTER ==========-->
