@@ -31,7 +31,7 @@ def home_page(request):
     }
     return render(request, "pages/index.html", context)
 
-def featured_city_page(request):
+def explore_page(request):
     cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='').order_by('event_date')#display all cover images in detailed category
     categories = Category.objects.all().order_by('name')
     happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('event_date')
@@ -59,7 +59,7 @@ def featured_city_page(request):
         "just_for_you" : just_for_you,
         "happy_hour" : happy_hour,
     }
-    return render(request, "events/featured-city.html", context)
+    return render(request, "pages/explore.html", context)
 
 def about_page(request):
     context = {
