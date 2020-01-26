@@ -82,7 +82,7 @@
                         $(layerCurrentItem[index]).addClass($(layerCurrentItem[index]).data('appear') + ' visible-true');
                     },$(layerCurrentItem[i]).data('delay'),i); 
                 }
-                         
+
             });
 
         });
@@ -93,8 +93,8 @@
             $(this).find('.slick2').slick({
               slidesToShow: 4,
               slidesToScroll: 4,
-              infinite: false,
-              autoplay: false,
+              infinite: true,
+              autoplay: true,
               autoplaySpeed: 6000,
               arrows: true,
               appendArrows: $(this),
