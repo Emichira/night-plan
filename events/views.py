@@ -15,7 +15,7 @@ def events(request):
     cover_image = Event.objects.filter(is_published=True).order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     categories = Category.objects.order_by('-created_at')
     #pagination of events
-    paginator = Paginator(events, 16)
+    paginator = Paginator(events, 20)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
 
