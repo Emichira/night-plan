@@ -7,6 +7,7 @@ from counties.models import County
 from clubs.models import Club
 from django.http import HttpResponse, Http404
 from django.db.models import Q
+from datetime import datetime, date
 
 def events(request):
     #create objects
@@ -29,12 +30,12 @@ def events(request):
 def event(request, slug_event):
     #create one object event to detailed view event
     #Handles displaying of single event
-    trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
+    tonight = Event.objects.filter(event_date__date=date.today())
     event = get_object_or_404(Event, slug=slug_event)
     cover_image = Event.objects.exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     context = {
         "event" : event,
-        "trending" : trending,
+        "tonight" : tonight,
         "covers" : cover_image,
     }
     return render(request, "events/event.html", context)
