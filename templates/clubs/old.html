@@ -5,7 +5,6 @@
 <section class="section-slide grab">
     <div class="wrap-slick1">
         <div class="slick1">
-
             {% if covers %}
             {% for cover in covers %}
             <div class="item-slick1" id="cover" style="
@@ -64,7 +63,7 @@
         </div>
     </div>
 </section>
-<!--========== END PROMO BLOCK ==========-->
+<!--========== END COVER BLOCK ==========-->
 <!-- Product -->
 <section class="g-bg-color--dark-light p-t-23 p-b-140">
     <div class="container resize-content">
@@ -110,41 +109,36 @@
         </div>
         <div class="p-b-10">
             <h2 class="g-color--white"><a href="{% url 'explore' %}" class="fa fa-angle-left">
-                    Explore</a> - Upcoming Events
+                    Explore</a> - Night Clubs
             </h2>
         </div>
-        <!--========== Events ==========-->
-        <div class="row isotope-flex single-item-l-15 single-item-r-15">
-            {% if events %}
-            {% for event in events %}
+        <!--========== Clubs ==========-->
+        <div class="row isotope-grid single-item-l-15 single-item-r-15">
+            {% if clubs %}
+            {% for club in clubs %}
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 item-l-15 item-r-15 isotope-item women">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <a href="{% url 'event' event.slug %}">
-                            <img src="{{ event.event_image.url }}" class="image-fluid" alt="IMG-PRODUCT">
-                        </a>
-                    </div>
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="flex-col-l ">
-                            <a href="{% url 'event' event.slug %}"
-                                class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                {{ event.title }}
-                            </a>
-                            <span class="stext-107 cl9">
-                                {{ event.event_date }} - {{ event.event_end_date }}
-                            </span>
-                            <span class="stext-104 cl9">
-                                {{ event.venue }}
+                    <!-- Block1 -->
+                <div class="block1 wrap-pic-w">
+                    <img class="explore" src="{{ club.club_image.url }}" alt="IMG-BANNER">
+                    <a href="{% url 'club' club.slug %}"
+                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <div class="block1-txt-child1 flex-col-l">
+                            <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                {{ club.name }}
                             </span>
                         </div>
-                    </div>
+                        <div class="block1-txt-child2 p-b-4 trans-05">
+                            <div class="block1-link stext-101 cl0 trans-09">
+                                Explore {{ club.name }}
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             {% endfor %}
             {% else %}
             <div class="col-md-12">
-                <p>No Events Available</p>
+                <p>No Clubs Listed</p>
             </div>
             {% endif %}
         </div>
