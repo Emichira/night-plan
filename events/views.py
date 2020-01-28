@@ -8,6 +8,7 @@ from clubs.models import Club
 from django.http import HttpResponse, Http404
 from django.db.models import Q
 from datetime import datetime, date
+from genres.models import Genre
 
 def events(request):
     #create objects
@@ -19,11 +20,13 @@ def events(request):
     paginator = Paginator(events, 20)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
+    genres = Genre.objects.filter(is_published=True).order_by('name')
 
     context = {
         "events" : paged_events,
         "categories" : categories,
-        "covers" : cover_image
+        "covers" : cover_image,
+        'genres' : genres,
     }
     return render(request, "events/events.html", context)
 
@@ -33,10 +36,13 @@ def event(request, slug_event):
     tonight = Event.objects.filter(event_date__date=date.today())
     event = get_object_or_404(Event, slug=slug_event)
     cover_image = Event.objects.exclude(cover_image__isnull=True).exclude(cover_image__exact='')
+    genres = Genre.objects.filter(is_published=True).order_by('name')
+
     context = {
         "event" : event,
         "tonight" : tonight,
         "covers" : cover_image,
+        'genres' : genres,
     }
     return render(request, "events/event.html", context)
 
@@ -53,10 +59,12 @@ def search(request):
     paginator = Paginator(queryset_event, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
+    genres = Genre.objects.filter(is_published=True).order_by('name')
 
     context = {
         "events" : paged_events,
         "categories" : categories,
         "covers" : cover_image,
+        'genres' : genres,
     }
     return render(request, "events/search.html", context)
