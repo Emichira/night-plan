@@ -34,9 +34,11 @@ def genre(request, slug_genre):
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
     categories = Category.objects.all().order_by('-created_at')
+    genres = Genre.objects.all().order_by('name').filter(is_published=True)
 
     context = {
         "genre" : genre,
+        "genres" : genres,
         "counties" : name,
         "events" : paged_events,
         "covers" : cover_image,
