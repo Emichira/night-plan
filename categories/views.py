@@ -3,6 +3,7 @@ from events.models import Event
 from .models import Category
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse, Http404
+from genres.models import Genre
 
 def category(request, slug_category):
     #handles display of events belonging to a single category
@@ -18,12 +19,14 @@ def category(request, slug_category):
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
+    genres = Genre.objects.filter(is_published=True).order_by('name')
 
     context = {
         "category" : category,
         "name" : category_name,
         "categories" : categories,
         "events" : paged_events,
+        'genres' : genres,
         "covers" : cover_image
     }
     return render(request, "categories/category.html", context)
