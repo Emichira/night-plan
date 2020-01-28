@@ -4,6 +4,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse, Http404
 from .models import Club
 from categories.models import Category
+from genres.models import Genre
 
 def clubs(request):
     #create objects
@@ -11,6 +12,7 @@ def clubs(request):
     clubs = Club.objects.order_by('name').filter(is_published=True)
     cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     categories = Category.objects.order_by('-created_at')
+    genres = Genre.objects.filter(is_published=True).order_by('name')
     #pagination of events
     paginator = Paginator(clubs, 16)
     page = request.GET.get('page')
@@ -19,6 +21,7 @@ def clubs(request):
     context = {
         "clubs" : paged_events,
         "categories" : categories,
+        'genres' : genres,
         "covers" : cover_image
     }
     return render(request, "clubs/clubs.html", context)
@@ -34,6 +37,7 @@ def club(request, slug_club):
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
     categories = Category.objects.order_by('-created_at')
+    genres = Genre.objects.filter(is_published=True).order_by('name')
 
     context = {
         "club" : club,
@@ -41,5 +45,6 @@ def club(request, slug_club):
         "events" : paged_events,
         "covers" : cover_image,
         "categories" : categories,
+        'genres' : genres,
     }
     return render(request, "clubs/club.html", context)
