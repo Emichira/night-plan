@@ -1,120 +1,73 @@
-{% extends 'base-layout.html' %}
+{% extends 'base.html' %}
 {% block title %} - About Us | Discover Club Events and Gigs in Kenya {% endblock %}
 {% load static %}
 {% block content %}
 
-    <!--========== PROMO BLOCK ==========-->
-    <div class="g-fullheight--md js__parallax-window g-bg-color--dark-light">
-        <div class="g-container--md g-text-center--xs g-ver-center--md g-padding-y-150--xs g-padding-y-0--md">
-            <div class="g-margin-b-60--xs">
-                <p
-                    class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs">
-                    Welcome
-                    to Night Plan Kenya</p>
-                <h1 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white g-letter-spacing--1">
-                    We
-                    make Going out easy</h1>
-                <p class="g-font-size-18--xs g-font-size-26--md g-color--white g-margin-b-0--xs">Night Plan Kenya is your ultimate nightlife guide. We connect you
-                    to club events and latest happy hours.</p>
+<!--========== TITLE BLOCK ==========-->
+<!-- Title page -->
+<section class="bg-img1 txt-center p-lr-15 p-tb-100" style="background-image: url('https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/banner.jpg');">
+    <h2 class="ltext-106 cl0 txt-center">
+        We Make Going Out Easy
+    </h2>
+</section>
+<!--========== END TITLE BLOCK ==========-->
+
+<!--========== PAGE CONTENT ==========-->
+<!-- About -->
+<section class="bg1 p-t-75 p-b-30">
+    <div class="container">
+        <div class="row p-b-148">
+            <div class="col-md-7 col-lg-8">
+                <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+                    <p class="mtext-110 cl0 p-b-26">
+                        Night Plan Kenya is your ultimate nightlife guide. We connect you to club events and latest
+                        happy hours.
+                    </p>
+
+                    <div class="bor16 p-l-29 p-b-9 m-t-22">
+                        <span class="mtext-101 cl13">
+                            - Home Page
+                        </span>
+                        <p class="stext-114 cl0 p-r-40 p-b-11">
+                            Select a tab to browse events.
+                        </p>
+                    </div>
+                    <div class="bor16 p-l-29 p-b-9 m-t-22">
+                        <span class="mtext-101 cl13">
+                            - Explore Page
+                        </span>
+                        <p class="stext-114 cl0 p-r-40 p-b-11">
+                            View upcoming club events & curated categories and select a preferred event or club.
+                        </p>
+                    </div>
+                    <div class="bor16 p-l-29 p-b-9 m-t-22">
+                        <span class="mtext-101 cl13">
+                            - Event Page
+                        </span>
+                        <p class="stext-114 cl0 p-r-40 p-b-11">
+                            View detailed event information.
+                        </p>
+                    </div>
+                    <div class="bor16 p-l-29 p-b-9 m-t-22">
+                        <span class="mtext-101 cl13">
+                            - Reservations
+                        </span>
+                        <p class="stext-114 cl0 p-r-40 p-b-11">
+                            Reserve a table at a preferred nightclub.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <span
-                class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
-                <a href="{% url 'contact' %}"
-                    class="text-uppercase s-btn s-btn-icon--md s-btn--primary-bg g-radius--50 g-padding-x-45--xs">Learn
-                    More</a>
-            </span>
-            <span
-                class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
-                <a href="/accounts/login"
-                    class="text-uppercase s-btn s-btn-icon--md s-btn--white-brd g-radius--50 g-padding-x-65--xs">Join
-                    Us</a>
-            </span>
-        </div>
-    </div>
-    <!--========== END PROMO BLOCK ==========-->
 
-    <!--========== PAGE CONTENT ==========-->
-    <!-- About -->
-
-    <!-- End About -->
-
-    <!-- Process -->
-    <div class="g-bg-color--primary">
-        <div class="container g-padding-y-80--xs g-padding-y-125--sm">
-            <div class="g-text-center--xs g-margin-b-100--xs">
-                <p
-                    class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">
-                    Process</p>
-                <h2 class="g-font-size-32--xs g-font-size-36--md g-color--white">How it Works</h2>
-            </div>
-            <ul class="list-inline row g-margin-b-100--xs">
-                <!-- Process -->
-                <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--md">
-                    <div class="center-block g-text-center--xs">
-                        <div class="g-margin-b-30--xs">
-                            <span
-                                class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">01</span>
-                        </div>
-                        <div class="g-padding-x-20--xs">
-                            <h3 class="g-font-size-18--xs g-color--white">Home Page</h3>
-                            <p class="g-color--white-opacity">Select a tab to explore events.</p>
-                        </div>
+            <div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+                <div class="how-bor1 ">
+                    <div class="hov-img0 bg7">
+                        <img src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/Night+Plan+Kenya+Logo.png" alt="IMG">
                     </div>
-                </li>
-                <!-- End Process -->
-
-                <!-- Process -->
-                <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--md">
-                    <div class="center-block g-text-center--xs">
-                        <div class="g-margin-b-30--xs">
-                            <span
-                                class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">02</span>
-                        </div>
-                        <div class="g-padding-x-20--xs">
-                            <h3 class="g-font-size-18--xs g-color--white">Explore Page</h3>
-                            <p class="g-color--white-opacity">View upcoming nightclub events, curated categories and listed nightclubs then select a preferred nightclub event.</p>
-                        </div>
-                    </div>
-                </li>
-                <!-- End Process -->
-
-                <!-- Process -->
-                <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--sm">
-                    <div class="center-block g-text-center--xs">
-                        <div class="g-margin-b-30--xs">
-                            <span
-                                class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">03</span>
-                        </div>
-                        <div class="g-padding-x-20--xs">
-                            <h3 class="g-font-size-18--xs g-color--white">Event Page</h3>
-                            <p class="g-color--white-opacity">View detailed event information.</p>
-                        </div>
-                    </div>
-                </li>
-                <!-- End Process -->
-
-                <!-- Process -->
-                <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1">
-                    <div class="center-block g-text-center--xs">
-                        <div class="g-margin-b-30--xs">
-                            <span
-                                class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">04</span>
-                        </div>
-                        <div class="g-padding-x-20--xs">
-                            <h3 class="g-font-size-18--xs g-color--white">Reservations</h3>
-                            <p class="g-color--white-opacity">Reserve a table at a preferred event or club through nightclub contacts provided.</p>
-                        </div>
-                    </div>
-                </li>
-                <!-- End Process -->
-            </ul>
-
-            <div class="g-text-center--xs">
-                <a href="{% url 'explore' %}"
-                    class="text-uppercase s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-70--xs">Get
-                    Started</a>
+                </div>
             </div>
         </div>
     </div>
-    <!-- End Process -->
+</section>
+<!-- End Process -->
 {% endblock %}
