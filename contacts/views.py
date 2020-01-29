@@ -22,7 +22,7 @@ def contact_page(request):
             'Night Plan Kenya Contact Us Message',
             'There has been a Night Plan Kenya message received from '+ name +'. \nSign into the Night Plan Kenya Admin Panel for more info. The message reads as follows: \n' + message,
             'nightplankenya@gmail.com',
-            ['nightplankenya@gmail.com', 'emmanuelmichira@gmail.com', 'mkabura93@gmail.com', 'amosnyasinga@gmail.com', 'mainairungu99@gmail.com'],
+            ['nightplankenya@gmail.com', 'emmanuelmichira@gmail.com', 'mainairungu99@gmail.com'],
             fail_silently=False
         )
 

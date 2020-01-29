@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'categories.apps.CategoriesConfig',
     'event_types.apps.EventTypesConfig',
     'counties.apps.CountiesConfig',
-    'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
     'clubs.apps.ClubsConfig',
     'genres.apps.GenresConfig',

@@ -6,48 +6,15 @@
 {% block title %} - Account Login | Discover Club Events and Gigs in Kenya {% endblock %}
 {% block content %}
 <!--========== PAGE CONTENT ==========-->
-<!-- Feedback Form -->
-<div class="g-position--relative g-bg-color--primary">
-  <div class="g-container--md g-padding-y-125--xs">
-    <div class="g-text-center--xs g-margin-t-10--xs g-margin-b-20--xs">
-      <h2 class="g-font-size-32--xs g-font-size-36--sm g-color--white">{% trans "Sign In" %}</h2>
+<!-- Login page -->
+<!-- Content page -->
+<section class="sec-blog bg1 p-t-100 p-b-30">
+  <div class="container">
+    <div class="p-b-30">
+      <h3 class="ltext-106 cl0 txt-center respon1">
+        Sign In
+      </h3>
     </div>
-    <div class="row g-row-col--5 g-margin-b-10--xs">
-      <div class="col-xs-2 g-full-width--xs g-margin-b-0--sm">
-      </div>
-      <div class="col-xs-8 g-full-width--xs g-margin-b-0--sm">
-        <div class="g-text-center--xs g-margin-t-10--xs">
-          {% get_providers as socialaccount_providers %}
-
-          <p class="exist_account_info">{% blocktrans with site.name as site_name %}Please sign in with a
-            Facebook account. Or,
-            <br>
-            <a href="{{ signup_url }}" class="hova">Sign Up</a>
-            for a {{ site_name }} account then sign in below:{% endblocktrans %}</p>
-          <br>
-          {% if socialaccount_providers %}
-          {% for provider in socialaccount_providers %}
-          <a title="{{provider.name}}"
-            href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params method='js_sdk' %}">
-            <i class="g-display-block--xs g-font-size-40--xs g-color--white-opacity ti-facebook"></i>
-            <p class="g-color--white-opacity">Login with {{provider.name}}</p>
-          </a>
-          {% endfor %}
-          <br>
-          <div class="g-color--white-opacity">{% trans 'or' %}</div>
-        </div>
-      </div>
-      <div class="col-xs-2 g-full-width--xs">
-      </div>
-    </div>
-
-    {% include "socialaccount/snippets/login_extra.html" %}
-
-    {% else %}
-    <p>{% blocktrans %}If you have not created an account yet, then please
-      <a href="{{ signup_url }}" class="hova">sign up</a> first.{% endblocktrans %}</p>
-    {% endif %}
-
     {% block messages %}
     {% if messages %}
     <div>
@@ -64,25 +31,64 @@
     </div>
     {% endif %}
     {% endblock %}
+    <div class="row">
+      <div class="col-sm-6 col-md-4 p-b-15">
+      </div>
 
-    <div class="row g-row-col--5 g-margin-b-30--xs center-flex-layout">
-      <div class="col-md-5 g-margin-b-0--sm center-flex-layout">
-        <form class="center-block g-width-500--sm g-width-550--md center-inline-grid" method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %}
-          <div class="center-inline-grid g-margin-b-30--xs g-margin-b-20--md" id="login_form">
-            {{ form }}
-          </div>
+      <div class="col-sm-6 col-md-4 p-b-10 txt-center">
+        <div class="p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+          <h4 class="stext-110 cl2 p-b-30">
+            Don't have an account? <a href="{{ signup_url }}">Sign Up</a> instead.
+          </h4>
 
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
+            {% get_providers as socialaccount_providers %}
+            {% if socialaccount_providers %}
+            {% for provider in socialaccount_providers %}
+            <a title="{{provider.name}}"
+              href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params method='js_sdk' %}">
+              <i class="fontsize fa fa-{{provider.id}}"></i>
+              <p class="cl0 p-b-15">Login with {{provider.name}}</p>
+            </a>
+            {% endfor %}
 
-          <button class="btn btn-outline-primary g-margin-b-20--xs g-margin-b-20--md center-inline-grid g-radius--50" type="submit"> <span class="g-color--white-opacity">{% trans "Sign In" %}</span> </button>
-          <a class="btn btn-outline-dark center-inline-grid g-radius--50" href="{% url 'account_reset_password' %}"> <span class="g-color--white-opacity">{% trans "Forgot Password ?" %}</span> </a>
+            {% include "socialaccount/snippets/login_extra.html" %}
 
-        </form>
+            {% else %}
+            <p>{% blocktrans %}If you have not created an account yet, then please
+              <a href="{{ signup_url }}" class="hova">sign up</a> first.{% endblocktrans %}</p>
+            {% endif %}
+
+          <form class="django-login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %} {% if form.non_field_errors %}
+            <div class="alert alert-warning">
+              <ul class="alert-message">
+                {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            <div class="bor8 bg-none m-b-12 {% if form.login.errors %}has-error{% endif %}">
+              {{ form.login }}
+            </div>
+
+            <div class="bor8 bg-none m-b-12 {% if form.password.errors %}has-error{% endif %}">
+              {{ form.password }}
+            </div>
+
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />{% endif %}
+            <div class="btn-div pull-center">
+              <button class="btn btn-primary btn-block" type="submit">{% trans "Sign In" %}</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 p-b-40">
       </div>
     </div>
   </div>
-</div>
+</section>
 {% endblock %}
