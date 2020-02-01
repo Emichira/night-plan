@@ -5,10 +5,10 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<div class="g-position--relative g-bg-color--primary">
-  <div class="g-container--md g-padding-y-125--xs">
+<section class="sec-blog bg1 p-t-100 p-b-30">
+  <div class="container p-all-15">
 
-    <h3 class="g-font-size-32--xs g-font-size-36--md g-color--white" id="head_banner">{% trans "Sign Out" %}</h3>
+    <h3 class="cl0" id="head_banner">{% trans "Sign Out" %}</h3>
 
     <p class="confirm_logout_info">{% trans 'Are you sure you want to sign out?' %}</p>
 
@@ -24,9 +24,9 @@
 
       <button class="btn btn-outline-success" type="submit">{% trans 'Sign Out' %}</button>
       <a class="btn btn-outline-danger" id="custom_logout_no" href="/accounts/profile/"><span
-          class="g-color--white-opacity">{% trans 'No' %}</span></a>
+          class="cl0">{% trans 'No' %}</span></a>
     </form>
 
   </div>
-</div>
+</section>
 {% endblock %}

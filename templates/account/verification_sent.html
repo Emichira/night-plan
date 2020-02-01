@@ -1,19 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
 {% block content %}
-<div class="g-position--relative g-bg-color--primary">
-    <div class="g-container--md g-padding-y-125--xs">
+<section class="sec-blog bg1 p-t-150 p-b-150">
+    <div class="container p-lr-50">
 
-        <h3 class="g-font-size-32--xs g-font-size-36--md g-color--white" id="head_banner">{% trans "Verify Your E-mail Address" %}</h3>
+        <h3 class="cl0" id="head_banner">{% trans "Verify Your E-mail Address" %}</h3>
 
-        <p id="verification_sent_info">{% blocktrans %}We have sent an e-mail to you for verification. Follow the
+        <p id="verification_sent_info" class="cl0">{% blocktrans %}We have sent an e-mail to you for verification. Follow the
             link
             provided to finalize the signup process. <br> Please contact us if you do not receive it within a few
             minutes.{% endblocktrans %}</p>
     </div>
-</div>
+</section>
 {% endblock %}

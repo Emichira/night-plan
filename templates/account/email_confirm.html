@@ -1,4 +1,4 @@
-{% extends "base-layout.html" %}
+{% extends "base.html" %}
 
 {% load i18n %}
 {% load account %}
@@ -6,10 +6,10 @@
 
 
 {% block content %}
-<div class="g-position--relative g-bg-color--primary">
-	<div class="g-container--md g-padding-y-125--xs">
+<section class="sec-blog bg1 p-t-150 p-b-50">
+	<div class="container p-all-15">
 
-		<h3 class="g-font-size-32--xs g-font-size-36--md g-color--white" id="head_banner">{% trans "Confirm E-mail Address" %}</h3>
+		<h3 class="cl0" id="head_banner">{% trans "Confirm E-mail Address" %}</h3>
 
 		{% if confirmation %}
 
@@ -38,5 +38,5 @@
 
 		{% endif %}
 	</div>
-</div>
+</section>
 {% endblock %}

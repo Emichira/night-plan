@@ -1,9 +1,8 @@
 {% extends "base.html" %}
-
 {% load i18n %}
-{% load account socialaccount %}
+{% block title %} - Register Account | Discover Club Events and Gigs in Kenya {% endblock %}
 {% load crispy_forms_tags %}
-{% block title %} - Account Login | Discover Club Events and Gigs in Kenya {% endblock %}
+{% load account socialaccount %}
 {% block content %}
 <!--========== PAGE CONTENT ==========-->
 <!-- Login page -->
@@ -20,8 +19,8 @@
     <div>
       <ul>
         {% for message in messages %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>{{message}}</strong>
+        <div class="alert alert-warning alert-dismissible fade show cl0" role="alert">
+          <strong class="cl0">{{message}}</strong>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -31,45 +30,45 @@
     </div>
     {% endif %}
     {% endblock %}
+
+    <!-- Signup Form Section -->
     <div class="row">
+      <!-- First Column -->
       <div class="col-sm-6 col-md-4 p-b-15">
       </div>
 
-      <div class="col-sm-6 col-md-4 p-b-10 txt-center">
+      <!-- SignUp Form Column -->
+      <div class="col-sm-6 col-md-4 p-b-10">
         <div class="p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-          <h4 class="stext-110 cl2 p-b-30">
-            Don't have an account? <a href="{{ login_url }}">Sign In</a> instead.
+          <h4 class="stext-110 cl0 p-b-15">
+            Already have an account? <a href="{{ login_url }}" class="undaline stext-101"> Sign In</a> instead.
           </h4>
 
-          <form class="django-login" method="POST" action="{% url 'account_login' %}">
+          <form method="POST" action="{% url 'account_signup' %}">
             {% csrf_token %}
-
-            <div class="text-center">
-              <input type="email" name="email" placeholder="E-mail address" required="" id="id_login" class="bor8 bg-none m-b-12">
-              <input type="text" name="username" placeholder="Username" autofocus="autofocus" minlength="2"
-                maxlength="150" required="" id="id_login" class="bor8 bg-none m-b-12">
-              <input type="password" name="password1" placeholder="Password" required="" id="id_login" class="bor8 bg-none m-b-12">
-              <input type="password" name="password2" placeholder="Password (again)" required="" id="id_login" class="bor8 bg-none m-b-12">
+            <div class="bg-none" id="id_signup">
+              {{ form.as_p }}
             </div>
 
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
             <div class="g-margin-b-10--xs row checkbox">
-              <label class="cl2 m-lr-15 p-tb-10">
+              <label class="cl0 m-lr-15 p-t-10">
                 <span name="terms_and_conditions">By signing up, you agree to our <a href="{% url 'terms' %}"
                     class="hova">Terms &amp; Conditions
                   </a></span>
               </label>
             </div>
-            <div class="btn-div pull-center">
-              <button class="btn btn-primary btn-block" type="submit">{% trans "Sign Up" %}</button>
-            </div>
+            <!-- <div class="btn-div pull-center"> -->
+              <button class="btn btn-primary btn-block text-center m-all-20" type="submit">{% trans "Sign Up" %}</button>
+            <!-- </div> -->
           </form>
 
         </div>
       </div>
 
+      <!-- Last Column -->
       <div class="col-sm-6 col-md-4 p-b-40">
       </div>
     </div>

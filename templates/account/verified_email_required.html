@@ -5,9 +5,9 @@
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
 {% block content %}
-<div class="g-position--relative g-bg-color--primary">
-    <div class="g-container--md g-padding-y-125--xs">
-        <h1 class="g-font-size-32--xs g-font-size-36--md g-color--white">{% trans "Verify Your E-mail Address" %}</h1>
+<section class="sec-blog bg1 p-t-100 p-b-30">
+    <div class="container p-all-10">
+        <h1 class="cl0">{% trans "Verify Your E-mail Address" %}</h1>
 
         {% url 'account_email' as email_url %}
 
@@ -22,6 +22,6 @@
         <p>{% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}" class="hova">change your e-mail
                 address</a>.{% endblocktrans %}</p>
     </div>
-</div>
+</section>>
 
 {% endblock %}
