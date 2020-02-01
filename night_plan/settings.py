@@ -189,6 +189,7 @@ GOOGLE_ANALYTICS = {
     'google_analytics_id': os.environ.get('GOOGLE_ANALYTICS_KEY'),
 }
 
+# #Change static storage to Amazon Web Services S3-static
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID_NIGHT')
@@ -212,7 +213,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 # Old static storage settings
-# #Change static storage to Amazon Web Services S3-static
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
