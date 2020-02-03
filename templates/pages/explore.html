@@ -123,31 +123,31 @@
                             </li>
 
                             <li class="p-b-6">
-                                <a href="" class="filter-link stext-106 trans-04">
+                                <a href="#happyHour" class="filter-link stext-106 trans-04">
                                     Happy Hours
                                 </a>
                             </li>
 
                             <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
+                                <a href="#tonight" class="filter-link stext-106 trans-04">
                                     Tonight
                                 </a>
                             </li>
 
                             <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
+                                <a href="#weekend" class="filter-link stext-106 trans-04">
                                     This Weekend
                                 </a>
                             </li>
 
                             <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
+                                <a href="#trending" class="filter-link stext-106 trans-04">
                                     Trending
                                 </a>
                             </li>
 
                             <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
+                                <a href="#featured" class="filter-link stext-106 trans-04">
                                     Featured
                                 </a>
                             </li>
@@ -223,7 +223,7 @@
                         <div class="slick2">
                             {% if clubs %}
                             {% for club in clubs %}
-                            <div class="item-slick2 p-l-5 p-r-5 p-t-15 p-b-15">
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                 <!-- Block1 -->
                                 <div class="block1 wrap-pic-w">
                                     <img class="explore" src="{{ club.club_image.url }}" alt="IMG-BANNER">
@@ -273,7 +273,7 @@
         </div>
         <!-- Tab01 -->
         <!-- Happy Hours -->
-        <div class="tab02 women">
+        <div class="tab02 p-t-15"  id="happyHour">
             <!-- Tab panes -->
             <div class="tab-content p-t-15">
                 <span class="ltext-101 cl0"> Happy Hours </span>
@@ -284,7 +284,7 @@
                         <div class="slick2">
                             {% if happy_hour %}
                             {% for event in happy_hour %}
-                            <div class="item-slick2 p-l-5 p-r-5 p-t-15 p-b-15">
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                 <!-- Block2 -->
                                 <div class="block2">
                                     <div class="block2-pic hov-img0">
@@ -343,7 +343,7 @@
         </div>
         <!-- Tab02 -->
         <!-- Tonight -->
-        <div class="tab02 women">
+        <div class="tab02 p-t-15" id="tonight">
             <!-- Tab panes -->
             <div class="tab-content p-t-15">
                 <span class="ltext-101 cl0"> Tonight </span>
@@ -354,7 +354,7 @@
                         <div class="slick2">
                             {% if tonight %}
                             {% for event in tonight %}
-                            <div class="item-slick2 p-l-5 p-r-5 p-t-15 p-b-15">
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                 <!-- Block2 -->
                                 <div class="block2">
                                     <div class="block2-pic hov-img0">
@@ -413,7 +413,7 @@
         </div>
         <!-- Tab03 -->
         <!-- This Weekend -->
-        <div class="tab02 women">
+        <div class="tab02 p-t-15" id="weekend">
             <!-- Tab panes -->
             <div class="tab-content p-t-15">
                 <span class="ltext-101 cl0"> This Weekend </span>
@@ -424,7 +424,7 @@
                         <div class="slick2">
                             {% if this_week %}
                             {% for event in this_week %}
-                            <div class="item-slick2 p-l-5 p-r-5 p-t-15 p-b-15">
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                 <!-- Block2 -->
                                 <div class="block2">
                                     <div class="block2-pic hov-img0">
@@ -484,7 +484,7 @@
 
         <!-- Tab04 -->
         <!-- Trending -->
-        <div class="tab02 women">
+        <div class="tab02 p-t-15" id="trending">
             <!-- Tab panes -->
             <div class="tab-content p-t-15">
                 <span class="ltext-101 cl0"> Trending </span>
@@ -495,7 +495,7 @@
                         <div class="slick2">
                             {% if trending %}
                             {% for event in trending %}
-                            <div class="item-slick2 p-l-5 p-r-5 p-t-15 p-b-15">
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                 <!-- Block2 -->
                                 <div class="block2">
                                     <div class="block2-pic hov-img0">
