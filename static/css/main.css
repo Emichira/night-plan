@@ -3559,3 +3559,7 @@ animation: an1 12s .5s infinite ease-out;
   font-weight: 600;
   font-size: 16px;
 }
+
+.about-logo {
+  width: 80% !important;
+}
