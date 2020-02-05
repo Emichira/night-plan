@@ -32,6 +32,12 @@ urlpatterns = [
     path('admin/', admin.site.urls)
 ]
 
+# error handling
+handler404 = 'pages.views.not_found'
+handler500 = 'pages.views.server_error'
+handler403 = 'pages.views.permission_denied'
+handler400 = 'pages.views.bad_request'
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
