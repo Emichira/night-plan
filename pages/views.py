@@ -44,16 +44,6 @@ def terms_and_conditions_page(request):
     }
     return render(request, "pages/terms-and-conditions.html", context)
 
-def faq_page(request):
-    context = {
-    }
-    return render(request, "pages/faq.html", context)
-
-def team_page(request):
-    context = {
-    }
-    return render(request, "pages/team.html", context)
-
 def server_error(request):
     cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='').order_by('event_date')#display all cover images in detailed category
     clubs = Club.objects.filter(is_published=True).order_by('name')
