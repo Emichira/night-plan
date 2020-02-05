@@ -29,7 +29,7 @@ urlpatterns = [
     path('clubs/', include('clubs.urls')),
     path('genres/', include('genres.urls')),
     path('', include('google_analytics.urls')),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
 ]
 
 # error handling
