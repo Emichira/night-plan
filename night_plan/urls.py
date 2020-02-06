@@ -17,6 +17,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('', include('pages.urls')),
@@ -30,6 +32,8 @@ urlpatterns = [
     path('genres/', include('genres.urls')),
     path('', include('google_analytics.urls')),
     path('admin/', admin.site.urls),
+    # google adsense redirect configuration
+    path('ads.txt', RedirectView.as_view(url=staticfiles_storage.url('ads.txt')),),
 ]
 
 # error handling
