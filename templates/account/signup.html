@@ -47,7 +47,7 @@
           <form method="POST" action="{% url 'account_signup' %}">
             {% csrf_token %}
             <div class="bg-none" id="id_signup">
-              {{ form.as_p }}
+              <span class="signup_form">{{ form.as_p }}</span>
             </div>
 
             {% if redirect_field_value %}
