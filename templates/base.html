@@ -54,15 +54,6 @@
 <!-- Body -->
 
 <body class="animsition">
-	<div class="loader-wrapper">
-        <span href="javascript:void(0);" class="loader"><span class="loader-inner"></span></span>
-        <br>
-        <div class="g-text-center--xs g-margin-t-20--xs g-margin-l-10--xs">
-            <p
-                class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white g-letter-spacing--2 g-margin-b-25--xs">
-                LOADING</p>
-        </div>
-    </div>
 	<!-- Top Navbar -->
 	{% include 'partials/_navbar.html' %}
 
@@ -78,12 +69,6 @@
 			<i class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-    <script type="text/javascript">
-        window.addEventListener("load", function () {
-            const loader = document.querySelector(".loader-wrapper");
-            loader.className += " hidden"; // class "loader hidden"
-        });
-    </script>
 
 	<!--===============================================================================================-->
 	<script src="{%static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
