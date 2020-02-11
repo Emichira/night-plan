@@ -38,11 +38,9 @@
                         {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' or ass.provider == 'linkedin-oauth2' %}
                         <!-- Code to add if user is authenticated changes the sign in button to display name -->
                         <li>
-                            <a href="{% url 'account_logout' %}">Logout</a>
+                            <a href="{% url 'account_logout' %}">Logout {{ user.username }}</a>
                         </li>
-                        <li>
-                            <a href="#">{{ user.username }}</a>
-                        </li>
+
                         <form action="{% url 'index' %}" method="POST" id="logout">
                             {% csrf_token %}
                             <input type="hidden">
@@ -122,7 +120,7 @@
             </li>
             {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
             <li>
-                <a href="{% url 'account_logout' %}">Logout</a>
+                <a href="{% url 'account_logout' %}">Logout {{ user.username }}</a>
             </li>
             <form action="{% url 'index' %}" method="POST" id="logout">
                 {% csrf_token %}
@@ -173,7 +171,7 @@
                 {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
                 <li class="p-b-13">
                     <a href="{% url 'account_logout' %}" class="stext-102 cl2 hov-cl1 trans-04">
-                        Logout
+                        Logout {{ user.username }}
                     </a>
                 </li>
                 <form action="{% url 'index' %}" method="POST" id="logout">

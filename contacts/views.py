@@ -32,4 +32,4 @@ def contact_page(request):
     context = {
     }
 
-    return render(request, "pages/contact/contacts.html", context)
+    return render(request, "pages/contacts.html", context)
