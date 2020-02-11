@@ -3725,3 +3725,9 @@ animation: an1 12s .5s infinite ease-out;
       visibility: hidden;
   }
 }
+
+.btn-block-60 {
+  display: block;
+  width: 65%;
+  margin: auto;
+}
