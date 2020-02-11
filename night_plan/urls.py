@@ -33,8 +33,8 @@ urlpatterns = [
     path('', include('google_analytics.urls')),
     path('admin/', admin.site.urls),
     # google adsense redirect configuration
-    path('ads.txt', RedirectView.as_view(url=staticfiles_storage.url('ads.txt')),),
-]
+    path('ads.txt', RedirectView.as_view(url=staticfiles_storage.url('ads.txt'))),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # error handling
 handler404 = 'pages.views.not_found'
