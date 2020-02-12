@@ -21,9 +21,11 @@
 
 					<div class="m-b-20 how-pos4-parent">
 						{% if user.is_authenticated %}
-						<input type="hidden" name="user_id" value="{{user.id}}" class="stext-116 cl0 plh3 size-116 p-l-50 p-r-30 bg-none">
+						<input type="hidden" name="user_id" value="{{user.id}}"
+							class="stext-116 cl0 plh3 size-116 p-l-50 p-r-30 bg-none">
 						{% else %}
-						<input type="hidden" name="user_id" value="" class="stext-116 cl0 plh3 size-116 p-l-50 p-r-30 bg-none">
+						<input type="hidden" name="user_id" value=""
+							class="stext-116 cl0 plh3 size-116 p-l-50 p-r-30 bg-none">
 						{% endif %}
 					</div>
 					<div class="bor8 m-b-20 how-pos4-parent">
@@ -105,6 +107,30 @@
 		</div>
 	</div>
 </section>
+<!-- Banner Advertisement-->
+<div class="sec-banner bg7 p-t-30 p-b-15">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-xl-4 p-b-30 m-lr-auto">
+			</div>
+
+			<div class="col-md-8 col-xl-4 p-b-30 m-lr-auto">
+				<div class="block1 wrap-pic-w">
+					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Ad Banner 1 -->
+					<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4430010625096915"
+						data-ad-slot="7399172120" data-ad-format="auto" data-full-width-responsive="true"></ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-xl-4 p-b-30 m-lr-auto">
+			</div>
+		</div>
+	</div>
+</div>
 <!-- End Feedback Form -->
 <!--========== END PAGE CONTENT ==========-->
 {% endblock %}
