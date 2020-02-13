@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} - Browse Club Events | Discover Club Events and Gigs in Kenya {% endblock %}
+{% load static %}
+{% block content %}
+
+<main class="bg1 p-t-150 p-b-100">
+    <div class="container">
+
+        <div id="notfound">
+            <div class="notfound">
+                <div class="notfound-404">
+                    <h1>Oops!</h1>
+                    <h2>500 Server Error - It's not you, it's me.</h2>
+                </div>
+                <a href="{% url 'index' %}">Go TO Homepage</a>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- End 404 Section -->
+<!--========== END MAIN CONTENT ==========-->
+{% endblock %}
