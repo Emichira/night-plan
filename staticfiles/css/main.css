@@ -3731,3 +3731,8 @@ animation: an1 12s .5s infinite ease-out;
   width: 65%;
   margin: auto;
 }
+
+/* Default icon URLs */
+.my-div-icon {
+	background-image: url('https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/Django-leaflet-marker/marker-icon.png') !important;
+	}

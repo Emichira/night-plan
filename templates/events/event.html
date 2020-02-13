@@ -98,12 +98,14 @@
                                 </div>
                                 <script type="text/javascript">
                                     function map_init(map, options) {
+                                        // set custom map marker-icon
+                                        var myIcon = L.divIcon({className: 'my-div-icon'});
                                         // get club point lat and lon
                                         var lon = "{{ event.geometry.x }}";
                                         var lat = "{{ event.geometry.y }}";
                                         // zoom to point & add it to map
                                         map.setView([lat, lon], 12);
-                                        L.marker([lat, lon]).addTo(map);
+                                        L.marker([lat, lon], {icon: myIcon}).addTo(map).bindPopup('{{ event.venue }}').openPopup();
                                     }
                                 </script>
                             </div>
