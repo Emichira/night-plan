@@ -15,12 +15,6 @@
                     </li>
 
                     <li class="p-b-10">
-                        <a href="{% url 'explore' %}" class="stext-107 cl0 hov-cl1 trans-04">
-                            Explore
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
                         <a href="{% url 'events' %}" class="stext-107 cl0 hov-cl1 trans-04">
                             Browse Upcoming Events
                         </a>
@@ -29,6 +23,12 @@
                     <li class="p-b-10">
                         <a href="{% url 'clubs' %}" class="stext-107 cl0 hov-cl1 trans-04">
                             Night Clubs
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{% url 'about' %}" class="stext-107 cl0 hov-cl1 trans-04">
+                            About
                         </a>
                     </li>
                 </ul>
@@ -53,12 +53,13 @@
                             Sign In
                         </a>
                     </li>
-                    {% endif %}
                     <li class="p-b-10">
-                        <a href="{% url 'about' %}" class="stext-107 cl0 hov-cl1 trans-04">
-                            About
+                        <a href="/accounts/signup" class="stext-107 cl0 hov-cl1 trans-04">
+                            Sign up
                         </a>
                     </li>
+                    {% endif %}
+
                     <li class="p-b-10">
                         <a href="{% url 'terms' %}" class="stext-107 cl0 hov-cl1 trans-04">
                             Terms & Conditions
@@ -80,20 +81,20 @@
 
                 <ul>
                     <li class="p-b-10">
-                        <a href="https://www.instagram.com/nightplan_kenya/" class="fs-18 cl0 hov-cl1 trans-04 m-r-16">
+                        <a href="https://www.instagram.com/nightplan_kenya/" target="_blank" class="fs-18 cl0 hov-cl1 trans-04 m-r-16">
                             <i class="fa fa-instagram">
                                 <span class="stext-108 m-l-2">NightPlan_Kenya</span></i>
                         </a>
                     </li>
                     <li class="p-b-10">
                         <a href="https://web.facebook.com/thee.nightplan.7/timeline?lst=1655303870%3A100041644517916%3A1578688791"
-                            class="fs-18 cl0 hov-cl1 trans-04 m-r-16 stext-108">
+                        target="_blank" class="fs-18 cl0 hov-cl1 trans-04 m-r-16 stext-108">
                             <i class="fa fa-facebook"><span class="stext-108 m-l-15">NightPlanKenya</span
                                     class="stext-108 m-l-2"></i>
                         </a>
                     </li>
                     <li class="p-b-10">
-                        <a href="https://twitter.com/KenyaPlan" class="fs-18 cl0 hov-cl1 trans-04 m-r-16 stext-108">
+                        <a href="https://twitter.com/KenyaPlan" target="_blank" class="fs-18 cl0 hov-cl1 trans-04 m-r-16 stext-108">
                             <i class="fa fa-twitter"><span class="stext-108 m-l-10">@nightplankenya</span
                                     class="stext-108 m-l-5"></i>
                         </a>
@@ -130,28 +131,12 @@
 					<a href="#" class="m-all-1">
 						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
 					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
 				</div> -->
 
             <p class="stext-107 cl6 txt-center">
                 Copyright &copy;<script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved
+                </script>. All rights reserved
 
             </p>
         </div>

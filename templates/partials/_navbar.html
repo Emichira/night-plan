@@ -21,10 +21,6 @@
                         </li>
 
                         <li>
-                            <a href="{% url 'explore' %}">Explore</a>
-                        </li>
-
-                        <li>
                             <a href="{% url 'events' %}">Browse Events</a>
                         </li>
 
@@ -41,15 +37,10 @@
                         </li>
                         {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' or ass.provider == 'linkedin-oauth2' %}
                         <!-- Code to add if user is authenticated changes the sign in button to display name -->
-                        {% if 'dashboard' in request.path %}
-                        {% else %}
-                        {% endif %}
                         <li>
-                            <a href="{% url 'account_logout' %}">Logout</a>
+                            <a href="{% url 'account_logout' %}">Logout {{ user.username }}</a>
                         </li>
-                        <li>
-                            <a href="#">{{ user.username }}</a>
-                        </li>
+
                         <form action="{% url 'index' %}" method="POST" id="logout">
                             {% csrf_token %}
                             <input type="hidden">
@@ -113,10 +104,6 @@
             </li>
 
             <li>
-                <a href="{% url 'explore' %}">Explore</a>
-            </li>
-
-            <li>
                 <a href="{% url 'events' %}">Browse Events</a>
             </li>
 
@@ -133,8 +120,12 @@
             </li>
             {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
             <li>
-                <a href="{% url 'index' %}">Logout</a>
+                <a href="{% url 'account_logout' %}">Logout {{ user.username }}</a>
             </li>
+            <form action="{% url 'index' %}" method="POST" id="logout">
+                {% csrf_token %}
+                <input type="hidden">
+            </form>
             {% else %}
             <li>
                 <a href="/accounts/login">Sign In</a>
@@ -177,7 +168,17 @@
                         Home
                     </a>
                 </li>
-
+                {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
+                <li class="p-b-13">
+                    <a href="{% url 'account_logout' %}" class="stext-102 cl2 hov-cl1 trans-04">
+                        Logout {{ user.username }}
+                    </a>
+                </li>
+                <form action="{% url 'index' %}" method="POST" id="logout">
+                    {% csrf_token %}
+                    <input type="hidden">
+                </form>
+                {% else %}
                 <li class="p-b-13">
                     <a href="/accounts/login" class="stext-102 cl2 hov-cl1 trans-04">
                         Sign In
@@ -189,6 +190,7 @@
                         Sign Up
                     </a>
                 </li>
+                {% endif %}
 
                 <li class="p-b-13">
                     <a href="{% url 'terms' %}" class="stext-102 cl2 hov-cl1 trans-04">
@@ -208,7 +210,7 @@
                     About Us
                 </span>
 
-                <p class="stext-108 cl6">
+                <p class="stext-108 cl5">
                     Night Plan Kenya is your ultimate nightlife guide. We connect you to club events and latest happy
                     hours.</p>
             </div>
