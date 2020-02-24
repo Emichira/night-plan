@@ -3739,4 +3739,10 @@ animation: an1 12s .5s infinite ease-out;
   background-size: cover;
   height: 40px !important;
   width: 25px !important;
-	}
+  margin-left: 6;
+  }
+
+  .map {
+    height: 300px;
+    width: 100%;
+}
