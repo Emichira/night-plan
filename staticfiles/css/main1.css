@@ -3730,6 +3730,7 @@ animation: an1 12s .5s infinite ease-out;
   display: block;
   width: 65%;
   margin: auto;
+<<<<<<< HEAD
 }
 
 /* Default icon URLs */
@@ -3745,4 +3746,6 @@ animation: an1 12s .5s infinite ease-out;
   .map {
     height: 300px;
     width: 100%;
+=======
+>>>>>>> master
 }
