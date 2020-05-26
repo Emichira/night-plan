@@ -11,7 +11,12 @@ from datetime import datetime, date
 from django.db.models import Q
 
 def home_page(request):
-    return render(request, "pages/index.html")
+    cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='').order_by('event_date')#display all cover images in detailed category
+
+    context = {
+        "covers" : cover_image,
+    }
+    return render(request, "pages/index.html", context)
 
 def explore_page(request):
     cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='').order_by('event_date')#display all cover images in detailed category
