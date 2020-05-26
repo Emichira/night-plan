@@ -11,6 +11,9 @@ from datetime import datetime, date
 from django.db.models import Q
 
 def home_page(request):
+    return render(request, "pages/index.html")
+
+def explore_page(request):
     cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='').order_by('event_date')#display all cover images in detailed category
     clubs = Club.objects.filter(is_published=True).order_by('name')
     happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('event_date')
@@ -32,7 +35,7 @@ def home_page(request):
         "categories" : categories,
         "counties" : counties,
     }
-    return render(request, "pages/index.html", context)
+    return render(request, "pages/explore.html", context)
 
 def about_page(request):
     context = {
