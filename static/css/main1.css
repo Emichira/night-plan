@@ -148,6 +148,8 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   animation: loader-scale 1s ease-out infinite;
   top: 50%;
   margin: -28px auto 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 @keyframes loader-scale {
@@ -2243,6 +2245,10 @@ input.num-product::-webkit-inner-spin-button {
   color: #2D2926FF;
 }
 
+.cl14 {
+  color: whitesmoke;
+}
+
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
 .stext-101 {
@@ -4257,3 +4263,8 @@ input.num-product::-webkit-inner-spin-button {
 .bana-sec {
   padding: 5px;
 }
+/* 
+.body-padi {
+  padding-left: 15px;
+  padding-right: 15px;
+} */
