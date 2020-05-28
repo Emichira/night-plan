@@ -3464,6 +3464,10 @@ input.num-product::-webkit-inner-spin-button {
   RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE
 ==================================================================*/
 
+.resize {
+  max-height: 466px;
+}
+
 /*//////////////////////////////////////////////////////////////////
 [ XL ]*/
 @media (max-width: 1199px) {
@@ -3532,9 +3536,17 @@ input.num-product::-webkit-inner-spin-button {
   }
 
   /*---------------------------------------------*/
-
+  .resize {
+    max-height: 466px;
+  }
 }
 
+
+@media (max-width: 1199px) {
+  .resize {
+    max-height: 400px;
+  }
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ LG ]*/
@@ -3613,6 +3625,11 @@ input.num-product::-webkit-inner-spin-button {
     padding-top: 50px;
     padding-bottom: 50px;
   }
+
+  /*---------------------------------------------*/
+  .resize {
+    max-height: 299px;
+  }
 }
 
 
@@ -3688,6 +3705,10 @@ input.num-product::-webkit-inner-spin-button {
     width: 100%;
   }
 
+  /*---------------------------------------------*/
+  .resize {
+    max-height: 466px;
+  }
 }
 
 
@@ -3782,6 +3803,10 @@ input.num-product::-webkit-inner-spin-button {
     padding-left: 60px;
   }
 
+  /*---------------------------------------------*/
+  .resize {
+    max-height: 466px;
+  }
 
 }
 
@@ -3858,6 +3883,10 @@ input.num-product::-webkit-inner-spin-button {
     padding: 20px;
   }
 
+  /*---------------------------------------------*/
+  .resize {
+    max-height: 300px;
+  }
 }
 
 /*==================================================================
@@ -4419,7 +4448,8 @@ input.num-product::-webkit-inner-spin-button {
   font-weight: 700;
 }
 
-.post-meta li a:hover, .post-meta li a:focus {
+.post-meta li a:hover,
+.post-meta li a:focus {
   color: #ee4266;
 }
 
@@ -4462,7 +4492,8 @@ input.num-product::-webkit-inner-spin-button {
   color: #fff;
 }
 
-.post.post-thumb .post-title a:hover, .post.post-thumb .post-title a:focus {
+.post.post-thumb .post-title a:hover,
+.post.post-thumb .post-title a:focus {
   color: #ee4266;
 }
 
@@ -4474,6 +4505,41 @@ input.num-product::-webkit-inner-spin-button {
   color: #fff;
 }
 
-.post.post-thumb .post-meta li a:hover, .post.post-thumb .post-meta li a:focus {
+.post.post-thumb .post-meta li a:hover,
+.post.post-thumb .post-meta li a:focus {
   color: #ee4266;
 }
+
+/* .resize {
+  max-height: 466px;
+}
+
+@media (max-width: 1199px) {
+  .resize {
+    max-height: 466px;
+  }
+}
+
+@media (max-width: 991px) {
+  .resize {
+    max-height: 466px;
+  }
+}
+
+@media (max-width: 767px) {
+  .resize {
+    max-height: 466px;
+  }
+}
+
+@media (max-width: 575px) {
+  .resize {
+    max-height: 466px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resize {
+    max-height: 466px;
+  }
+} */
