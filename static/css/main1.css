@@ -2836,6 +2836,18 @@ input.num-product::-webkit-inner-spin-button {
   background-color: #2D2926FF;
 }
 
+.bg12 {
+  background-color: #222831;
+}
+
+.bg13 {
+  background-color: #1C1A18;
+}
+
+.bg14 {
+  background-color: #191919;
+}
+
 /*---------------------------------------------*/
 .bg-overlay1::before {
   content: "";

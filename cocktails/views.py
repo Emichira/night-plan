@@ -28,7 +28,7 @@ def cocktails(request):
     }
     return render(request, "cocktails/cocktails.html", context)
 
-def event(request, slug_event):
+def cocktail(request, slug_event):
     #create one detailed view object of a cocktail
     #Handles displaying of a single cocktail
     tonight = Event.objects.filter(event_date__date=date.today())
