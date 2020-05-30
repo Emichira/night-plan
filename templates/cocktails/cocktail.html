@@ -6,11 +6,11 @@
 {% leaflet_js %}
 
 <!-- Cocktail Page -->
-<div class="bg7 p-t-100 p-b-10">
+<div class="bg7 p-t-100 p-t-50-sm p-b-10">
     <div class="container">
         <div class="row">
-            <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto">
-                <div class="p-lr-40 p-t-30 m-l-25 m-r-40 m-lr-0-xl p-lr-15-sm">
+            <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto p-b-20">
+                <div class="p-lr-40 p-t-30 m-l-25 m-r-40 m-lr-0-xl p-lr-15-sm p-b-20">
                     <!-- Block2 -->
                     <div class="block2">
                         <div class="block2-pic hov-img0">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-w flex-t p-b-13">
+                    <div class="flex-w flex-t bor12 p-b-13">
                         <h4 class="mtext-109 cl0">
                             {{ event.title }}
                         </h4>
@@ -71,17 +71,13 @@
                 </div>
             </div>
 
-            <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+            <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50 bg12">
                 <div class="m-l-25 m-l--38 m-r-25 m-lr-0-xl p-t-30">
-                    <div class="wrap-table-shopping-cart p-lr-40 p-t-30 p-b-40 m-l-25 m-r-40 m-lr-0-xl p-lr-15-sm">
-                        <h4 class="mtext-109 cl0 p-b-30">
-                            {{ event.venue }}
-                        </h4>
-
-                        <div class="flex-w flex-t p-t-15 p-b-30">
+                    <div class="p-lr-40 p-t-30 p-b-40 m-l-25 m-r-40 m-lr-0-xl p-lr-15-sm">
+                        <div class="flex-w flex-t p-t-15 bor12 p-b-30">
                             <div class="p-t-5 p-b-5">
                                 <span class="mtext-109 cl0">
-                                    About
+                                    Description
                                 </span>
 
                             </div>
@@ -90,13 +86,28 @@
                             </p>
                         </div>
 
-                        <div class="flex-w flex-t p-t-15 p-b-30">
-                            <!-- Map -->
-                            <div class="mapouter container">
-                                <div>
-                                    Bomboclaat!
-                                </div>
+                        <div class="flex-w flex-t p-t-15 bor12 p-b-30">
+                            <div class="p-t-5 p-b-5">
+                                <span class="mtext-109 cl0">
+                                    Ingredients
+                                </span>
+
                             </div>
+                            <p class="stext-110 cl0 p-t-2">
+                                {{ event.description }}
+                            </p>
+                        </div>
+
+                        <div class="flex-w flex-t p-t-15 bor12 p-b-30">
+                            <div class="p-t-5 p-b-5">
+                                <span class="mtext-109 cl0">
+                                    Steps
+                                </span>
+
+                            </div>
+                            <p class="stext-110 cl0 p-t-2">
+                                {{ event.description }}
+                            </p>
                         </div>
 
                     </div>
@@ -106,70 +117,83 @@
     </div>
 </div>
 
-<!-- Product -->
+<!-- Cocktails -->
 <section class="bg7 p-t-5 p-b-15">
     <div class="container">
-        <!-- This Weekend -->
+        <!-- Editors Pick -->
         <div class="tab02 women">
             <!-- Tab panes -->
             <div class="tab-content p-t-30  text-center">
-                <span class="ltext-101 cl0"> You Might Also Like </span>
+                <span class="ltext-101 cl0"> You May Also Like </span>
                 <!-- - -->
                 <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
                     <!-- Slide2 -->
                     <div class="wrap-slick2">
                         <div class="slick2">
-                            {% if tonight %}
-                            {% for event in tonight %}
-                            <div class="item-slick2 p-l-5 p-r-5 p-t-15 p-b-15">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-pic hov-img0">
-                                        <a href="{% url 'event' event.slug %}">
-                                            <img src="{{ event.event_image.url }}" class="image-fluid"
-                                                alt="IMG-PRODUCT"></a>
+                            {% if genres %}
+                            {% for event in genres %}
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
+                                <div class="blog-item">
+                                    <div class="hov-img0">
+                                        <a href="blog-detail.html">
+                                            <img src="https://picsum.photos/seed/picsum/200/300" alt="IMG-BLOG">
+                                        </a>
                                     </div>
 
-                                    <div class="block2-txt flex-w flex-t p-t-14">
-                                        <div class="block2-txt-child1 flex-col-l ">
-                                            <a href="{% url 'event' event.slug %}"
-                                                class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                {{ event.title }}
-                                            </a>
-                                            <span class="stext-105 cl0">
-                                                {{ event.event_date }} - {{ event.event_end_date }}
+                                    <div class="p-t-15">
+                                        <div class="stext-107 flex-w p-b-14">
+                                            <span class="m-r-3">
+                                                <span class="cl0">
+                                                    By
+                                                </span>
+
+                                                <span class="cl0">
+                                                    Nancy Ward
+                                                </span>
                                             </span>
-                                            <span class="stext-105 cl0">
-                                                {{ event.venue }}
+
+                                            <span>
+                                                <span class="cl0">
+                                                    on
+                                                </span>
+
+                                                <span class="cl0">
+                                                    July 22, 2017
+                                                </span>
                                             </span>
                                         </div>
+
+                                        <h4 class="p-b-12">
+                                            <a href="blog-detail.html" class="mtext-101 cl0 hov-cl1 trans-04">
+                                                {{ club.name }}
+                                            </a>
+                                        </h4>
+
+                                        <p class="stext-108 cl0">
+                                            Duis ut velit gravida nibh bibendum commodo. Suspendisse pellentesque
+                                            mattis
+                                            augue id
+                                            euismod. Interdum et male-suada fames
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             {% endfor %}
                             {% else %}
-                            <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-pic hov-img0">
-                                        <a href="{% url 'event' event.slug %}">
-                                            <img src="{{ event.event_image.url }}" alt="IMG-PRODUCT"></a>
-                                    </div>
-
-                                    <div class="block2-txt flex-w flex-t p-t-14">
-                                        <div class="block2-txt-child1 flex-col-l ">
-                                            <a href="{% url 'event' event.slug %}"
-                                                class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                {{ event.title }}
-                                            </a>
-                                            <span class="stext-105 cl0">
-                                                {{ event.event_date }} - {{ event.event_end_date }}
-                                            </span>
-                                            <span class="stext-105 cl0">
-                                                {{ event.venue }}
+                            <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
+                                <!-- Block1 -->
+                                <div class="block1 wrap-pic-w">
+                                    <img class="explore"
+                                        src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll.jpg"
+                                        alt="IMG-BANNER">
+                                    <a href="#"
+                                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                        <div class="block1-txt-child1 flex-col-l">
+                                            <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                No Cocktail Available
                                             </span>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                             {% endif %}
@@ -180,28 +204,4 @@
         </div>
     </div>
 </section>
-
-<!-- Banner Advertisement-->
-<!-- <div class="sec-banner bg7 p-t-30 p-b-15">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-xl-4 p-b-30 m-lr-auto">
-            </div>
-
-            <div class="col-md-8 col-xl-4 p-b-30 m-lr-auto">
-                <div class="block1 wrap-pic-w">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4430010625096915"
-                        data-ad-slot="7399172120" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-xl-4 p-b-30 m-lr-auto">
-            </div>
-        </div>
-    </div>
-</div> -->
 {% endblock %}

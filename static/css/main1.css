@@ -3787,6 +3787,10 @@ input.num-product::-webkit-inner-spin-button {
     padding-right: 15px;
   }
 
+  .p-t-50-sm {
+    padding-top: 5px;
+  }
+
   .w-full-sm {
     width: 100%;
   }
