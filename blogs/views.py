@@ -28,11 +28,11 @@ def blogs(request):
     }
     return render(request, "blogs/blogs.html", context)
 
-def blog(request, slug_event):
+def blog(request, slug_blog):
     #create one detailed view object of a cocktail
     #Handles displaying of a single cocktail
     tonight = Event.objects.filter(event_date__date=date.today())
-    event = get_object_or_404(Event, slug=slug_event)
+    event = get_object_or_404(Event, slug=slug_blog)
     genres = Genre.objects.filter(is_published=True).order_by('name')
 
     context = {
@@ -40,7 +40,7 @@ def blog(request, slug_event):
         "tonight" : tonight,
         'genres' : genres,
     }
-    return render(request, "blog/blog.html", context)
+    return render(request, "blogs/blog.html", context)
 
 def search(request):
     #search based function for events, venue and counties

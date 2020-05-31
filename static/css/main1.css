@@ -2786,7 +2786,7 @@ input.num-product::-webkit-inner-spin-button {
 
 
 /*==================================================================
-   BACKGROUND BACKGROUND BACKGROUND BACKGROUND BACKGROUND BACKGROUND 
+   BACKGROUND BACKGROUND BACKGROUND BACKGROUND BACKGROUND BACKGROUND
 ==================================================================*/
 .bg-none {
   background-color: transparent;
@@ -2906,7 +2906,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .bor7 {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 15px;
 }
 
