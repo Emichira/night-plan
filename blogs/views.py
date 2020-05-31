@@ -16,7 +16,7 @@ def blogs(request):
     events = Event.objects.filter(is_published=True).order_by('event_date')
     categories = Category.objects.order_by('-created_at')
     #pagination of events
-    paginator = Paginator(events, 20)
+    paginator = Paginator(events, 3)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
     genres = Genre.objects.filter(is_published=True).order_by('name')
