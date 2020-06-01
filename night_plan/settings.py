@@ -52,6 +52,12 @@ INSTALLED_APPS = [
     'contacts.apps.ContactsConfig',
     'clubs.apps.ClubsConfig',
     'genres.apps.GenresConfig',
+    'alcohol.apps.AlcoholConfig',
+    'blog_categories.apps.BlogCategoriesConfig',
+    'blogs.apps.BlogsConfig',
+    'cocktails.apps.CocktailsConfig',
+    'drink_categories.apps.DrinkCategoriesConfig',
+    'drink_glass_types.apps.DrinkGlassTypesConfig',
 
     'allauth',
     'allauth.account',

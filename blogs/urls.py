@@ -7,7 +7,6 @@ from . import views
 urlpatterns = [
     path('', views.blogs, name='blogs'),
     path('<str:slug_blog>/', views.blog, name='blog'), #url using slug to display individual cocktail page
-    path('search', views.search, name='search'), #url for search that handles search of cocktails
 ]
 
 if settings.DEBUG:
