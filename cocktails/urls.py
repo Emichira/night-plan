@@ -5,9 +5,12 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
+    #url using slug to display all cocktails page
     path('', views.cocktails, name='cocktails'),
-    path('<str:slug_event>/', views.cocktail, name='cocktail'), #url using slug to display individual cocktail page
-    path('search', views.search, name='search'), #url for search that handles search of cocktails
+    #url using slug to display individual cocktail page
+    path('<str:slug_cocktail>/', views.cocktail, name='cocktail'),
+    #url for search that handles search of cocktails, events and blogs
+    path('search', views.search, name='search'),
 ]
 
 if settings.DEBUG:

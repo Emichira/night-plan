@@ -15,20 +15,20 @@
                     </li>
 
                     <li class="p-b-10">
-                        <a href="{% url 'events' %}" class="stext-107 cl0 hov-cl1 trans-04">
-                            Browse Upcoming Events
+                        <a href="{% url 'cocktails' %}" class="stext-107 cl0 hov-cl1 trans-04">
+                            Cocktail Recipes
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{% url 'blogs' %}" class="stext-107 cl0 hov-cl1 trans-04">
+                            Blogs
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="{% url 'clubs' %}" class="stext-107 cl0 hov-cl1 trans-04">
                             Night Clubs
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="{% url 'about' %}" class="stext-107 cl0 hov-cl1 trans-04">
-                            About
                         </a>
                     </li>
                 </ul>
@@ -40,7 +40,7 @@
                     {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
                     <li class="p-b-10">
                         <a href="{% url 'account_logout' %}" class="stext-107 cl0 hov-cl1 trans-04">
-                            Logout
+                            Logout {{ user.username }}
                         </a>
                     </li>
                     <form action="{% url 'index' %}" method="POST" id="logout">
@@ -59,6 +59,12 @@
                         </a>
                     </li>
                     {% endif %}
+
+                    <li class="p-b-10">
+                        <a href="{% url 'about' %}" class="stext-107 cl0 hov-cl1 trans-04">
+                            About
+                        </a>
+                    </li>
 
                     <li class="p-b-10">
                         <a href="{% url 'terms' %}" class="stext-107 cl0 hov-cl1 trans-04">
