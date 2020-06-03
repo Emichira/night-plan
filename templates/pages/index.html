@@ -32,7 +32,7 @@
             <div class="col-md-4 hot-post-right">
                 <!-- post -->
                 <div class="post post-thumb">
-                    <a class="post-img" href="blog-post.html"><img class="resize"
+                    <a class="post-img" href="{% url 'blogs' %}"><img class="resize"
                             src="https://images.unsplash.com/photo-1559443922-3f698a0ff27a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=369&q=80"
                             alt=""></a>
                     <div class="post-body">
@@ -48,12 +48,14 @@
                 <!-- /post -->
                 <!-- post -->
                 <div class="post post-thumb">
-                    <a class="post-img" href="{% url 'events' %}"><img
+                    {% if brunchs %}
+                    {% for brunch in brunchs %}
+                    <a class="post-img" href="{% url 'category' brunch.slug %}"><img
                             src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/edward-franklin.jpg"
                             alt=""></a>
                     <div class="post-body">
                         <div class="post-category">
-                            <a href="category.html">Brunch</a>
+                            <a href="#">Brunch</a>
                             <a href="category.html">Events</a>
                         </div>
                         <h3 class="post-title"><a href="blog-post.html">Brunch Events in Nairobi</a></h3>
@@ -61,6 +63,22 @@
                             <li><a href="author.html">Explore</a></li>
                         </ul>
                     </div>
+                    {% endfor %}
+                    {% else %}
+                    <a class="post-img" href="{% url 'events' %}"><img
+                            src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/edward-franklin.jpg"
+                            alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="{% url 'events' %}">Bruxxxxxxnch</a>
+                            <a href="{% url 'events' %}">xxxxxxx</a>
+                        </div>
+                        <h3 class="post-title"><a href="{% url 'events' %}">Brunch Evxxxxxxxxxxxents in Nairobi</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="{% url 'events' %}">Explxxxxxxxxxxxxore</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
                 </div>
                 <!-- /post -->
             </div>
@@ -225,49 +243,25 @@
                     <!-- Slide2 -->
                     <div class="wrap-slick2">
                         <div class="slick2">
-                            {% if clubs %}
-                            {% for club in clubs %}
+                            {% if editor %}
+                            {% for cocktail in editor %}
                             <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                 <div class="blog-item">
                                     <div class="hov-img0">
-                                        <a href="blog-detail.html">
-                                            <img src="https://picsum.photos/seed/picsum/200/300" alt="IMG-BLOG">
+                                        <a href="{% url 'cocktail' cocktail.slug %}">
+                                            <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
                                         </a>
                                     </div>
-
+        
                                     <div class="p-t-15">
-                                        <div class="stext-107 flex-w p-b-14">
-                                            <span class="m-r-3">
-                                                <span class="cl0">
-                                                    By
-                                                </span>
-
-                                                <span class="cl0">
-                                                    Nancy Ward
-                                                </span>
-                                            </span>
-
-                                            <span>
-                                                <span class="cl0">
-                                                    on
-                                                </span>
-
-                                                <span class="cl0">
-                                                    July 22, 2017
-                                                </span>
-                                            </span>
-                                        </div>
-
                                         <h4 class="p-b-12">
-                                            <a href="blog-detail.html" class="mtext-101 cl0 hov-cl1 trans-04">
-                                                {{ club.name }}
+                                            <a href="{% url 'cocktail' cocktail.slug %}" class="mtext-101 cl0 hov-cl1 trans-04">
+                                                {{ cocktail.name }}
                                             </a>
                                         </h4>
-
+        
                                         <p class="stext-108 cl0">
-                                            Duis ut velit gravida nibh bibendum commodo. Suspendisse pellentesque mattis
-                                            augue id
-                                            euismod. Interdum et male-suada fames
+                                            {{ cocktail.block_quote }}
                                         </p>
                                     </div>
                                 </div>
@@ -306,50 +300,25 @@
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
-                                {% if happy_hour %}
-                                {% for event in happy_hour %}
+                                {% if beer_wine %}
+                                {% for cocktail in beer_wine %}
                                 <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                     <div class="blog-item">
                                         <div class="hov-img0">
-                                            <a href="blog-detail.html">
-                                                <img src="https://picsum.photos/seed/picsum/200/300" alt="IMG-BLOG">
+                                            <a href="{% url 'cocktail' cocktail.slug %}">
+                                                <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
                                             </a>
                                         </div>
-
+            
                                         <div class="p-t-15">
-                                            <div class="stext-107 flex-w p-b-14">
-                                                <span class="m-r-3">
-                                                    <span class="cl0">
-                                                        By
-                                                    </span>
-
-                                                    <span class="cl0">
-                                                        Nancy Ward
-                                                    </span>
-                                                </span>
-
-                                                <span>
-                                                    <span class="cl0">
-                                                        on
-                                                    </span>
-
-                                                    <span class="cl0">
-                                                        July 22, 2017
-                                                    </span>
-                                                </span>
-                                            </div>
-
                                             <h4 class="p-b-12">
-                                                <a href="blog-detail.html" class="mtext-101 cl0 hov-cl1 trans-04">
-                                                    8 Inspiring Ways to Wear Dresses in the Winter
+                                                <a href="{% url 'cocktail' cocktail.slug %}" class="mtext-101 cl0 hov-cl1 trans-04">
+                                                    {{ cocktail.name }}
                                                 </a>
                                             </h4>
-
+            
                                             <p class="stext-108 cl0">
-                                                Duis ut velit gravida nibh bibendum commodo. Suspendisse pellentesque
-                                                mattis
-                                                augue id
-                                                euismod. Interdum et male-suada fames
+                                                {{ cocktail.block_quote }}
                                             </p>
                                         </div>
                                     </div>
@@ -389,50 +358,25 @@
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
-                                {% if trending %}
-                                {% for event in trending %}
+                                {% if flavor %}
+                                {% for cocktail in flavor %}
                                 <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                     <div class="blog-item">
                                         <div class="hov-img0">
-                                            <a href="blog-detail.html">
-                                                <img src="https://picsum.photos/seed/picsum/200/300" alt="IMG-BLOG">
+                                            <a href="{% url 'cocktail' cocktail.slug %}">
+                                                <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
                                             </a>
                                         </div>
-
+            
                                         <div class="p-t-15">
-                                            <div class="stext-107 flex-w p-b-14">
-                                                <span class="m-r-3">
-                                                    <span class="cl0">
-                                                        By
-                                                    </span>
-
-                                                    <span class="cl0">
-                                                        Nancy Ward
-                                                    </span>
-                                                </span>
-
-                                                <span>
-                                                    <span class="cl0">
-                                                        on
-                                                    </span>
-
-                                                    <span class="cl0">
-                                                        July 22, 2017
-                                                    </span>
-                                                </span>
-                                            </div>
-
                                             <h4 class="p-b-12">
-                                                <a href="blog-detail.html" class="mtext-101 cl0 hov-cl1 trans-04">
-                                                    {{ club.name }}
+                                                <a href="{% url 'cocktail' cocktail.slug %}" class="mtext-101 cl0 hov-cl1 trans-04">
+                                                    {{ cocktail.name }}
                                                 </a>
                                             </h4>
-
+            
                                             <p class="stext-108 cl0">
-                                                Duis ut velit gravida nibh bibendum commodo. Suspendisse pellentesque
-                                                mattis
-                                                augue id
-                                                euismod. Interdum et male-suada fames
+                                                {{ cocktail.block_quote }}
                                             </p>
                                         </div>
                                     </div>
@@ -472,50 +416,25 @@
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
-                                {% if this_weekend %}
-                                {% for event in this_weekend %}
+                                {% if classics %}
+                                {% for cocktail in classics %}
                                 <div class="item-slick2 p-l-5 p-r-5 p-t-15">
                                     <div class="blog-item">
                                         <div class="hov-img0">
-                                            <a href="blog-detail.html">
-                                                <img src="https://picsum.photos/seed/picsum/200/300" alt="IMG-BLOG">
+                                            <a href="{% url 'cocktail' cocktail.slug %}">
+                                                <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
                                             </a>
                                         </div>
-
+            
                                         <div class="p-t-15">
-                                            <div class="stext-107 flex-w p-b-14">
-                                                <span class="m-r-3">
-                                                    <span class="cl0">
-                                                        By
-                                                    </span>
-
-                                                    <span class="cl0">
-                                                        Nancy Ward
-                                                    </span>
-                                                </span>
-
-                                                <span>
-                                                    <span class="cl0">
-                                                        on
-                                                    </span>
-
-                                                    <span class="cl0">
-                                                        July 22, 2017
-                                                    </span>
-                                                </span>
-                                            </div>
-
                                             <h4 class="p-b-12">
-                                                <a href="blog-detail.html" class="mtext-101 cl0 hov-cl1 trans-04">
-                                                    {{ club.name }}
+                                                <a href="{% url 'cocktail' cocktail.slug %}" class="mtext-101 cl0 hov-cl1 trans-04">
+                                                    {{ cocktail.name }}
                                                 </a>
                                             </h4>
-
+            
                                             <p class="stext-108 cl0">
-                                                Duis ut velit gravida nibh bibendum commodo. Suspendisse pellentesque
-                                                mattis
-                                                augue id
-                                                euismod. Interdum et male-suada fames
+                                                {{ cocktail.block_quote }}
                                             </p>
                                         </div>
                                     </div>

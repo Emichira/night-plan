@@ -17,7 +17,7 @@ from genres.models import Genre
 def cocktails(request):
     #creates cocktail objects
     #Handles displaying of all cocktails
-    cocktails = Cocktail.objects.all().order_by('-created_at')
+    cocktails = Cocktail.objects.all().order_by('-updated_at')
     # pull data for cocktail categories
     drink_categories = DrinkCategory.objects.all()[:6]
     #pagination of events

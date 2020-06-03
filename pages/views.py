@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
+from cocktails.models import Cocktail
 from events.models import Event
 from event_types.models import EventType
 from counties.models import County
@@ -11,6 +12,11 @@ from datetime import datetime, date
 from django.db.models import Q
 
 def home_page(request):
+    brunch = Category.objects.all().filter(name='Brunch')
+    editor = Cocktail.objects.all().filter(categories='5').order_by('-updated_at')
+    beer_wine = Cocktail.objects.all().filter(categories='6').order_by('-updated_at')
+    flavor = Cocktail.objects.all().filter(categories='4').order_by('-updated_at')
+    classics = Cocktail.objects.all().filter(categories='1').order_by('-updated_at')
     clubs = Club.objects.filter(is_published=True).order_by('name')
     happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('event_date')
     this_weekend = Event.objects.filter(Q(event_date__week_day=1) | Q(event_date__week_day=7), is_published=True)
@@ -19,6 +25,11 @@ def home_page(request):
     categories = Category.objects.all().order_by('name')
 
     context = {
+        "brunchs" : brunch,
+        'editor' : editor,
+        'beer_wine' : beer_wine,
+        'flavor' : flavor,
+        'classics' : classics,
         "clubs" : clubs,
         "happy_hour" : happy_hour,
         "this_weekend" : this_weekend,
