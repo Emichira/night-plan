@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'storages',
     'django.contrib.sites',
+    'django.contrib.humanize',
     'google_analytics',
 
     #My Apps

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from cocktails.models import Cocktail
+from blogs.models import Blog
 from events.models import Event
 from event_types.models import EventType
 from counties.models import County
@@ -17,12 +18,8 @@ def home_page(request):
     beer_wine = Cocktail.objects.all().filter(categories='6').order_by('-updated_at')
     flavor = Cocktail.objects.all().filter(categories='4').order_by('-updated_at')
     classics = Cocktail.objects.all().filter(categories='1').order_by('-updated_at')
-    clubs = Club.objects.filter(is_published=True).order_by('name')
-    happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('event_date')
-    this_weekend = Event.objects.filter(Q(event_date__week_day=1) | Q(event_date__week_day=7), is_published=True)
+    posts = Blog.objects.all().filter(categories='1').order_by('-updated_at')
     trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
-    genres = Genre.objects.filter(is_published=True).order_by('name')
-    categories = Category.objects.all().order_by('name')
 
     context = {
         "brunchs" : brunch,
@@ -30,12 +27,8 @@ def home_page(request):
         'beer_wine' : beer_wine,
         'flavor' : flavor,
         'classics' : classics,
-        "clubs" : clubs,
-        "happy_hour" : happy_hour,
-        "this_weekend" : this_weekend,
+        'posts' : posts,
         "trending" : trending,
-        'genres' : genres,
-        "categories" : categories,
     }
     return render(request, "pages/index.html", context)
 
