@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from cocktails.models import Cocktail
+from drink_categories.models import DrinkCategory
 from blogs.models import Blog
 from events.models import Event
 from event_types.models import EventType
@@ -14,19 +15,28 @@ from django.db.models import Q
 
 def home_page(request):
     brunch = Category.objects.all().filter(name='Brunch')
+    editors = DrinkCategory.objects.all().filter(name='Editors')
+    beers = DrinkCategory.objects.all().filter(name='Beer & Wine')
+    flavors = DrinkCategory.objects.all().filter(name='Flavor')
+    classic_cocktails = DrinkCategory.objects.all().filter(name='Classic Cocktails')
+    classics = Cocktail.objects.all().filter(categories='1').order_by('-updated_at')
+    top_rated = Cocktail.objects.all().filter(categories='4').order_by('-updated_at')
     editor = Cocktail.objects.all().filter(categories='5').order_by('-updated_at')
     beer_wine = Cocktail.objects.all().filter(categories='6').order_by('-updated_at')
-    flavor = Cocktail.objects.all().filter(categories='4').order_by('-updated_at')
-    classics = Cocktail.objects.all().filter(categories='1').order_by('-updated_at')
+    flavor = Cocktail.objects.all().filter(categories='7').order_by('-updated_at')
     posts = Blog.objects.all().filter(categories='1').order_by('-updated_at')
     trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
 
     context = {
         "brunchs" : brunch,
         'editor' : editor,
+        'editors' : editors,
         'beer_wine' : beer_wine,
+        'beers' : beers,
         'flavor' : flavor,
+        'flavors' : flavors,
         'classics' : classics,
+        'classic_cocktails' : classic_cocktails,
         'posts' : posts,
         "trending" : trending,
     }

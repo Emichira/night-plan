@@ -115,13 +115,18 @@
                         </button>
                     </div>
 
+                    {% if editors %}
+                    {% for cocktails in editors %}
                     <div class="flex-w flex-c-m m-tb-10">
                         <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
-                            <a href="{% url 'clubs' %}" class="cl0">
+                            <a href="{% url 'cocktailCategory' cocktails.slug %}" class="cl0">
                                 View All
                                 <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i></a>
                         </div>
                     </div>
+                    {% endfor %}
+                    {% else %}
+                    {% endif %}
                 </div>
                 <!-- Nightclubs - -->
                 <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
@@ -178,10 +183,29 @@
             <!-- Tab01 -->
             <!-- Happy Hours -->
             <div class="tab02 p-t-15" id="happyHour">
-                <!-- Tab panes -->
+                <!-- Beer & Wine -->
                 <div class="tab-content p-t-15">
-                    <span class="ltext-101 cl0"> Beer & Wine </span>
-                    <!-- - -->
+                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
+                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                                Beer & Wine
+                            </button>
+                        </div>
+
+                        {% if beers %}
+                        {% for cocktails in beers %}
+                        <div class="flex-w flex-c-m m-tb-10">
+                            <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+                                <a href="{% url 'cocktailCategory' cocktails.slug %}" class="cl0">
+                                    View All
+                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    <!-- Sliding Tab Panes -->
                     <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
@@ -239,8 +263,27 @@
             <div class="tab02 p-t-15" id="tonight">
                 <!-- Tab panes -->
                 <div class="tab-content p-t-15">
-                    <span class="ltext-101 cl0">Cocktails by Flavor </span>
-                    <!-- - -->
+                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
+                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                                Cocktails by Flavor
+                            </button>
+                        </div>
+
+                        {% if flavors %}
+                        {% for cocktails in flavors %}
+                        <div class="flex-w flex-c-m m-tb-10">
+                            <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+                                <a href="{% url 'cocktailCategory' cocktails.slug %}" class="cl0">
+                                    View All
+                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    <!-- Sliding Tab Panes -->
                     <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
@@ -298,8 +341,27 @@
             <div class="tab02 p-t-15" id="weekend">
                 <!-- Tab panes -->
                 <div class="tab-content p-t-15">
-                    <span class="ltext-101 cl0"> Best-Selling Classic Cocktails </span>
-                    <!-- - -->
+                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
+                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                                Best-Selling Classic Cocktails
+                            </button>
+                        </div>
+
+                        {% if classic_cocktails %}
+                        {% for cocktails in classic_cocktails %}
+                        <div class="flex-w flex-c-m m-tb-10">
+                            <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+                                <a href="{% url 'cocktailCategory' cocktails.slug %}" class="cl0">
+                                    View All
+                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    <!-- Sliding Tab Panes -->
                     <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
