@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.files.images import ImageFile
-from .models import Blog
+from .models import Blog, Comment
+from .forms import CommentForm
 from cocktails.models import Cocktail
 from events.models import Event
 from categories.models import Category
@@ -44,6 +45,14 @@ def blog(request, slug_blog):
     categories = Category.objects.order_by('-created_at')
     genres = Genre.objects.filter(is_published=True).order_by('name')
     brunch = Category.objects.all().filter(name='Brunch')
+    form = CommentForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            form.instance.blog = blog
+            form.save()
+            return redirect(reverse('blog', kwargs={
+                'slug_blog': blog.slug
+            }))
 
     context = {
         "blog" : blog,

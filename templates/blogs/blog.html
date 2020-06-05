@@ -10,7 +10,7 @@
             <div class="col-md-8 col-lg-9 p-b-80">
                 <div class="p-r-45 p-r-0-lg">
                     <!-- Blog Post -->
-                    <div class="wrap-pic-w how-pos5-parent">
+                    <div class="wrap-pic-w hov-img0 how-pos5-parent">
                         <img src="{{ blog.blog_image.url }}" alt="IMG-BLOG">
 
                         <div class="flex-col-c-m size-126 bg9 how-pos5">
@@ -76,41 +76,63 @@
                         </div>
                     </div>
 
-                    <!--  -->
+                    <!-- Blog Post Comments -->
                     <div class="p-t-40">
+                        <h5 class="mtext-113 cl0 p-b-12">
+                            {{ blog.comments.count }} Comments
+                        </h5>
+
+                        <ul>
+                            {% for comment in blog.get_comments %}
+                            <li class="flex-w flex-t p-b-30">
+                                <span class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
+                                    <img class="blog-featured-images" src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/anonymous.jpg"
+                                        alt="PRODUCT">
+                                </span>
+
+                                <div class="size-215 flex-col-t p-t-8">
+                                    <span class="stext-116 cl0 hov-cl1 trans-04">
+                                        {{ comment.name }}
+                                    </span>
+                                    <span class="stext-116 cl0 p-t-10">
+                                        {{ comment.content }}
+                                    </span>
+                                    <span class="stext-116 cl0 p-t-10">
+                                        {{ comment.timestamp|timesince }} ago
+                                    </span>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Comment Section -->
+                    <div class="p-t-30">
                         <h5 class="mtext-113 cl0 p-b-12">
                             Leave a Comment
                         </h5>
 
-                        <p class="stext-107 cl0 p-b-40">
-                            Your email address will not be published. Required fields are marked *
-                        </p>
-
-                        <form>
+                        {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
+                        <form method="POST" action="{% url 'blog' blog.slug %}">
+                            {% csrf_token %}
                             <div class="bor19 m-b-20">
-                                <textarea class="stext-111 cl5 plh3 size-124 p-lr-18 p-tb-15" name="cmt"
-                                    placeholder="Comment..."></textarea>
+                                <textarea class="stext-111 cl5 plh3 size-124 p-lr-18 p-tb-15" type="text" name="content"
+                                    placeholder="Comment...">{{ form.content }}</textarea>
                             </div>
 
                             <div class="bor19 size-218 m-b-20">
-                                <input class="stext-111 cl5 plh3 size-116 p-lr-18" type="text" name="name"
-                                    placeholder="Name *">
+                                <textarea class="stext-111 cl5 plh3 size-116 p-lr-18" type="text" name="name"
+                                placeholder="Name *">{{ form.name }}</textarea>
                             </div>
 
-                            <div class="bor19 size-218 m-b-20">
-                                <input class="stext-111 cl5 plh3 size-116 p-lr-18" type="text" name="email"
-                                    placeholder="Email *">
-                            </div>
-
-                            <div class="bor19 size-218 m-b-30">
-                                <input class="stext-111 cl5 plh3 size-116 p-lr-18" type="text" name="web"
-                                    placeholder="Website">
-                            </div>
-
-                            <button class="flex-c-m stext-101 cl0 size-125 bg3 bor7 hov-btn3 p-lr-15 trans-04">
+                            <button type="submit" class="flex-c-m stext-101 cl0 size-125 bg3 bor7 hov-btn3 p-lr-15 trans-04">
                                 Post Comment
                             </button>
                         </form>
+                        {% else %}
+                        <p class="stext-107 cl0 p-b-40">
+                            Please sign in to be able to post a comment.
+                        </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

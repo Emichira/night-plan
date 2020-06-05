@@ -48,6 +48,7 @@ class Blog(models.Model):
 
 class Comment(models.Model):
     name = models.CharField(max_length=200)
+    email = models.EmailField(max_length=254, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     blog = models.ForeignKey(
