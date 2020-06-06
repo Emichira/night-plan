@@ -14,17 +14,17 @@ from datetime import datetime, date
 from django.db.models import Q
 
 def home_page(request):
-    brunch = Category.objects.all().filter(name='Brunch')
-    editors = DrinkCategory.objects.all().filter(name='Editors')
-    beers = DrinkCategory.objects.all().filter(name='Beer & Wine')
-    flavors = DrinkCategory.objects.all().filter(name='Flavor')
-    classic_cocktails = DrinkCategory.objects.all().filter(name='Classic Cocktails')
-    classics = Cocktail.objects.all().filter(categories='1').order_by('-updated_at')
-    top_rated = Cocktail.objects.all().filter(categories='4').order_by('-updated_at')
-    editor = Cocktail.objects.all().filter(categories='5').order_by('-updated_at')
-    beer_wine = Cocktail.objects.all().filter(categories='6').order_by('-updated_at')
-    flavor = Cocktail.objects.all().filter(categories='7').order_by('-updated_at')
-    posts = Blog.objects.all().filter(categories='1').order_by('-updated_at')
+    brunch = Category.objects.filter(name='Brunch')
+    editors = DrinkCategory.objects.filter(name='Editors')
+    beers = DrinkCategory.objects.filter(name='Beer & Wine')
+    flavors = DrinkCategory.objects.filter(name='Flavor')
+    classic_cocktails = DrinkCategory.objects.filter(name='Classic Cocktails')
+    classics = Cocktail.objects.filter(categories='1').order_by('-updated_at')
+    top_rated = Cocktail.objects.filter(categories='4').order_by('-updated_at')
+    editor = Cocktail.objects.filter(categories='5').order_by('-updated_at')
+    beer_wine = Cocktail.objects.filter(categories='6').order_by('-updated_at')
+    flavor = Cocktail.objects.filter(categories='7').order_by('-updated_at')
+    posts = Blog.objects.filter(categories='1').order_by('-updated_at')
     trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
 
     context = {

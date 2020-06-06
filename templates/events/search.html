@@ -2,73 +2,9 @@
 {% block title %} - Browse Upcoming Club Events | Discover Club Events and Gigs in Kenya {% endblock %}
 {% block content %}
 
-<!-- Slider -->
-<section class="section-slide">
-    <div class="wrap-slick1 rs1-slick1">
-        <div class="slick1">
-            {% if covers %}
-            {% for cover in covers %}
-            <div class="item-slick1" style="background-image: url('{{ cover.cover_image.url }}');">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30 hero-content">
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                            <span class="hero-title cl0 respon2">
-                                {{ cover.title }}
-                            </span>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-                            <h2 class="hero-teaser cl0 p-t-19 p-b-10 respon1">
-                                {{ cover.venue }}
-                            </h2>
-                            <h2 class="hero-teaser cl0 p-b-43 respon1">
-                                {{ cover.club.location }}
-                            </h2>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                            <a href="{% url 'event' cover.slug %}"
-                                class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-                                View
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            {% else %}
-            <div class="item-slick1" style="background-image: url(images/slide-03.jpg);">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30">
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                            <span class="ltext-202 cl0 respon2">
-                                No Event Information Available
-                            </span>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-                            <h2 class="ltext-104 cl0 p-t-19 p-b-43 respon1">
-                                No Event Information Available
-                            </h2>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                            <a href="product.html"
-                                class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-                                No Event Information Available
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-</section>
-<!--========== END COVER BLOCK ==========-->
 <!--========== EVENTS BLOCK ==========-->
 <!-- Events -->
-<section class="sec-product bg7 p-t-10 p-b-15">
+<section class="sec-product bg7 p-t-200 p-b-15">
     <div class="container">
         <!-- Filter Section -->
         <div class="flex-w flex-sb-m">
@@ -200,43 +136,8 @@
         <div class="bg7 m-t-5 p-b-30">
             <div class="container">
                 <div class="row isotope-grid">
-                    {% if events %}
-                    {% for event in events %}
-                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-pic hov-img0">
-                                <a href="{% url 'event' event.slug %}">
-                                    <img src="{{ event.event_image.url }}" class="image-fluid" alt="IMG-PRODUCT"></a>
-                            </div>
-
-                            <div class="block2-txt flex-w flex-t p-t-14">
-                                <div class="block2-txt-child1 flex-col-l ">
-                                    <a href="{% url 'event' event.slug %}"
-                                        class="stext-104cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                        {{ event.title }}
-                                    </a>
-                                    <span class="stext-105cl0">
-                                        {{ event.event_date }} - {{ event.event_end_date }}
-                                    </span>
-                                    <span class="stext-105cl0">
-                                        {{ event.venue }}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% else %}
-                    <div class="col-md-12">
-                        <p>No Events Available</p>
-                    </div>
-                    {% endif %}
-                </div>
-
-                <div class="row isotope-grid">
-                    {% if events %}
-                    {% for cocktail in events %}
+                    {% if cocktails %}
+                    {% for cocktail in cocktails %}
                     <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
                         <!-- Block2 -->
                         <div class="blog-item">
@@ -261,23 +162,8 @@
                     </div>
                     {% endfor %}
                     {% else %}
-                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-                        <!-- Block2 -->
-                        <div class="blog-item">
-                            <div class="hov-img0">
-                                <a href="{% url 'index' %}">
-                                    <img src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll-ushakov.jpg"" alt="IMG-BLOG">
-                                </a>
-                            </div>
-
-                            <div class="p-t-15">
-                                <h4 class="p-b-12">
-                                    <a href="{% url 'index' %}" class="mtext-101 cl0 hov-cl1 trans-04">
-                                        <p>No Cocktails Available. Go back</p>
-                                    </a>
-                                </h4>
-                            </div>
-                        </div>
+                    <div class="col-md-12 mtext-101 cl0 hov-cl1 trans-04">
+                        <p>No Cocktails Available matching {{ query }}</p>
                     </div>
                     {% endif %}
                 </div>
