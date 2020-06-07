@@ -37,7 +37,7 @@
             <div class="flex-w p-t-4 m-r--5">
                 {% if menu_cocktail_categories %}
                 {% for category in menu_cocktail_categories %}
-                <a href="{% url 'category' category.slug %}"
+                <a href="{% url 'cocktailCategory' category.slug %}"
                     class="flex-c-m stext-107 cl0 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                     {{ category.name }}
                 </a>
