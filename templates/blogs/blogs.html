@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block title %} - Discover Club Events in Kenya {% endblock %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<!-- Blog Content page -->
+<section class="bg7 p-t-120 p-t-15-sm p-b-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9 p-b-80">
+                <div class="p-r-45 p-r-0-lg">
+                    {% if posts %}
+                    {% for blog in posts %}
+                    <!-- item blog -->
+                    <div class="p-b-63">
+                        <a href="{% url 'blog' blog.slug %}" class="hov-img1 how-pos5-parent">
+                            <img src="{{ blog.blog_image.url }}" alt="IMG-BLOG">
+
+                            <div class="flex-col-c-m size-123 bg9 how-pos5">
+                                <span class="mtext-114 cl15 txt-center">
+                                    {{ blog.updated_at|naturalday }}
+                                </span>
+                            </div>
+                        </a>
+
+                        <div class="p-t-32">
+                            <h4 class="p-b-15">
+                                <a href="{% url 'blog' blog.slug %}" class="ltext-108 cl0 hov-cl1 trans-04">
+                                    {{ blog.title }}
+                                </a>
+                            </h4>
+
+                            <p class="stext-117 cl0">
+                                {{ blog.short_description }}
+                            </p>
+
+                            <div class="flex-w flex-sb-m p-t-18">
+                                <span class="flex-w flex-m stext-111 cl0 p-r-30 m-tb-10">
+                                    <span>
+                                        <span class="cl4">By</span> {{ blog.blog_author }}
+                                        <span class="cl12 m-l-4 m-r-6">|</span>
+                                    </span>
+
+                                    <!-- <span>
+                                        {{ blog.categories }}
+                                        <span class="cl12 m-l-4 m-r-6">|</span>
+                                    </span> -->
+
+                                    <span>
+                                        {{ blog.comments.count }}
+                                    </span>
+                                </span>
+
+                                <a href="{% url 'blog' blog.slug %}" class="stext-101 cl0 hov-cl1 trans-04 m-tb-10">
+                                    Continue Reading
+
+                                    <i class="fa fa-long-arrow-right m-l-9"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <!-- item blog -->
+                    <div class="p-b-63">
+                        <div class="p-t-32">
+                            <h4 class="p-b-15">
+                                <a href="{% url 'index' %}" class="ltext-108 cl0 hov-cl1 trans-04">
+                                    No Blogs Availabe
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <!-- Pagination -->
+                    <div class="flex-l-m flex-w w-full p-t-10 m-lr--7">
+                        <nav aria-label="Page navigation example">
+                            {% if posts.has_other_pages %}
+                            <ul class="pagination">
+                                {% if posts.has_previous %}
+                                <li class="page-item">
+                                    <a class="flex-c-m how-pagination1 trans-04 m-all-7"
+                                        href="?page={{evs.previous_page_number}}" aria-label="Previous">
+                                        <span class="cl0" aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="page-item disabled">
+                                    <a class="flex-c-m how-pagination1 trans-04 m-all-7 bg10" href="#"
+                                        aria-label="Previous">
+                                        <span class="cl0" aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% for i in posts.paginator.page_range %}
+                                {% if posts.number == i %}
+                                <li class="page-item active">
+                                    <a class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
+                                        <p class="cl0">{{i}}</p>
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="page-item">
+                                    <a href="?page={{i}}" class="flex-c-m how-pagination1 trans-04 m-all-7">
+                                        <p>{{i}}</p>
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                                {% if posts.has_next %}
+                                <li class="page-item">
+                                    <a class="flex-c-m how-pagination1 trans-04 m-all-7"
+                                        href="?page={{posts.next_page_number}}" aria-label="Next">
+                                        <span class="cl0" aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="page-item disabled">
+                                    <a class="flex-c-m how-pagination1 trans-04 m-all-7 bg10" href="#"
+                                        aria-label="Previous">
+                                        <span class="cl0" aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                            {% endif %}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Menu Section -->
+            {% include 'partials/_blogs_sidebar.html' %}
+        </div>
+    </div>
+</section>
+
+<!-- End Blogs Section -->
+<!--========== END MAIN CONTENT ==========-->
+{% endblock %}

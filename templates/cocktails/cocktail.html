@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% block title %} - {{ event.venue }} | Discover Club Events and Gigs in Kenya {% endblock %}
+{% block content %}
+{% load leaflet_tags %}
+{% leaflet_css %}
+{% leaflet_js %}
+
+<!-- Cocktail Page -->
+<div class="bg7 p-t-100 p-t-50-sm p-b-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto p-b-20">
+                <div class="p-lr-40 p-t-30 m-l-25 m-r-40 m-lr-0-xl p-lr-15-sm p-b-20">
+                    <!-- Block2 -->
+                    <div class="block2">
+                        <div class="block2-pic hov-img0">
+                            <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-PRODUCT">
+                        </div>
+
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                        </div>
+                    </div>
+
+                    <div class="flex-w flex-t">
+                        <h4 class="mtext-109 cl0">
+                            {{ cocktail.name }}
+                        </h4>
+                    </div>
+
+                    <div class="flex-w flex-t p-t-15">
+                        <div class="size-2020">
+                            <span class="mtext-101 cl0">
+                                <i class="fa fa-glass"></i>
+                            </span>
+                        </div>
+
+                        <div class="p-t-1">
+                            <span class="mtext-110 cl0">
+                                {{ cocktail.glass_type }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="flex-w flex-t p-t-15">
+                        <div class="size-2020">
+                            <span class="mtext-101 cl0">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="p-t-1">
+                            <span class="mtext-110 cl0">
+                                <a href="{{ cocktail.video_tutorial }}" class="cl1">Watch: {{ cocktail.name }} </a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="flex-w flex-t p-t-15">
+                        <div class="size-2020">
+                            <span class="mtext-101 cl0">
+                                <i class="fa fa-beer"></i>
+                            </span>
+                        </div>
+
+                        <div class="p-t-1">
+                            <span class="mtext-110 cl0">
+                                {{ cocktail.alcohol }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50 bg12">
+                <div class="m-l-25 m-l--38 m-r-25 m-lr-0-xl p-t-30">
+                    <div class="p-lr-40 p-t-30 p-b-40 m-l-25 m-r-40 m-lr-0-xl p-lr-15-sm">
+                        <div class="flex-w flex-t p-t-15 bor12 p-b-30">
+                            <div class="p-t-5 p-b-5">
+                                <span class="mtext-109 cl0">
+                                    Description
+                                </span>
+                                <div class="stext-110 cl0 p-t-2">
+                                    <p>
+                                        {{ cocktail.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-w flex-t p-t-15 bor12 p-b-30">
+                            <div class="p-t-5 p-b-5">
+                                <span class="mtext-109 cl0">
+                                    Ingredients
+                                </span>
+                                <div class="stext-110 cl0 p-t-2">
+                                    <p>
+                                        {{ cocktail.ingredients|linebreaks }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-w flex-t p-t-15 p-b-30">
+                            <div class="p-t-5 p-b-5">
+                                <span class="mtext-109 cl0">
+                                    Directions
+                                </span>
+                                <div class="stext-110 cl0 p-t-2">
+                                    <p>
+                                        {{ cocktail.instructions|linebreaks }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cocktails -->
+<section class="bg7 p-t-5 p-b-15">
+    <div class="container">
+        <!-- Editors Pick -->
+        <div class="tab02 women">
+            <!-- Tab panes -->
+            <div class="tab-content p-t-30  text-center">
+                <span class="ltext-101 cl0"> You May Also Like </span>
+                <!-- - -->
+                <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                    <!-- Slide2 -->
+                    <div class="wrap-slick2">
+                        <div class="slick2">
+                            {% if top_rated_cocktails %}
+                            {% for cocktail in top_rated_cocktails %}
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
+                                <div class="blog-item">
+                                    <div class="hov-img0">
+                                        <a href="{% url 'cocktail' cocktail.slug %}">
+                                            <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
+                                        </a>
+                                    </div>
+        
+                                    <div class="p-t-15">
+                                        <h4 class="p-b-12">
+                                            <a href="{% url 'cocktail' cocktail.slug %}" class="mtext-101 cl0 hov-cl1 trans-04">
+                                                {{ cocktail.name }}
+                                            </a>
+                                        </h4>
+        
+                                        <p class="stext-108 cl0">
+                                            {{ cocktail.block_quote }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
+                                <!-- Block1 -->
+                                <div class="block1 wrap-pic-w">
+                                    <img class="explore"
+                                        src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll.jpg"
+                                        alt="IMG-BANNER">
+                                    <a href="#"
+                                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                        <div class="block1-txt-child1 flex-col-l">
+                                            <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                No Cocktail Available
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -4,6 +4,7 @@ from .models import Category
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse, Http404
 from genres.models import Genre
+from drink_categories.models import DrinkCategory
 
 def category(request, slug_category):
     #handles display of events belonging to a single category
@@ -20,6 +21,7 @@ def category(request, slug_category):
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
     genres = Genre.objects.filter(is_published=True).order_by('name')
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "category" : category,
@@ -27,6 +29,7 @@ def category(request, slug_category):
         "categories" : categories,
         "events" : paged_events,
         'genres' : genres,
-        "covers" : cover_image
+        "covers" : cover_image,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "categories/category.html", context)

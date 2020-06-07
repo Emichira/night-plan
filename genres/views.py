@@ -4,6 +4,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse, Http404
 from .models import Genre
 from categories.models import Category
+from drink_categories.models import DrinkCategory
 
 def genres(request):
     #create objects
@@ -15,11 +16,13 @@ def genres(request):
     paginator = Paginator(genres, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "genres" : paged_events, #pass in 16 paginated genres per page to template
         "categories" : categories,
-        "covers" : cover_image
+        "covers" : cover_image,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "genres/genres.html", context)
 

@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block title %} - {{ event.venue }} | Discover Club Events and Gigs in Kenya {% endblock %}
+{% block content %}
+{% load humanize %}
+
+<!-- Content page -->
+<section class="bg7 p-t-100 p-t-50-sm p-b-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9 p-b-80">
+                <div class="p-r-45 p-r-0-lg">
+                    <!-- Blog Post -->
+                    <div class="wrap-pic-w hov-img1 how-pos5-parent">
+                        <img src="{{ blog.blog_image.url }}" alt="IMG-BLOG">
+
+                        <div class="flex-col-c-m size-126 bg9 how-pos5">
+                            <span class="mtext-114 cl2 txt-center">
+                                {{ blog.updated_at|naturalday }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-t-32">
+                        <span class="flex-w flex-m stext-111 cl0 p-b-19">
+                            <span>
+                                <span class="cl0">By</span> {{ blog.blog_author }}
+                                <span class="cl12 m-l-4 m-r-6">|</span>
+                            </span>
+
+                            <span>
+                                {{ blog.blog_date }}
+                                <span class="cl12 m-l-4 m-r-6">|</span>
+                            </span>
+
+                            <span>
+                                {% if alcohol %}
+                                {% for alcohol in alcohol %}
+                                {{ blog.alcohol }}
+                                {% endfor %}
+                                {% endif %}
+                                <span class="cl12 m-l-4 m-r-6">|</span>
+                            </span>
+
+                            <span>
+                                {{ blog.comments.count }}
+                            </span>
+                        </span>
+
+                        <h4 class="ltext-109 cl0 p-b-28">
+                            {{ blog.title }}
+                        </h4>
+                        <div class="stext-117 cl0 p-b-26">
+                            <p>
+                                {{ blog.first_paragraph|linebreaks }}
+                                {{ blog.middle_paragragh|linebreaks }}
+                                {{ blog.final_paragraph|linebreaks }}
+                            </p>
+                        </div>
+                    </div>
+<!-- 
+                    <div class="flex-w flex-t p-t-16">
+                        <span class="size-216 stext-116 cl0 p-t-4">
+                            Tags
+                        </span>
+
+                        <div class="flex-w size-217">
+                            <a href="#"
+                                class="flex-c-m stext-107 cl0 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                Streetstyle
+                            </a>
+
+                            <a href="#"
+                                class="flex-c-m stext-107 cl0 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                Crafts
+                            </a>
+                        </div>
+                    </div> -->
+
+                    <!-- Blog Post Comments -->
+                    <div class="p-t-40">
+                        <h5 class="mtext-112 cl0 p-b-12">
+                            Comments ({{ blog.comments.count }})
+                        </h5>
+
+                        <ul>
+                            {% for comment in blog.get_comments %}
+                            <li class="flex-w flex-t p-b-30">
+                                <span class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
+                                    <img class="blog-featured-images" src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/anonymous.jpg"
+                                        alt="PRODUCT">
+                                </span>
+
+                                <div class="size-215 flex-col-t p-t-8">
+                                    <span class="stext-116 cl0 hov-cl1 trans-04">
+                                        {{ comment.name }}
+                                    </span>
+                                    <span class="stext-116 cl0 p-t-10">
+                                        {{ comment.content }}
+                                    </span>
+                                    <span class="stext-116 cl0 p-t-10">
+                                        {{ comment.timestamp|timesince }} ago
+                                    </span>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Comment Section -->
+                    <div class="p-t-30">
+                        <h5 class="mtext-113 cl0 p-b-12">
+                            Leave a Comment
+                        </h5>
+
+                        {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
+                        <form method="POST" action="{% url 'blog' blog.slug %}">
+                            {% csrf_token %}
+                            <div class="bor19 m-b-20">
+                                <textarea class="stext-111 cl5 plh3 size-124 p-lr-18 p-tb-15" type="text" name="content"
+                                    placeholder="Comment...">{{ form.content }}</textarea>
+                            </div>
+
+                            <div class="bor19 size-218 m-b-20">
+                                <textarea class="stext-111 cl5 plh3 size-116 p-lr-18" type="text" name="name"
+                                placeholder="Name *">{{ form.name }}</textarea>
+                            </div>
+
+                            <button type="submit" class="flex-c-m stext-101 cl0 size-125 bg3 bor7 hov-btn3 p-lr-15 trans-04">
+                                Post Comment
+                            </button>
+                        </form>
+                        {% else %}
+                        <p class="stext-107 cl0 p-b-40">
+                            Please sign in to be able to post a comment.
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Menu Section -->
+            {% include 'partials/_blogs_sidebar.html' %}
+        </div>
+    </div>
+</section>
+{% endblock %}

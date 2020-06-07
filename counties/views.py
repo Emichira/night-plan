@@ -5,6 +5,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse, Http404
 from categories.models import Category
 from genres.models import Genre
+from drink_categories.models import DrinkCategory
 
 def county(request, slug_county):
     #create a detailed view of events in a county
@@ -18,6 +19,7 @@ def county(request, slug_county):
     paged_events = paginator.get_page(page)
     categories = Category.objects.all().order_by('-created_at')
     genres = Genre.objects.filter(is_published=True).order_by('name')
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "road" : county,
@@ -26,5 +28,6 @@ def county(request, slug_county):
         "covers" : cover_image,
         "categories" : categories,
         'genres' : genres,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "counties/roads.html", context)

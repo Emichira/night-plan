@@ -21,8 +21,20 @@
                         </li>
 
                         <li>
-                            <a href="{% url 'events' %}">Browse Events</a>
+                            <a href="{% url 'cocktails' %}">Cocktail Recipes</a>
                         </li>
+
+                        <li>
+                            <a href="{% url 'explore' %}">Explore</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'blogs' %}">Blogs</a>
+                        </li>
+
+                        <!-- <li>
+                            <a href="{% url 'events' %}">Browse Events</a>
+                        </li> -->
 
                         <li>
                             <a href="{% url 'clubs' %}">Nightclubs</a>
@@ -104,6 +116,10 @@
             </li>
 
             <li>
+                <a href="{% url 'cocktails' %}">Cocktail Recipes</a>
+            </li>
+
+            <li>
                 <a href="{% url 'events' %}">Browse Events</a>
             </li>
 
@@ -145,7 +161,7 @@
                 <button class="flex-c-m trans-04">
                     <i class="zmdi zmdi-search"></i>
                 </button>
-                <input class="plh3" type="text" name="q" value='{{ request.get.q }}' placeholder="Search Club or Category...">
+                <input class="plh3" type="text" name="q" value='{{ request.get.q }}' placeholder="Search Cocktails Clubs or Category...">
             </form>
         </div>
     </div>
@@ -154,9 +170,9 @@
 <aside class="wrap-sidebar js-sidebar">
     <div class="s-full js-hide-sidebar"></div>
 
-    <div class="sidebar flex-col-l p-t-22 p-b-25">
+    <div class="bg7 sidebar flex-col-l p-t-22 p-b-25">
         <div class="flex-r w-full p-b-30 p-r-27">
-            <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-sidebar">
+            <div class="fs-35 lh-10 cl0 p-lr-5 pointer hov-cl1 trans-04 js-hide-sidebar">
                 <i class="zmdi zmdi-close"></i>
             </div>
         </div>
@@ -164,13 +180,13 @@
         <div class="sidebar-content flex-w w-full p-lr-65 js-pscroll">
             <ul class="sidebar-link w-full">
                 <li class="p-b-13">
-                    <a href="{% url 'index' %}" class="stext-102 cl2 hov-cl1 trans-04">
+                    <a href="{% url 'index' %}" class="stext-102 cl0 hov-cl1 trans-04">
                         Home
                     </a>
                 </li>
                 {% if user.is_authenticated or ass.provider == 'facebook' or ass.provider == 'instagram' %}
                 <li class="p-b-13">
-                    <a href="{% url 'account_logout' %}" class="stext-102 cl2 hov-cl1 trans-04">
+                    <a href="{% url 'account_logout' %}" class="stext-102 cl0 hov-cl1 trans-04">
                         Logout {{ user.username }}
                     </a>
                 </li>
@@ -180,37 +196,37 @@
                 </form>
                 {% else %}
                 <li class="p-b-13">
-                    <a href="/accounts/login" class="stext-102 cl2 hov-cl1 trans-04">
+                    <a href="/accounts/login" class="stext-102 cl0 hov-cl1 trans-04">
                         Sign In
                     </a>
                 </li>
 
                 <li class="p-b-13">
-                    <a href="/accounts/signup" class="stext-102 cl2 hov-cl1 trans-04">
+                    <a href="/accounts/signup" class="stext-102 cl0 hov-cl1 trans-04">
                         Sign Up
                     </a>
                 </li>
                 {% endif %}
 
                 <li class="p-b-13">
-                    <a href="{% url 'terms' %}" class="stext-102 cl2 hov-cl1 trans-04">
+                    <a href="{% url 'terms' %}" class="stext-102 cl0 hov-cl1 trans-04">
                         Terms & Conditions
                     </a>
                 </li>
 
                 <li class="p-b-13">
-                    <a href="{% url 'contact' %}" class="stext-102 cl2 hov-cl1 trans-04">
+                    <a href="{% url 'contact' %}" class="stext-102 cl0 hov-cl1 trans-04">
                         Contact & Support
                     </a>
                 </li>
             </ul>
 
             <div class="sidebar-gallery w-full">
-                <span class="mtext-101 cl5">
+                <span class="mtext-101 cl0">
                     About Us
                 </span>
 
-                <p class="stext-108 cl5">
+                <p class="stext-108 cl0">
                     Night Plan Kenya is your ultimate nightlife guide. We connect you to club events and latest happy
                     hours.</p>
             </div>
