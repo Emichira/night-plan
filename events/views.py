@@ -6,10 +6,11 @@ from cocktails.models import Cocktail
 from categories.models import Category
 from counties.models import County
 from clubs.models import Club
+from drink_categories.models import DrinkCategory
+from genres.models import Genre
 from django.http import HttpResponse, Http404
 from django.db.models import Q
 from datetime import datetime, date
-from genres.models import Genre
 from itertools import chain
 
 def events(request):
@@ -23,12 +24,14 @@ def events(request):
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
     genres = Genre.objects.filter(is_published=True).order_by('name')
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "events" : paged_events,
         "categories" : categories,
         "covers" : cover_image,
         'genres' : genres,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "events/events.html", context)
 
@@ -72,12 +75,14 @@ def search(request):
     page = request.GET.get('page')
     paged_cocktails = paginator.get_page(page)
     genres = Genre.objects.filter(is_published=True).order_by('name')
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "cocktails" : paged_cocktails,
         "categories" : categories,
         "covers" : cover_image,
         'genres' : genres,
-        'query' : query
+        'query' : query,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "events/search.html", context)

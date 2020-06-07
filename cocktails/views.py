@@ -27,6 +27,7 @@ def cocktails(request):
     genres = Genre.objects.filter(is_published=True).order_by('name')[:6]
     categories = Category.objects.order_by('-created_at')[:6]
     blogcategories = BlogCategory.objects.all()[:6]
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "cocktails" : paged_cocktails,
@@ -34,6 +35,7 @@ def cocktails(request):
         'blogcategories' : blogcategories,
         "categories" : categories,
         'genres' : genres,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "cocktails/cocktails.html", context)
 

@@ -13,6 +13,7 @@ from django.http import HttpResponse, Http404
 from django.db.models import Q
 from datetime import datetime, date
 from genres.models import Genre
+from drink_categories.models import DrinkCategory
 
 def blogs(request):
     #create objects
@@ -26,6 +27,7 @@ def blogs(request):
     cocktails = Cocktail.objects.filter(categories="4")[:3]
     categories = Category.objects.order_by('-created_at')
     genres = Genre.objects.filter(is_published=True).order_by('name')
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         'posts' : paged_posts,
@@ -33,6 +35,7 @@ def blogs(request):
         "categories" : categories,
         'genres' : genres,
         "brunchs" : brunch,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "blogs/blogs.html", context)
 
@@ -45,6 +48,7 @@ def blog(request, slug_blog):
     categories = Category.objects.order_by('-created_at')
     genres = Genre.objects.filter(is_published=True).order_by('name')
     brunch = Category.objects.all().filter(name='Brunch')
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
     form = CommentForm(request.POST)
     if request.method == "POST":
         if form.is_valid():
@@ -61,6 +65,7 @@ def blog(request, slug_blog):
         "categories" : categories,
         'genres' : genres,
         "brunchs" : brunch,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "blogs/blog.html", context)
 
@@ -78,11 +83,13 @@ def search(request):
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
     genres = Genre.objects.filter(is_published=True).order_by('name')
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "events" : paged_events,
         "categories" : categories,
         "covers" : cover_image,
         'genres' : genres,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "events/search.html", context)
