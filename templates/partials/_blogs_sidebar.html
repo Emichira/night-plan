@@ -5,8 +5,8 @@
     <div class="side-menu">
         <div class="bor17 of-hidden pos-relative">
             <form action="{% url 'search' %}" method="GET">
-                <input class="stext-103 cl5 plh4 size-116 p-l-28 p-r-55" type="text" name="q" value='{{ request.get.q }}'
-                    placeholder="Search">
+                <input class="stext-103 cl5 plh4 size-116 p-l-28 p-r-55" type="text" name="q"
+                    value='{{ request.get.q }}' placeholder="Search">
 
                 <button class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04">
                     <i class="zmdi zmdi-search"></i>
@@ -42,10 +42,8 @@
                 {% if cocktails %}
                 {% for cocktail in cocktails %}
                 <li class="flex-w flex-t p-b-30">
-                    <a href="{% url 'cocktail' cocktail.slug %}"
-                        class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
-                        <img class="blog-featured-images" src="{{ cocktail.cocktail_image.url }}"
-                            alt="PRODUCT">
+                    <a href="{% url 'cocktail' cocktail.slug %}" class="wrao-pic-w size-214 hov-ovelay1 m-r-20">
+                        <img class="blog-featured-images" src="{{ cocktail.cocktail_image.url }}" alt="PRODUCT">
                     </a>
 
                     <div class="size-215 flex-col-t p-t-8">
@@ -53,9 +51,9 @@
                             {{ cocktail.name }}
                         </a>
 
-                        <span class="stext-116 cl0 p-t-10">
-                            <a href="{% url 'cocktail' cocktail.slug %}">{{ cocktail.block_quote }}</a>
-                        </span>
+                        <a href="{% url 'cocktail' cocktail.slug %}"><span class="stext-116 cl0 hov-cl1 trans-04 p-t-10">
+                                {{ cocktail.block_quote }}
+                            </span></a>
                     </div>
                 </li>
                 {% endfor %}
@@ -71,8 +69,7 @@
 
             <ul>
                 <li class="bor18">
-                    <a href="{% url 'cocktails' %}"
-                        class="dis-block stext-115 cl0 hov-cl1 trans-04 p-tb-8 p-lr-4">
+                    <a href="{% url 'cocktails' %}" class="dis-block stext-115 cl0 hov-cl1 trans-04 p-tb-8 p-lr-4">
                         Cocktail Recipes
                     </a>
                 </li>
@@ -88,15 +85,13 @@
                 {% else %}
                 {% endif %}
                 <li class="bor18">
-                    <a href="{% url 'clubs' %}"
-                        class="dis-block stext-115 cl0 hov-cl1 trans-04 p-tb-8 p-lr-4">
+                    <a href="{% url 'clubs' %}" class="dis-block stext-115 cl0 hov-cl1 trans-04 p-tb-8 p-lr-4">
                         Night Clubs
                     </a>
                 </li>
 
                 <li class="bor18">
-                    <a href="{% url 'genres' %}"
-                        class="dis-block stext-115 cl0 hov-cl1 trans-04 p-tb-8 p-lr-4">
+                    <a href="{% url 'genres' %}" class="dis-block stext-115 cl0 hov-cl1 trans-04 p-tb-8 p-lr-4">
                         Event Genre
                     </a>
                 </li>
