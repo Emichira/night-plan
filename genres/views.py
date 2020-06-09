@@ -38,6 +38,7 @@ def genre(request, slug_genre):
     paged_events = paginator.get_page(page)
     categories = Category.objects.all().order_by('-created_at')
     genres = Genre.objects.all().order_by('name').filter(is_published=True)
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "genre" : genre,
@@ -46,5 +47,6 @@ def genre(request, slug_genre):
         "events" : paged_events,
         "covers" : cover_image,
         "categories" : categories,
+        'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "genres/genre.html", context)

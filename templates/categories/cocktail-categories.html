@@ -2,73 +2,9 @@
 {% block title %} - Browse Upcoming Club Events | Discover Club Events and Gigs in Kenya {% endblock %}
 {% block content %}
 
-<!-- Slider -->
-<section class="section-slide">
-    <div class="wrap-slick1 rs1-slick1">
-        <div class="slick1">
-            {% if covers %}
-            {% for cover in covers %}
-            <div class="item-slick1" style="background-image: url('{{ cover.cover_image.url }}');">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30 hero-content">
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                            <span class="hero-title cl0 respon2">
-                                {{ cover.title }}
-                            </span>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-                            <h2 class="hero-teaser cl0 p-t-19 p-b-10 respon1">
-                                {{ cover.venue }}
-                            </h2>
-                            <h2 class="hero-teaser cl0 p-b-43 respon1">
-                                {{ cover.club.location }}
-                            </h2>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                            <a href="{% url 'event' cover.slug %}"
-                                class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-                                View
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            {% else %}
-            <div class="item-slick1" style="background-image: url(images/slide-03.jpg);">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30">
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                            <span class="ltext-202 cl0 respon2">
-                                No Event Information Available
-                            </span>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-                            <h2 class="ltext-104 cl0 p-t-19 p-b-43 respon1">
-                                No Event Information Available
-                            </h2>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                            <a href="product.html"
-                                class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-                                No Event Information Available
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-</section>
-<!--========== END COVER BLOCK ==========-->
-<!--========== EVENTS BLOCK ==========-->
-<!-- Events -->
-<section class="sec-product bg7 p-t-10 p-b-15">
+<!--========== Cocktails BLOCK ==========-->
+<!-- Cocktails -->
+<section class="sec-product bg7 p-t-100 p-b-15">
     <div class="container">
         <!-- Filter Section -->
         <div class="flex-w flex-sb-m">
