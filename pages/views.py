@@ -60,6 +60,7 @@ def explore_page(request):
     clubs = Club.objects.filter(is_published=True).order_by('name')
     happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('event_date')
     tonight = Event.objects.filter(event_date__date=date.today(), is_published=True)
+    classics = Cocktail.objects.filter(categories='1').order_by('-updated_at')
     this_weekend = Event.objects.filter(Q(event_date__week_day=1) | Q(event_date__week_day=7), is_published=True)
     trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
     genres = Genre.objects.filter(is_published=True).order_by('name')
@@ -72,6 +73,7 @@ def explore_page(request):
         "clubs" : clubs,
         "happy_hour" : happy_hour,
         "tonight" : tonight,
+        'classics' : classics,
         "this_weekend" : this_weekend,
         "trending" : trending,
         'genres' : genres,

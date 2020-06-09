@@ -40,14 +40,12 @@ def event(request, slug_event):
     #Handles displaying of single event
     tonight = Event.objects.filter(event_date__date=date.today())
     event = get_object_or_404(Event, slug=slug_event)
-    cover_image = Event.objects.exclude(cover_image__isnull=True).exclude(cover_image__exact='')
-    genres = Genre.objects.filter(is_published=True).order_by('name')
+    classics = Cocktail.objects.filter(categories='1').order_by('-updated_at')
 
     context = {
         "event" : event,
         "tonight" : tonight,
-        "covers" : cover_image,
-        'genres' : genres,
+        'classics' : classics,
     }
     return render(request, "events/event.html", context)
 
