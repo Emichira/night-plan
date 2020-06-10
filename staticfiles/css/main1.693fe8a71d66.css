@@ -3355,6 +3355,10 @@ button.mfp-close {
     width: 100px;
     min-height: 100px;
   }
+
+  .p-t-100 {
+    padding-top: 15px;
+  }
 }
 
 
@@ -3442,6 +3446,10 @@ button.mfp-close {
   .size-126 {
     width: 70px;
     min-height: 70px;
+  }
+
+  .p-t-100 {
+    padding-top: 15px;
   }
 }
 
@@ -3553,6 +3561,10 @@ button.mfp-close {
     width: 70px;
     min-height: 70px;
   }
+
+  .p-t-100 {
+    padding-top: 15px;
+  }
 }
 
 
@@ -3636,6 +3648,10 @@ button.mfp-close {
   .size-126 {
     width: 70px;
     min-height: 70px;
+  }
+
+  .p-t-100 {
+    padding-top: 15px;
   }
 }
 
