@@ -25,11 +25,7 @@ def home_page(request):
     editor = Cocktail.objects.filter(categories='3').order_by('-updated_at')
     beer_wine = Cocktail.objects.filter(categories='4').order_by('-updated_at')
     flavor = Cocktail.objects.filter(categories='5').order_by('-updated_at')
-<<<<<<< HEAD
-    brunch_events = Event.objects.filter(categories='7', is_published=True).order_by('event_date')
-=======
     brunch_events = Event.objects.filter(categories='7').order_by('event_date')
->>>>>>> dev
     posts = Blog.objects.filter(categories='1').order_by('-updated_at')
     trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
