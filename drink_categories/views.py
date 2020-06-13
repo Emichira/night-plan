@@ -17,10 +17,9 @@ def category(request, slug_category):
     category_name = DrinkCategory.objects.get(slug=slug_category)
     categories = DrinkCategory.objects.all().order_by('-created_at')
     #display all cover images in detailed category
-    cover_image = Event.objects.exclude(cover_image__isnull=True).exclude(cover_image__exact='')
     #displays all cocktails with unique slug_category
     cocktails = Cocktail.objects.order_by('-updated_at').filter(categories__slug=slug_category)
-    paginator = Paginator(cocktails, 16)
+    paginator = Paginator(cocktails, 20)
     page = request.GET.get('page')
     paged_cocktails = paginator.get_page(page)
     genres = Genre.objects.filter(is_published=True).order_by('name')
@@ -32,7 +31,6 @@ def category(request, slug_category):
         "categories" : categories,
         "cocktails" : paged_cocktails,
         'genres' : genres,
-        "covers" : cover_image,
         'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "categories/cocktail-categories.html", context)
