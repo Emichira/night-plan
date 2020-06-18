@@ -24,7 +24,7 @@ def blogs(request):
     paginator = Paginator(posts, 3)
     page = request.GET.get('page')
     paged_posts = paginator.get_page(page)
-    cocktails = Cocktail.objects.filter(categories="2")[:3]
+    cocktails = Cocktail.objects.filter(categories="4")[:3]
     categories = Category.objects.order_by('-created_at')
     genres = Genre.objects.filter(is_published=True).order_by('name')
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')

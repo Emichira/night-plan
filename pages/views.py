@@ -43,7 +43,7 @@ def home_page(request):
         'classics' : classics,
         'classic_cocktails' : classic_cocktails,
         'posts' : posts,
-        "brunch_events" : brunch_events,
+        "trending" : trending,
         'menu_cocktail_categories' : menu_cocktail_categories,
         'genres' : genres,
         "categories" : categories,
