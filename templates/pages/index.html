@@ -37,11 +37,11 @@
                             alt=""></a>
                     <div class="post-body">
                         <div class="post-category">
-                            <a href="category.html">Blogs</a>
+                            <a href="{% url 'blogs' %}">Blogs</a>
                         </div>
-                        <h3 class="post-title"><a href="blog-post.html">Cocktail blog posts</a></h3>
+                        <h3 class="post-title"><a href="{% url 'blogs' %}">Cocktail blog posts</a></h3>
                         <ul class="post-meta">
-                            <li><a href="author.html">Read More</a></li>
+                            <li><a href="{% url 'blogs' %}">Read More</a></li>
                         </ul>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                     {% endif %}
                 </div>
                 <!-- Nightclubs - -->
-                <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                <div class="tab-pane fade show active" role="tabpanel">
                     <!-- Slide2 -->
                     <div class="wrap-slick2">
                         <div class="slick2">
@@ -211,7 +211,7 @@
                         {% endif %}
                     </div>
                     <!-- Sliding Tab Panes -->
-                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                    <div class="tab-pane fade show active" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
@@ -290,7 +290,7 @@
                         {% endif %}
                     </div>
                     <!-- Sliding Tab Panes -->
-                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                    <div class="tab-pane fade show active" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
@@ -369,7 +369,7 @@
                         {% endif %}
                     </div>
                     <!-- Sliding Tab Panes -->
-                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                    <div class="tab-pane fade show active" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
@@ -424,7 +424,7 @@
 
             <!-- Tab04 -->
             <!-- Trending -->
-            <div class="tab02 p-t-15" id="trending">
+            <div class="tab02 p-t-15">
                 <!-- Tab panes -->
                 <div class="tab-content p-t-15">
                     <div class="flex-w flex-sb-m p-t-10 p-b-5">
@@ -449,7 +449,7 @@
                         {% endif %}
                     </div>
                     <!-- Brunch Events Section -->
-                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                    <div class="tab-pane fade show active" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
@@ -577,7 +577,7 @@
                         </div>
 
                         <h4 class="p-b-12">
-                            <a href="blog-detail.html" class="mtext-101 cl0 hov-cl1 trans-04">
+                            <a href="{% url 'blog' blog.slug %}" class="mtext-101 cl0 hov-cl1 trans-04">
                                 {{ blog.title }}
                             </a>
                         </h4>
