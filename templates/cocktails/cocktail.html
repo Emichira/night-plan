@@ -6,7 +6,7 @@
 {% leaflet_js %}
 
 <!-- Cocktail Page -->
-<div class="bg7 p-t-100 p-t-50-sm p-b-10">
+<section class="bg7 p-t-100 p-t-50-sm p-b-10">
     <div class="container">
         <div class="row">
             <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto p-b-20">
@@ -76,40 +76,38 @@
                     <div class="p-lr-40 p-t-30 p-b-40 m-l-25 m-r-40 m-lr-0-xl p-lr-15-sm">
                         <div class="flex-w flex-t p-t-15 bor12 p-b-30">
                             <div class="p-t-5 p-b-5">
-                                <span class="mtext-109 cl0">
+                                <article class="mtext-109 cl0">
                                     Description
-                                </span>
-                                <div class="stext-110 cl0 p-t-2">
+                                </article>
+                                <article class="stext-110 cl0 p-t-2">
                                     <p>
                                         {{ cocktail.description }}
                                     </p>
-                                </div>
+                                </article>
                             </div>
                         </div>
 
                         <div class="flex-w flex-t p-t-15 bor12 p-b-30">
                             <div class="p-t-5 p-b-5">
-                                <span class="mtext-109 cl0">
+                                <article class="mtext-109 cl0">
                                     Ingredients
-                                </span>
-                                <div class="stext-110 cl0 p-t-2">
-                                    <p>
-                                        {{ cocktail.ingredients|linebreaks }}
-                                    </p>
-                                </div>
+                                </article>
+                                <article class="stext-110 cl0 p-t-2">
+                                    {{ cocktail.ingredients|linebreaks }}
+                                </article>
                             </div>
                         </div>
 
                         <div class="flex-w flex-t p-t-15 p-b-30">
                             <div class="p-t-5 p-b-5">
-                                <span class="mtext-109 cl0">
+                                <article class="mtext-109 cl0">
                                     Directions
-                                </span>
-                                <div class="stext-110 cl0 p-t-2">
+                                </article>
+                                <article class="stext-110 cl0 p-t-2">
                                     <p>
                                         {{ cocktail.instructions|linebreaks }}
                                     </p>
-                                </div>
+                                </article>
                             </div>
                         </div>
                     </div>
@@ -117,7 +115,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <!-- Cocktails -->
 <section class="bg7 p-t-5 p-b-15">
@@ -128,7 +126,7 @@
             <div class="tab-content p-t-30  text-center">
                 <span class="ltext-101 cl0"> You May Also Like </span>
                 <!-- - -->
-                <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                <div class="tab-pane fade show active" role="tabpanel">
                     <!-- Slide2 -->
                     <div class="wrap-slick2">
                         <div class="slick2">
@@ -141,14 +139,15 @@
                                             <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
                                         </a>
                                     </div>
-        
+
                                     <div class="p-t-15">
                                         <h4 class="p-b-12">
-                                            <a href="{% url 'cocktail' cocktail.slug %}" class="mtext-101 cl0 hov-cl1 trans-04">
+                                            <a href="{% url 'cocktail' cocktail.slug %}"
+                                                class="mtext-101 cl0 hov-cl1 trans-04">
                                                 {{ cocktail.name }}
                                             </a>
                                         </h4>
-        
+
                                         <p class="stext-108 cl0">
                                             {{ cocktail.block_quote }}
                                         </p>
