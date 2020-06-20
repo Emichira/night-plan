@@ -43,10 +43,10 @@ def home_page(request):
         'classics' : classics,
         'classic_cocktails' : classic_cocktails,
         'posts' : posts,
-        "trending" : trending,
         'menu_cocktail_categories' : menu_cocktail_categories,
         'genres' : genres,
         "categories" : categories,
+        "brunch_events" : brunch_events,
     }
     return render(request, "pages/index.html", context)
 
@@ -62,6 +62,7 @@ def explore_page(request):
     categories = Category.objects.all().order_by('name')
     counties = County.objects.all().order_by('-created_at')
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
+    brunch_events = Event.objects.filter(categories='7').order_by('event_date')
 
     context = {
         "covers" : cover_image,
@@ -75,6 +76,7 @@ def explore_page(request):
         "categories" : categories,
         "counties" : counties,
         'menu_cocktail_categories' : menu_cocktail_categories,
+        "brunch_events" : brunch_events,
     }
     return render(request, "pages/explore.html", context)
 
