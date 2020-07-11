@@ -1,21 +1,22 @@
-{% extends "base.html" %}
+{% extends "accounts_base.html" %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="g-position--relative g-bg-color--primary">
-  <div class="g-container--md g-padding-y-125--xs">
-    <h1 class="g-font-size-32--xs g-font-size-36--md g-color--white">{% trans "Sign Up" %}</h1>
+<section class="sec-blog bg1 p-t-200 p-b-50">
 
-    <p class="exist_account_info">{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You
+  <div class="container">
+    <h1 class="ltext-106 cl0 txt-center respon1">{% trans "Sign Up" %}</h1>
+
+    <p class="exist_account_info cl0">{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You
       are about to use your
       {{provider_name}} account to login to
       {{site_name}}. <br> As a final step, please complete the following form:{% endblocktrans %}</p>
 
-    <div class="row g-row-col--5 g-margin-b-30--xs center-flex-layout">
-      <div class="col-md-5 g-margin-b-0--sm center-flex-layout">
+      <div class="col-sm-6 col-md-4 p-b-10 txt-center">
+        <div class="p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
 
         <form class="center-block g-width-500--sm g-width-550--md center-inline-grid text-center" id="signup_form"
           method="post" action="{% url 'socialaccount_signup' %}">
@@ -29,14 +30,13 @@
           {% endif %}
           <br>
           <div class="center-inline-grid g-margin-b-30--xs g-margin-b-20--md">
-          <button class="btn btn-outline-primary" type="submit"><span
-              class="g-color--white-opacity">{% trans "Sign Up" %} &raquo;</span></button>
+            <button class="btn btn-outline-primary" type="submit"><span
+                class="g-color--white-opacity">{% trans "Sign Up" %} &raquo;</span></button>
           </div>
         </form>
 
       </div>
     </div>
   </div>
-</div>
-
+</section>
 {% endblock %}
