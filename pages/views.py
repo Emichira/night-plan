@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from cocktails.models import Cocktail
+from alcohol.models import Alcohol
 from drink_categories.models import DrinkCategory
 from blogs.models import Blog
 from events.models import Event
@@ -16,52 +17,63 @@ from django.db.models import Q
 
 def home_page(request):
     brunch = Category.objects.filter(name='Brunch')
-    editors = DrinkCategory.objects.filter(name='Editors')
-    beers = DrinkCategory.objects.filter(name='Beer & Wine')
-    flavors = DrinkCategory.objects.filter(name='Flavor')
-    classic_cocktails = DrinkCategory.objects.filter(name='Classic Cocktails')
-    classics = Cocktail.objects.filter(categories='1').order_by('-updated_at')
-    top_rated = Cocktail.objects.filter(categories='2').order_by('-updated_at')
-    editor = Cocktail.objects.filter(categories='3').order_by('-updated_at')
-    beer_wine = Cocktail.objects.filter(categories='4').order_by('-updated_at')
-    flavor = Cocktail.objects.filter(categories='5').order_by('-updated_at')
-    brunch_events = Event.objects.filter(categories='7').order_by('event_date')
-    posts = Blog.objects.filter(categories='1').order_by('-updated_at')
-    trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
+    vodka = Cocktail.objects.filter(alcohol__name='Vodka')
+    whiskey = Cocktail.objects.filter(alcohol__name='Whiskey')
+    gin = Cocktail.objects.filter(alcohol__name='Gin')
+    rum = Cocktail.objects.filter(alcohol__name='Rum')
+    tequila = Cocktail.objects.filter(alcohol__name='Tequila')
+    beer_wine = Cocktail.objects.filter(categories__name='Beer & Wine').order_by('-updated_at')
+    flavor = Cocktail.objects.filter(categories__name='Flavor').order_by('-updated_at')
+    posts = Blog.objects.filter(categories='1').order_by('-updated_at')[:3]
+    # data to be displayed in filter section menu
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
-    genres = Genre.objects.filter(is_published=True).order_by('name')
-    categories = Category.objects.all().order_by('name')
+    genres = Genre.objects.all().order_by('name').filter(is_published=True)
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
+    #   display all cocktails belonging to one category
+    beers = DrinkCategory.objects.filter(name='Beer & Wine')
+    vodka_cocktails = Alcohol.objects.filter(name='Vodka')
+    whiskey_cocktails = Alcohol.objects.filter(name='Whiskey')
+    gin_cocktails = Alcohol.objects.filter(name='Gin')
+    rum_cocktails = Alcohol.objects.filter(name='Rum')
+    tequila_cocktails = Alcohol.objects.filter(name='Tequila')
+    flavors = DrinkCategory.objects.filter(name='Flavor')
 
     context = {
         "brunchs" : brunch,
-        'editor' : editor,
-        'editors' : editors,
+        'whiskey' : whiskey,
+        'vodka' : vodka,
         'beer_wine' : beer_wine,
+        'gin': gin,
+        'rum' : rum,
+        'tequila': tequila,
         'beers' : beers,
         'flavor' : flavor,
-        'flavors' : flavors,
-        'classics' : classics,
-        'classic_cocktails' : classic_cocktails,
+        'vodka_cocktails' : vodka_cocktails,
         'posts' : posts,
         'menu_cocktail_categories' : menu_cocktail_categories,
-        'genres' : genres,
-        "categories" : categories,
-        "brunch_events" : brunch_events,
+        "event_categories" : event_categories,
+        'whiskey_cocktails': whiskey_cocktails,
+        'gin_cocktails': gin_cocktails,
+        'rum_cocktails': rum_cocktails,
+        'tequila_cocktails': tequila_cocktails,
+        'flavors': flavors,
     }
     return render(request, "pages/index.html", context)
 
 def explore_page(request):
-    cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='').order_by('event_date')#display all cover images in detailed category
+    #display all cover images in detailed category
+    cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='').order_by('event_date')
     clubs = Club.objects.filter(is_published=True).order_by('name')
     happy_hour = Event.objects.filter(categories='6', is_published=True).order_by('event_date')
     tonight = Event.objects.filter(event_date__date=date.today(), is_published=True)
     classics = Cocktail.objects.filter(categories='1').order_by('-updated_at')
     this_weekend = Event.objects.filter(Q(event_date__week_day=1) | Q(event_date__week_day=7), is_published=True)
     trending = Event.objects.filter(event_type='2', is_published=True).order_by('event_date')
-    genres = Genre.objects.filter(is_published=True).order_by('name')
-    categories = Category.objects.all().order_by('name')
-    counties = County.objects.all().order_by('-created_at')
+    # data to be displayed in filter section menu
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
+    genres = Genre.objects.filter(is_published=True).order_by('name')
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
+    counties = County.objects.all().order_by('-created_at')
     brunch_events = Event.objects.filter(categories='7').order_by('event_date')
 
     context = {
@@ -73,7 +85,7 @@ def explore_page(request):
         "this_weekend" : this_weekend,
         "trending" : trending,
         'genres' : genres,
-        "categories" : categories,
+        "event_categories" : event_categories,
         "counties" : counties,
         'menu_cocktail_categories' : menu_cocktail_categories,
         "brunch_events" : brunch_events,

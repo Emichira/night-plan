@@ -11,7 +11,7 @@ def genres(request):
     #Handles displaying of all genres
     genres = Genre.objects.all().order_by('name').filter(is_published=True)
     cover_image = Event.objects.all().order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
-    categories = Category.objects.all().order_by('-created_at')
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
     #pagination of genres to 16 per page
     paginator = Paginator(genres, 16)
     page = request.GET.get('page')
@@ -20,7 +20,7 @@ def genres(request):
 
     context = {
         "genres" : paged_events, #pass in 16 paginated genres per page to template
-        "categories" : categories,
+        "event_categories" : event_categories,
         "covers" : cover_image,
         'menu_cocktail_categories' : menu_cocktail_categories,
     }
@@ -36,7 +36,8 @@ def genre(request, slug_genre):
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
-    categories = Category.objects.all().order_by('-created_at')
+    # data to be displayed in filter section menu
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
     genres = Genre.objects.all().order_by('name').filter(is_published=True)
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
@@ -46,7 +47,7 @@ def genre(request, slug_genre):
         "counties" : name,
         "events" : paged_events,
         "covers" : cover_image,
-        "categories" : categories,
+        "event_categories" : event_categories,
         'menu_cocktail_categories' : menu_cocktail_categories,
     }
     return render(request, "genres/genre.html", context)

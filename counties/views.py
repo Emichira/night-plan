@@ -17,7 +17,8 @@ def county(request, slug_county):
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
-    categories = Category.objects.all().order_by('-created_at')
+    # data to be displayed in filter section menu
+    event_categories = Category.objects.filter(name='Brunch').order_by('-created_at')
     genres = Genre.objects.filter(is_published=True).order_by('name')
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
@@ -26,7 +27,7 @@ def county(request, slug_county):
         "roads" : name,
         "events" : paged_events,
         "covers" : cover_image,
-        "categories" : categories,
+        "event_categories" : event_categories,
         'genres' : genres,
         'menu_cocktail_categories' : menu_cocktail_categories,
     }

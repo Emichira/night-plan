@@ -11,7 +11,7 @@
         <!-- row -->
         <div id="hot-post" class="row hot-post body-paddy">
             <div class="col-md-8 hot-post-left">
-                <!-- post -->
+                <!-- Cocktails & Drinks Recipe post -->
                 <div class="post post-thumb">
                     <a class="post-img" href="{% url 'cocktails' %}"><img
                             src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll-ushakov.webp"
@@ -30,7 +30,7 @@
                 <!-- /post -->
             </div>
             <div class="col-md-4 hot-post-right">
-                <!-- post -->
+                <!-- Blog post -->
                 <div class="post post-thumb">
                     <a class="post-img" href="{% url 'blogs' %}"><img class="resize"
                             src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/3cocktails.webp"
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <!-- /post -->
-                <!-- post -->
+                <!-- Brunch post -->
                 <div class="post post-thumb">
                     {% if brunchs %}
                     {% for brunch in brunchs %}
@@ -107,85 +107,10 @@
             {% include 'partials/_filter_menu.html' %}
         </div>
 
-        <!-- Tab01 -->
-        <!-- Tab panes -->
+        <!-- All Tabs Section -->
         <div class="tab-content p-t-15">
-            <div class="tab01">
-                <div class="flex-w flex-sb-m p-t-10 p-b-5">
-                    <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                        <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
-                            Editor's Pick
-                        </button>
-                    </div>
-
-                    {% if editors %}
-                    {% for cocktails in editors %}
-                    <div class="flex-w flex-c-m m-tb-10">
-                        <a href="{% url 'cocktailCategory' cocktails.slug %}" class="cl0">
-                            <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
-                                View All
-                                <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i>
-                            </div>
-                        </a>
-                    </div>
-                    {% endfor %}
-                    {% else %}
-                    {% endif %}
-                </div>
-                <!-- Nightclubs - -->
-                <div class="tab-pane fade show active" role="tabpanel">
-                    <!-- Slide2 -->
-                    <div class="wrap-slick2">
-                        <div class="slick2">
-                            {% if editor %}
-                            {% for cocktail in editor %}
-                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
-                                <div class="blog-item">
-                                    <div class="hov-img0">
-                                        <a href="{% url 'cocktail' cocktail.slug %}">
-                                            <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
-                                        </a>
-                                    </div>
-
-                                    <div class="p-t-15">
-                                        <h4 class="p-b-12">
-                                            <a href="{% url 'cocktail' cocktail.slug %}"
-                                                class="mtext-101 cl0 hov-cl1 trans-04">
-                                                {{ cocktail.name }}
-                                            </a>
-                                        </h4>
-
-                                        <p class="stext-108 cl0">
-                                            {{ cocktail.block_quote }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                            {% else %}
-                            <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
-                                <!-- Block1 -->
-                                <div class="block1 wrap-pic-w">
-                                    <img class="explore"
-                                        src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/summer-drinks.webp"
-                                        alt="IMG-BANNER">
-                                    <a href="#"
-                                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-                                        <div class="block1-txt-child1 flex-col-l">
-                                            <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
-                                                No Cocktail Available
-                                            </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- Tab01 -->
-            <!-- Happy Hours -->
+            <!-- Beer & Wine Cocktails -->
             <div class="tab02 p-t-15" id="happyHour">
                 <!-- Beer & Wine -->
                 <div class="tab-content p-t-15">
@@ -245,7 +170,7 @@
                                     <!-- Block1 -->
                                     <div class="block1 wrap-pic-w">
                                         <img class="explore"
-                                        src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/beer.webp"
+                                            src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/beer.webp"
                                             alt="IMG-BANNER">
                                         <a href="#"
                                             class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -264,7 +189,399 @@
                 </div>
             </div>
             <!-- Tab02 -->
-            <!-- Tonight -->
+            <!-- Vodka Cocktails panes -->
+            <div class="tab01">
+                <div class="flex-w flex-sb-m p-t-10 p-b-5">
+                    <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                        <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                            Vodka Cocktails
+                        </button>
+                    </div>
+
+                    {% if vodka_cocktails %}
+                    {% for cocktails in vodka_cocktails %}
+                    <div class="flex-w flex-c-m m-tb-10">
+                        <a href="{% url 'alcoholCategory' cocktails.slug %}" class="cl0">
+                            <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+                                View All
+                                <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    {% endif %}
+                </div>
+                <!-- Nightclubs - -->
+                <div class="tab-pane fade show active" role="tabpanel">
+                    <!-- Slide2 -->
+                    <div class="wrap-slick2">
+                        <div class="slick2">
+                            {% if vodka %}
+                            {% for cocktail in vodka %}
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
+                                <div class="blog-item">
+                                    <div class="hov-img0">
+                                        <a href="{% url 'cocktail' cocktail.slug %}">
+                                            <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
+                                        </a>
+                                    </div>
+
+                                    <div class="p-t-15">
+                                        <h4 class="p-b-12">
+                                            <a href="{% url 'cocktail' cocktail.slug %}"
+                                                class="mtext-101 cl0 hov-cl1 trans-04">
+                                                {{ cocktail.name }}
+                                            </a>
+                                        </h4>
+
+                                        <p class="stext-108 cl0">
+                                            {{ cocktail.block_quote }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
+                                <!-- Block1 -->
+                                <div class="block1 wrap-pic-w">
+                                    <img class="explore"
+                                        src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/summer-drinks.webp"
+                                        alt="IMG-BANNER">
+                                    <a href="#"
+                                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                        <div class="block1-txt-child1 flex-col-l">
+                                            <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                No Cocktail Available
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tab03 -->
+            <!-- Whiskey Cocktails -->
+            <div class="tab02 p-t-15" id="weekend">
+                <!-- Tab panes -->
+                <div class="tab-content p-t-15">
+                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
+                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                                Whiskey Cocktails
+                            </button>
+                        </div>
+
+                        {% if whiskey_cocktails %}
+                        {% for cocktails in whiskey_cocktails %}
+                        <div class="flex-w flex-c-m m-tb-10">
+                            <a href="{% url 'alcoholCategory' cocktails.slug %}" class="cl0">
+                                <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+                                    View All
+                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    <!-- Sliding Tab Panes -->
+                    <div class="tab-pane fade show active" role="tabpanel">
+                        <!-- Slide2 -->
+                        <div class="wrap-slick2">
+                            <div class="slick2">
+                                {% if whiskey %}
+                                {% for cocktail in whiskey %}
+                                <div class="item-slick2 p-l-5 p-r-5 p-t-15">
+                                    <div class="blog-item">
+                                        <div class="hov-img0">
+                                            <a href="{% url 'cocktail' cocktail.slug %}">
+                                                <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
+                                            </a>
+                                        </div>
+
+                                        <div class="p-t-15">
+                                            <h4 class="p-b-12">
+                                                <a href="{% url 'cocktail' cocktail.slug %}"
+                                                    class="mtext-101 cl0 hov-cl1 trans-04">
+                                                    {{ cocktail.name }}
+                                                </a>
+                                            </h4>
+
+                                            <p class="stext-108 cl0">
+                                                {{ cocktail.block_quote }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
+                                    <!-- Block1 -->
+                                    <div class="block1 wrap-pic-w">
+                                        <img class="explore"
+                                            src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll.webp"
+                                            alt="IMG-BANNER">
+                                        <a href="#"
+                                            class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                            <div class="block1-txt-child1 flex-col-l">
+                                                <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                    No Cocktail Available
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tab04 -->
+            <!-- Gin Cocktails -->
+            <div class="tab02 p-t-15" id="weekend">
+                <!-- Tab panes -->
+                <div class="tab-content p-t-15">
+                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
+                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                                Gin Cocktails
+                            </button>
+                        </div>
+
+                        {% if gin_cocktails %}
+                        {% for cocktails in gin_cocktails %}
+                        <div class="flex-w flex-c-m m-tb-10">
+                            <a href="{% url 'alcoholCategory' cocktails.slug %}" class="cl0">
+                                <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+                                    View All
+                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    <!-- Sliding Tab Panes -->
+                    <div class="tab-pane fade show active" role="tabpanel">
+                        <!-- Slide2 -->
+                        <div class="wrap-slick2">
+                            <div class="slick2">
+                                {% if gin %}
+                                {% for cocktail in gin %}
+                                <div class="item-slick2 p-l-5 p-r-5 p-t-15">
+                                    <div class="blog-item">
+                                        <div class="hov-img0">
+                                            <a href="{% url 'cocktail' cocktail.slug %}">
+                                                <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
+                                            </a>
+                                        </div>
+
+                                        <div class="p-t-15">
+                                            <h4 class="p-b-12">
+                                                <a href="{% url 'cocktail' cocktail.slug %}"
+                                                    class="mtext-101 cl0 hov-cl1 trans-04">
+                                                    {{ cocktail.name }}
+                                                </a>
+                                            </h4>
+
+                                            <p class="stext-108 cl0">
+                                                {{ cocktail.block_quote }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
+                                    <!-- Block1 -->
+                                    <div class="block1 wrap-pic-w">
+                                        <img class="explore"
+                                            src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll.webp"
+                                            alt="IMG-BANNER">
+                                        <a href="#"
+                                            class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                            <div class="block1-txt-child1 flex-col-l">
+                                                <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                    No Cocktail Available
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tab05 -->
+            <!-- Rum Cocktails -->
+            <div class="tab02 p-t-15" id="weekend">
+                <!-- Tab panes -->
+                <div class="tab-content p-t-15">
+                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
+                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                                Rum Cocktails
+                            </button>
+                        </div>
+
+                        {% if rum_cocktails %}
+                        {% for cocktails in rum_cocktails %}
+                        <div class="flex-w flex-c-m m-tb-10">
+                            <a href="{% url 'alcoholCategory' cocktails.slug %}" class="cl0">
+                                <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+                                    View All
+                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    <!-- Sliding Tab Panes -->
+                    <div class="tab-pane fade show active" role="tabpanel">
+                        <!-- Slide2 -->
+                        <div class="wrap-slick2">
+                            <div class="slick2">
+                                {% if rum %}
+                                {% for cocktail in rum %}
+                                <div class="item-slick2 p-l-5 p-r-5 p-t-15">
+                                    <div class="blog-item">
+                                        <div class="hov-img0">
+                                            <a href="{% url 'cocktail' cocktail.slug %}">
+                                                <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
+                                            </a>
+                                        </div>
+
+                                        <div class="p-t-15">
+                                            <h4 class="p-b-12">
+                                                <a href="{% url 'cocktail' cocktail.slug %}"
+                                                    class="mtext-101 cl0 hov-cl1 trans-04">
+                                                    {{ cocktail.name }}
+                                                </a>
+                                            </h4>
+
+                                            <p class="stext-108 cl0">
+                                                {{ cocktail.block_quote }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
+                                    <!-- Block1 -->
+                                    <div class="block1 wrap-pic-w">
+                                        <img class="explore"
+                                            src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll.webp"
+                                            alt="IMG-BANNER">
+                                        <a href="#"
+                                            class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                            <div class="block1-txt-child1 flex-col-l">
+                                                <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                    No Cocktail Available
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tab06 -->
+            <!-- Tequila Cocktails -->
+            <div class="tab02 p-t-15" id="weekend">
+                <!-- Tab panes -->
+                <div class="tab-content p-t-15">
+                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
+                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                                Tequila Cocktails
+                            </button>
+                        </div>
+
+                        {% if tequila_cocktails %}
+                        {% for cocktails in tequila_cocktails %}
+                        <div class="flex-w flex-c-m m-tb-10">
+                            <a href="{% url 'alcoholCategory' cocktails.slug %}" class="cl0">
+                                <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+                                    View All
+                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        {% endif %}
+                    </div>
+                    <!-- Sliding Tab Panes -->
+                    <div class="tab-pane fade show active" role="tabpanel">
+                        <!-- Slide2 -->
+                        <div class="wrap-slick2">
+                            <div class="slick2">
+                                {% if tequila %}
+                                {% for cocktail in tequila %}
+                                <div class="item-slick2 p-l-5 p-r-5 p-t-15">
+                                    <div class="blog-item">
+                                        <div class="hov-img0">
+                                            <a href="{% url 'cocktail' cocktail.slug %}">
+                                                <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
+                                            </a>
+                                        </div>
+
+                                        <div class="p-t-15">
+                                            <h4 class="p-b-12">
+                                                <a href="{% url 'cocktail' cocktail.slug %}"
+                                                    class="mtext-101 cl0 hov-cl1 trans-04">
+                                                    {{ cocktail.name }}
+                                                </a>
+                                            </h4>
+
+                                            <p class="stext-108 cl0">
+                                                {{ cocktail.block_quote }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
+                                    <!-- Block1 -->
+                                    <div class="block1 wrap-pic-w">
+                                        <img class="explore"
+                                            src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll.webp"
+                                            alt="IMG-BANNER">
+                                        <a href="#"
+                                            class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                            <div class="block1-txt-child1 flex-col-l">
+                                                <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
+                                                    No Cocktail Available
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tab03 -->
+            <!-- Flavor Cocktails -->
             <div class="tab02 p-t-15" id="tonight">
                 <!-- Tab panes -->
                 <div class="tab-content p-t-15">
@@ -324,86 +641,7 @@
                                     <!-- Block1 -->
                                     <div class="block1 wrap-pic-w">
                                         <img class="explore"
-                                        src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/andrew-wong.jpg"
-                                        alt="IMG-BANNER">
-                                        <a href="#"
-                                            class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-                                            <div class="block1-txt-child1 flex-col-l">
-                                                <span class="block1-name ltext-102 trans-04 p-b-8 g-color--white">
-                                                    No Cocktail Available
-                                                </span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Tab03 -->
-            <!-- This Weekend -->
-            <div class="tab02 p-t-15" id="weekend">
-                <!-- Tab panes -->
-                <div class="tab-content p-t-15">
-                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
-                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
-                                Classic Cocktails
-                            </button>
-                        </div>
-
-                        {% if classic_cocktails %}
-                        {% for cocktails in classic_cocktails %}
-                        <div class="flex-w flex-c-m m-tb-10">
-                            <a href="{% url 'cocktailCategory' cocktails.slug %}" class="cl0">
-                                <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
-                                    View All
-                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i>
-                                </div>
-                            </a>
-                        </div>
-                        {% endfor %}
-                        {% else %}
-                        {% endif %}
-                    </div>
-                    <!-- Sliding Tab Panes -->
-                    <div class="tab-pane fade show active" role="tabpanel">
-                        <!-- Slide2 -->
-                        <div class="wrap-slick2">
-                            <div class="slick2">
-                                {% if classics %}
-                                {% for cocktail in classics %}
-                                <div class="item-slick2 p-l-5 p-r-5 p-t-15">
-                                    <div class="blog-item">
-                                        <div class="hov-img0">
-                                            <a href="{% url 'cocktail' cocktail.slug %}">
-                                                <img src="{{ cocktail.cocktail_image.url }}" alt="IMG-BLOG">
-                                            </a>
-                                        </div>
-
-                                        <div class="p-t-15">
-                                            <h4 class="p-b-12">
-                                                <a href="{% url 'cocktail' cocktail.slug %}"
-                                                    class="mtext-101 cl0 hov-cl1 trans-04">
-                                                    {{ cocktail.name }}
-                                                </a>
-                                            </h4>
-
-                                            <p class="stext-108 cl0">
-                                                {{ cocktail.block_quote }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% else %}
-                                <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
-                                    <!-- Block1 -->
-                                    <div class="block1 wrap-pic-w">
-                                        <img class="explore"
-                                            src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/kyryll.webp"
+                                            src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/cocktails/andrew-wong.jpg"
                                             alt="IMG-BANNER">
                                         <a href="#"
                                             class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -421,113 +659,23 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Tab04 -->
-            <!-- Trending -->
-            <div class="tab02 p-t-15">
-                <!-- Tab panes -->
-                <div class="tab-content p-t-15">
-                    <div class="flex-w flex-sb-m p-t-10 p-b-5">
-                        {% if brunchs %}
-                        {% for brunch in brunchs %}
-                        <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                            <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
-                                Brunch Events
-                            </button>
-                        </div>
-
-                        <div class="flex-w flex-c-m m-tb-10">
-                            <a href="{% url 'category' brunch.slug %}" class="cl0">
-                                <div class="flex-c-m stext-106 cl0 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
-                                    View All
-                                    <i class="icon-search cl0 m-l-6 fs-15 trans-04 zmdi zmdi-chevron-right"></i>
-                                </div>
-                            </a>
-                        </div>
-                        {% endfor %}
-                        {% else %}
-                        {% endif %}
-                    </div>
-                    <!-- Brunch Events Section -->
-                    <div class="tab-pane fade show active" role="tabpanel">
-                        <!-- Slide2 -->
-                        <div class="wrap-slick2">
-                            <div class="slick2">
-                                {% if brunch_events %}
-                                {% for event in brunch_events %}
-                                <div class="item-slick2 p-l-5 p-r-5 p-t-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <a href="{% url 'event' event.slug %}">
-                                                <img src="{{ event.event_image.url }}" class="image-fluid"
-                                                    alt="IMG-PRODUCT"></a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="{% url 'event' event.slug %}"
-                                                    class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    {{ event.title }}
-                                                </a>
-                                                <span class="stext-105 cl0">
-                                                    {{ event.event_date }} - {{ event.event_end_date }}
-                                                </span>
-                                                <span class="stext-105 cl0">
-                                                    {{ event.venue }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% else %}
-                                <div class="item-slick2 p-l-5 p-r-5 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <a href="{% url 'event' event.slug %}">
-                                                <img src="{{ event.event_image.url }}" alt="IMG-PRODUCT"></a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="{% url 'event' event.slug %}"
-                                                    class="stext-104 cl0 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    {{ event.title }}
-                                                </a>
-                                                <span class="stext-105 cl0">
-                                                    {{ event.event_date }} - {{ event.event_end_date }}
-                                                </span>
-                                                <span class="stext-105 cl0">
-                                                    {{ event.venue }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- End All Tabs Section -->
         </div>
 </section>
 
 <!-- Blog -->
-<section class="sec-blog bg7 p-t-15 p-b-99">
+<section class="sec-blog bg7 p-t-15 p-b-10">
     <div class="container">
         <div class="container">
-            <div class="p-b-15 txt-center respon1">
+            <!-- <div class="p-b-15 txt-center respon1">
                 <h3 class="ltext-102 cl0">
-                    Latest Posts
+                    Pub Talk
                 </h3>
-            </div>
+            </div> -->
             <div class="flex-w flex-sb-m p-t-5 p-b-5">
                 <div class="flex-w flex-l-m filter-tope-group m-tb-10">
                     <button class="ltext-101 cl0 hov1 bor3 trans-04 m-r-32 m-tb-5">
-                        Editor's Pick
+                        Pub Talk
                     </button>
                 </div>
 
@@ -593,8 +741,7 @@
             <div class="item-slick2 item-l-5 item-r-5 p-t-15 p-b-15">
                 <!-- Block1 -->
                 <div class="block1 wrap-pic-w">
-                    <img class="explore"
-                        src="s3://nightplankenya-static-media/static/cocktails/blue-curacao.webp"
+                    <img class="explore" src="s3://nightplankenya-static-media/static/cocktails/blue-curacao.webp"
                         alt="IMG-BANNER">
                     <a href="#" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">

@@ -24,16 +24,17 @@ def cocktails(request):
     paginator = Paginator(cocktails, 20)
     page = request.GET.get('page')
     paged_cocktails = paginator.get_page(page)
-    genres = Genre.objects.filter(is_published=True).order_by('name')[:6]
-    categories = Category.objects.order_by('-created_at')[:6]
     blogcategories = BlogCategory.objects.all()[:6]
+    # data to be displayed in filter section menu
+    genres = Genre.objects.filter(is_published=True).order_by('name')[:6]
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
     context = {
         "cocktails" : paged_cocktails,
         "drink_categories" : drink_categories,
         'blogcategories' : blogcategories,
-        "categories" : categories,
+        "event_categories" : event_categories,
         'genres' : genres,
         'menu_cocktail_categories' : menu_cocktail_categories,
     }
@@ -67,7 +68,7 @@ def search(request):
     # pull data for cocktail categories
     drink_categories = DrinkCategory.objects.all()[:6]
     blogcategories = BlogCategory.objects.all()[:6]
-    categories = Category.objects.order_by('-created_at')[:6]
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
     genres = Genre.objects.filter(is_published=True).order_by('name')[:6]
 
     context = {
@@ -75,7 +76,7 @@ def search(request):
         "drink_categories" : drink_categories,
         "covers" : cover_image,
         'blogcategories' : blogcategories,
-        "categories" : categories,
+        "event_categories" : event_categories,
         'genres' : genres,
     }
     return render(request, "cocktails/search.html", context)

@@ -104,8 +104,8 @@
             </h4>
 
             <div class="flex-w m-r--5">
-                {% if categories %}
-                {% for category in categories %}
+                {% if event_categories %}
+                {% for category in event_categories %}
                 <a href="{% url 'category' category.slug %}"
                     class="flex-c-m stext-107 cl0 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                     {{ category.name }}
