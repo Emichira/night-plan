@@ -23,8 +23,9 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     path('', include('pages.urls')),
     path('cocktails/', include('cocktails.urls')),
+    path('cocktails/alcohol_categories/', include('alcohol.urls')),
     path('cocktails/categories/', include('drink_categories.urls')),
-    path('cocktails/categories/', include('drink_glass_types.urls')),
+    path('cocktails/glass_types/', include('drink_glass_types.urls')),
     path('blogs/', include('blogs.urls')),
     path('blogs/categories/', include('blog_categories.urls')),
     path('events/', include('events.urls')),

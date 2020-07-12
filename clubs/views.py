@@ -12,7 +12,7 @@ def clubs(request):
     #Handles displaying of all clubs
     clubs = Club.objects.order_by('name').filter(is_published=True)
     cover_image = Event.objects.filter(is_published=True).exclude(cover_image__isnull=True).exclude(cover_image__exact='')
-    categories = Category.objects.order_by('-created_at')
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
     genres = Genre.objects.filter(is_published=True).order_by('name')
     #pagination of events
     paginator = Paginator(clubs, 16)
@@ -22,7 +22,7 @@ def clubs(request):
 
     context = {
         "clubs" : paged_events,
-        "categories" : categories,
+        "event_categories" : event_categories,
         'genres' : genres,
         "covers" : cover_image,
         'menu_cocktail_categories' : menu_cocktail_categories,
@@ -39,7 +39,8 @@ def club(request, slug_club):
     paginator = Paginator(events, 16)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
-    categories = Category.objects.order_by('-created_at')
+    # data to be displayed in filter section menu
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
     genres = Genre.objects.filter(is_published=True).order_by('name')
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
 
@@ -48,7 +49,7 @@ def club(request, slug_club):
         "counties" : name,
         "events" : paged_events,
         "covers" : cover_image,
-        "categories" : categories,
+        "event_categories" : event_categories,
         'genres' : genres,
         'menu_cocktail_categories' : menu_cocktail_categories,
     }

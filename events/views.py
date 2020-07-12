@@ -18,17 +18,18 @@ def events(request):
     #Handles displaying of all events
     events = Event.objects.filter(is_published=True).order_by('event_date')
     cover_image = Event.objects.filter(is_published=True).order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
-    categories = Category.objects.order_by('-created_at')
     #pagination of events
     paginator = Paginator(events, 20)
     page = request.GET.get('page')
     paged_events = paginator.get_page(page)
+    # data to be displayed in filter section menu
     genres = Genre.objects.filter(is_published=True).order_by('name')
     menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
 
     context = {
         "events" : paged_events,
-        "categories" : categories,
+        "event_categories" : event_categories,
         "covers" : cover_image,
         'genres' : genres,
         'menu_cocktail_categories' : menu_cocktail_categories,
@@ -67,7 +68,7 @@ def search(request):
         # q3 = list(chain(queryset_cocktails, queryset_event))
 
     cover_image = Event.objects.filter(is_published=True).order_by('event_date').exclude(cover_image__isnull=True).exclude(cover_image__exact='')
-    categories = Category.objects.order_by('-created_at')
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
     #pagination of rendered cocktails
     paginator = Paginator(queryset_cocktail, 20)
     page = request.GET.get('page')
@@ -77,7 +78,7 @@ def search(request):
 
     context = {
         "cocktails" : paged_cocktails,
-        "categories" : categories,
+        "event_categories" : event_categories,
         "covers" : cover_image,
         'genres' : genres,
         'query' : query,

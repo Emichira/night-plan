@@ -5,17 +5,17 @@ from .models import DrinkCategory
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse, Http404
 from genres.models import Genre
-from drink_categories.models import DrinkCategory
+from categories.models import Category
 
 def category(request, slug_category):
     #handles display of cocktails belonging to a single category
-    category = DrinkCategory.objects.filter(slug=slug_category) #slugify url
-    if category.exists():
-        category = category.first()
-    else:
-        raise Http404
+    #slugify url
+    category = get_object_or_404(DrinkCategory, slug=slug_category)
     category_name = DrinkCategory.objects.get(slug=slug_category)
-    categories = DrinkCategory.objects.all().order_by('-created_at')
+    # data to be displayed in filter section menu
+    event_categories = Category.objects.filter(name='Brunch').order_by('name')
+    genres = Genre.objects.filter(is_published=True).order_by('name')
+    menu_cocktail_categories = DrinkCategory.objects.all().order_by('-created_at')
     #display all cover images in detailed category
     #displays all cocktails with unique slug_category
     cocktails = Cocktail.objects.order_by('-updated_at').filter(categories__slug=slug_category)
@@ -28,7 +28,7 @@ def category(request, slug_category):
     context = {
         "category" : category,
         "name" : category_name,
-        "categories" : categories,
+        "event_categories" : event_categories,
         "cocktails" : paged_cocktails,
         'genres' : genres,
         'menu_cocktail_categories' : menu_cocktail_categories,

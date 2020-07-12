@@ -31,7 +31,7 @@
     <div class="wrap-filter flex-w bg3 w-full p-lr-40 p-t-27 p-lr-15-sm">
         <div class="filter-col1 p-r-15 p-b-27">
             <div class="mtext-102 cl0 p-b-15">
-                Sort By Recipe Categories
+                Sort By Cocktail Recipes
             </div>
 
             <div class="flex-w p-t-4 m-r--5">
@@ -48,7 +48,7 @@
 
         <div class="filter-col2 p-r-15 p-b-27">
             <div class="mtext-102 cl0 p-b-15">
-                Sort By Genre
+                Sort By Music Genre
             </div>
             <h2 class="p-b-6">
                 <a href="{% url 'genres' %}" class="filter-link stext-106 trans-04 filter-link-active">
@@ -71,12 +71,12 @@
 
         <div class="filter-col4 p-b-27">
             <div class="mtext-102 cl0 p-b-15">
-                Sort By Category
+                Sort By Event Categories
             </div>
-
+            <!-- display event based on available categories but for now only brunch category because covid19 -->
             <div class="flex-w p-t-4 m-r--5">
-                {% if categories %}
-                {% for category in categories %}
+                {% if event_categories %}
+                {% for category in event_categories %}
                 <a href="{% url 'category' category.slug %}"
                     class="flex-c-m stext-107 cl0 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                     {{ category.name }}
