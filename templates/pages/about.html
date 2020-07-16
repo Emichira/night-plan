@@ -9,20 +9,20 @@
     <div class="wrap-slick1 rs1-slick1">
         <div class="slick1">
             <div class="item-slick1"
-                style="background-image: url('https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/banner.jpg');">
+                style="background-image: url('https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/banner-1.jpg');">
                 <div class="container h-full">
                     <div class="h-full p-t-200 p-b-30 text-center">
                         <div class="layer-slick1 animated visible-false text-center" data-appear="fadeInUp"
                             data-delay="800">
                             <h2 class="ltext-104 cl0 p-b-43 respon1">
-                                We Make Going Out Easy
+                                About Us
                             </h2>
                         </div>
 
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+                        <div class="layer-slick1 animated" data-appear="fadeInDown" data-delay="0">
                             <span class="ltext-204 cl0 respon2">
-                                Night Plan Kenya is your ultimate nightlife guide. We connect you to club events and
-                                latest happy hours.
+                                Night Plan Kenya is a nightlife guide Agency that is based in Westlands - Nairobi.
+                                <br> We organise marvelous parties and events in and out of Nairobi.
                             </span>
                         </div>
                     </div>
@@ -35,35 +35,99 @@
 
 <!--========== PAGE CONTENT ==========-->
 <!-- About -->
-<section class="bg1 p-t-75 p-b-30">
+<section class="bg7 p-t-75 p-b-30">
     <div class="container">
-        <div class="row p-b-148">
+        <div class="row p-b-16">
             <div class="col-md-7 col-lg-8">
                 <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+                    <h3 class="mtext-111 cl0 p-b-16">
+                        NightClubs
+                    </h3>
                     <p class="mtext-110 cl0 p-b-26">
-                        Life is too short for bad nights. We are a website curated to improve the way you experience the
-                        night scene by connecting you to nightclubs from all around kenya.
-                        We help you discover club events, club locations and clubs near you.This information is aimed at
-                        enabling you find events best suited to your desire so as to be able to enjoy a night out with
-                        your friends.
+                        We have partnered with the prime nightclubs and restaurants in Nairobi to bring you profound,
+                        unforgettable party experience.
                     </p>
 
-                    <!-- <div class="bor20 p-l-29 p-b-9 m-t-22">
-                        <span class="mtext-101 cl13">
-                            - Home Page
-                        </span>
+                    <h3 class="mtext-111 cl0 p-b-16">
+                        Cocktails
+                    </h3>
+                    <p class="mtext-110 cl0 p-b-26">
+                        Are you just craving a decent drink? Our website is a platform where you can find recipes for
+                        creating simple to exotic cocktails from the comfort of your home!
+                    </p>
+
+                    <div class="bor16 p-l-29 p-b-9 m-t-22">
                         <p class="stext-114 cl0 p-r-40 p-b-11">
-                            Select a tab to browse events.
-                        </p>
-                    </div> -->
+                            The idea behind Night Plan Kenya was to connect the young Nairobians party animals with the
+                            most ridiculously fun events happening in Nairobi. That’s why we teamed with the best clubs
+                            in Westlands and Kilimani, with sensational drinks and top-notch service in a totally unique
+                            experience to help them make plans even before leaving the house! Check out what's trending
+                            on the upper Nairobi Event Life” </p>
+
+                        <span class="stext-111 cl13">
+                            - Mercy Wanjiru, Co-Founder
+                        </span>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+            <div class="col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
                 <div class="how-bor1 ">
-                    <div class="hov-img0 bg7">
+                    <div class="hov-img0 bg13">
                         <img src="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/Night+Plan+Kenya+Logo.png"
                             alt="IMG" class="about-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+</div>
+<!-- Nightclubs - -->
+<section class="sec-product bg7 p-t-30 p-b-30">
+    <div class="container">
+        <!-- Our Patners -->
+        <h3 class="mtext-111 cl0 p-t-16 p-b-30">
+            Our Patners
+        </h3>
+        <!-- Tab01 -->
+        <!-- Tab panes for slider -->
+        <div class="tab-content p-t-15 p-b-30">
+            <div class="tab01">
+                <!-- Club Logos -->
+                <div class="tab-pane fade show active" role="tabpanel">
+                    <!-- Slide2 -->
+                    <div class="wrap-slick2">
+                        <div class="slick2">
+                            {% if clubs %}
+                            {% for club in clubs %}
+                            <div class="item-slick2 p-l-5 p-r-5 p-t-15">
+                                <!-- Block1 -->
+                                <div class="block1 wrap-pic-w">
+                                    <img class="explore" src="{{ club.club_image.url }}" alt="IMG-BANNER">
+
+                                    <a href="{% url 'club' club.slug %}"
+                                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                        <div class="block1-txt-child1 flex-col-l">
+                                            <span class="block1-name mtext-112 trans-04 p-b-8">
+                                                {{ club.name }}
+                                            </span>
+                                        </div>
+
+                                        <div class="block1-txt-child2 p-b-4 trans-05">
+                                            <div class="block1-link stext-101 cl0 trans-09">
+                                                Explore {{ club.name }}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="col-md-12">
+                                <p>No patners currently available</p>
+                            </div>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
