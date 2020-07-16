@@ -14,6 +14,7 @@ from drink_categories.models import DrinkCategory
 from genres.models import Genre
 from datetime import datetime, date
 from django.db.models import Q
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 def home_page(request):
     brunch = Category.objects.filter(name='Brunch')
@@ -39,19 +40,19 @@ def home_page(request):
     flavors = DrinkCategory.objects.filter(name='Flavor')
 
     context = {
-        "brunchs" : brunch,
-        'whiskey' : whiskey,
-        'vodka' : vodka,
-        'beer_wine' : beer_wine,
+        "brunchs": brunch,
+        'whiskey': whiskey,
+        'vodka': vodka,
+        'beer_wine': beer_wine,
         'gin': gin,
-        'rum' : rum,
+        'rum': rum,
         'tequila': tequila,
-        'beers' : beers,
-        'flavor' : flavor,
-        'vodka_cocktails' : vodka_cocktails,
-        'posts' : posts,
-        'menu_cocktail_categories' : menu_cocktail_categories,
-        "event_categories" : event_categories,
+        'beers': beers,
+        'flavor': flavor,
+        'vodka_cocktails': vodka_cocktails,
+        'posts': posts,
+        'menu_cocktail_categories': menu_cocktail_categories,
+        "event_categories": event_categories,
         'whiskey_cocktails': whiskey_cocktails,
         'gin_cocktails': gin_cocktails,
         'rum_cocktails': rum_cocktails,
@@ -77,23 +78,26 @@ def explore_page(request):
     brunch_events = Event.objects.filter(categories='7').order_by('event_date')
 
     context = {
-        "covers" : cover_image,
-        "clubs" : clubs,
-        "happy_hour" : happy_hour,
-        "tonight" : tonight,
-        'classics' : classics,
-        "this_weekend" : this_weekend,
-        "trending" : trending,
-        'genres' : genres,
-        "event_categories" : event_categories,
-        "counties" : counties,
-        'menu_cocktail_categories' : menu_cocktail_categories,
-        "brunch_events" : brunch_events,
+        "covers": cover_image,
+        "clubs": clubs,
+        "happy_hour": happy_hour,
+        "tonight": tonight,
+        'classics': classics,
+        "this_weekend": this_weekend,
+        "trending": trending,
+        'genres': genres,
+        "event_categories": event_categories,
+        "counties": counties,
+        'menu_cocktail_categories': menu_cocktail_categories,
+        "brunch_events": brunch_events,
     }
     return render(request, "pages/explore.html", context)
 
 def about_page(request):
+    clubs = Club.objects.filter(is_published=True).order_by('name')
+
     context = {
+        "clubs": clubs,
     }
     return render(request, "pages/about.html", context)
 
