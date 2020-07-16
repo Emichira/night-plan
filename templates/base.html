@@ -17,7 +17,7 @@
 	<link rel="icon" type="image/x-icon"
 		href="https://nightplankenya-static-media.s3.us-east-2.amazonaws.com/static/NIGHTPLAN-KE.png">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}" async>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{%static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}" async>
 	<!--===============================================================================================-->
@@ -27,20 +27,29 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{%static 'vendor/animate/animate.min.css'%}" async>
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{%static 'vendor/css-hamburgers/hamburgers.min.css'%}" async>
+	<link rel="stylesheet" async href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css" integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g==" crossorigin="anonymous" />
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{%static 'vendor/animsition/css/animsition.min.css'%}" async>
+	<link rel="stylesheet" async href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css" integrity="sha512-SagM1PHxt5mWDyWARVY6UOdhM5A8J+R1UqIWcGfiwOd+be7uHQagB+JQOmfVZF8jjJQqbyuWzw/KXfb4yqjBkQ==" crossorigin="anonymous" />
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{%static 'vendor/select2/select2.min.css'%}" async>
+	<link rel="stylesheet" async href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{%static 'vendor/slick/slick.min.css'%}" async>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/ajax-loader.gif" async>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/fonts/slick.svg" async>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/fonts/slick.eot" async>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/fonts/slick.ttf" async>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/fonts/slick.woff" async>
+
+	<link rel="stylesheet" async href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+	<link rel="stylesheet" async href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick-theme.min.css.map" integrity="undefined" crossorigin="anonymous" />
+	<link rel="stylesheet" async href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{%static 'vendor/MagnificPopup/magnific-popup.min.css'%}" async>
+	<link rel="stylesheet" async href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" />
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{%static 'vendor/perfect-scrollbar/perfect-scrollbar.min.css'%}" async>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{%static 'css/util.min.css'%}" async>
-	<link rel="stylesheet" type="text/css" href="{%static 'css/main.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/main.min.css'%}" defer>
 	<!--===============================================================================================-->
 	<title>NightPlanKenya {% block title %} {% endblock %}</title>
 	<!-- Global - Google Analytics -->
@@ -73,14 +82,16 @@
 	</div>
 
 	<!--===============================================================================================-->
-	<script src="{%static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<!--===============================================================================================-->
-	<script src="{%static 'vendor/animsition/js/animsition.min.js'%}"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 	<!--===============================================================================================-->
-	<script src="{%static 'vendor/bootstrap/js/popper.js'%}"></script>
-	<script src="{%static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js" integrity="sha512-pYd2QwnzV9JgtoARJf1Ui1q5+p1WHpeAz/M0sUJNprhDviO4zRo12GLlk4/sKBRUCtMHEmjgqo5zcrn8pkdhmQ==" crossorigin="anonymous"></script>
 	<!--===============================================================================================-->
-	<script src="{%static 'vendor/select2/select2.min.js'%}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous"></script>
 	<script>
 		$(".js-select2").each(function () {
 			$(this).select2({
@@ -90,7 +101,7 @@
 		})
 	</script>
 	<!--===============================================================================================-->
-	<script src="{%static 'vendor/slick/slick.min.js'%}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
 	<script src="{%static 'js/slick-custom.min.js'%}"></script>
 	<!--===============================================================================================-->
 	<script src="{%static 'vendor/parallax100/parallax100.min.js'%}"></script>
@@ -98,7 +109,7 @@
 		$('.parallax100').parallax100();
 	</script>
 	<!--===============================================================================================-->
-	<script src="{%static 'vendor/MagnificPopup/jquery.magnific-popup.min.js'%}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" async></script>
 	<script>
 		$('.gallery-lb').each(function () { // the containers for all your galleries
 			$(this).magnificPopup({
@@ -112,9 +123,9 @@
 		});
 	</script>
 	<!--===============================================================================================-->
-	<script src="{%static 'vendor/isotope/isotope.pkgd.min.js'%}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
 	<!--===============================================================================================-->
-	<script src="{%static 'vendor/sweetalert/sweetalert.min.js'%}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
 	<!--===============================================================================================-->
 	<script src="{%static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
 	<script>
@@ -133,7 +144,7 @@
 		});
 	</script>
 	<!--===============================================================================================-->
-	<script src="{%static 'js/main.min.js'%}"></script>
+	<script src="{%static 'js/main.min.js'%}" defer></script>
 
 </body>
 </html>
