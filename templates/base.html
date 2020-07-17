@@ -88,6 +88,15 @@
 <!-- Body -->
 
 <body class="animsition">
+	<!-- Screen Pre-Loader -->
+	<div class="loader-wrapper">
+		<div class="loader05">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
 	<!-- Top Navbar -->
 	{% include 'partials/_navbar.html' %}
 
@@ -104,6 +113,13 @@
 		</span>
 	</div>
 
+	<!-- Screen Pre-Loader -->
+	<script type="text/javascript">
+		window.addEventListener("load", function () {
+			const loader = document.querySelector(".loader-wrapper");
+			loader.className += " d-none"; // class "loader hidden"
+		});
+	</script>
 	<!--===============================================================================================-->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
