@@ -96,6 +96,12 @@
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 	</script>
 	<!--===============================================================================================-->
+	<!-- Screen Pre-Loader -->
+	<script>
+		$(window).on("load", function () {
+			$.when($('.loader-wrapper').fadeOut(500));
+		});
+	</script>
 </head>
 <!-- End Head -->
 <!-- Body -->
@@ -110,6 +116,7 @@
 			<span></span>
 		</div>
 	</div>
+
 	<!-- Top Navbar -->
 	{% include 'partials/_navbar.html' %}
 
@@ -125,14 +132,6 @@
 			<i class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-
-	<!-- Screen Pre-Loader -->
-	<script type="text/javascript">
-		window.addEventListener("DOMContentLoaded", function () {
-			const loader = document.querySelector(".loader-wrapper");
-			loader.className += " d-none"; // class "loader hidden"
-		});
-	</script>
 
 	<!--===============================================================================================-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"
