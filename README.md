@@ -1,8 +1,8 @@
 # NightPlanKenya
-```
 Night Plan Kenya is a nightlife guide Agency that is based in Westlands, Nairobi.
 We organise marvelous parties and events in and out of Nairobi.
 
+```
 NightClubs
 
 We have partnered with the prime nightclubs and restaurants in Nairobi to bring you profound, unforgettable party experience.
