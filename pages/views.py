@@ -75,7 +75,7 @@ def explore_page(request):
     genres = Genre.objects.filter(is_published=True).order_by('name')
     event_categories = Category.objects.filter(name='Brunch').order_by('name')
     counties = County.objects.all().order_by('-created_at')
-    brunch_events = Event.objects.filter(categories='7').order_by('event_date')
+    brunch_events = Event.objects.filter(categories='4').order_by('event_date')
 
     context = {
         "covers": cover_image,
