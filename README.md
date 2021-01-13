@@ -27,7 +27,7 @@ Are you just craving a decent drink? Our website is a platform where you can fin
 * AWS
 
 ### Author
-* Emmanuel Michira
+* [Emmanuel Michira](https://github.com/Emichira)
 
 ### Licence
 Copyright ©2020. All rights reserved.
